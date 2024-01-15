@@ -1,178 +1,256 @@
 import { Button } from '@material-ui/core';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Input } from '@mui/material';
-/*import Popup from 'reactjs-popup';*/
-import { Card } from 'antd';
+import Popup from 'reactjs-popup';
+import { Card, Divider } from 'antd';
 import axios from 'axios';
 
+export default function ApiCrud(){
+  const [formData, setFormData] = useState({
+    Nome: '',
+    Sobrenome: '',
+    WhatsApp: '',
+    InstrumentoPref: '',
+    Localidade: ''
+  });
+  const handleInputChange = (e) => {
+    const { Nome, value } = e.target;
+    const { Sobrenome } = e.target;
+    const { WhatsApp } = e.target;
+    const { InstrumentoPref } = e.target;
+    const { Localidade } = e.target;
+    setFormData({ ...formData, [Nome]: value });
+    setFormData({ ...formData, [Sobrenome]: value});
+    setFormData({ ...formData, [WhatsApp]: value});
+    setFormData({ ...formData, [InstrumentoPref]: value});
+    setFormData({ ...formData, [Localidade]: value});
+  };
 
-const EnterComponent = () => {
-  const apiUrl = 'http://127.0.0.1:8000/Urls/Register_Datas/';
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post('http://127.0.0.1:8000/Urls/ViewsStudy/', formData);
+      console.log('Dados inseridos com sucesso:', response.data);
+      alert('Dados inseridos com Sucesso!!')
+      // Pode adicionar lógica para atualizar o estado local ou redirecionar, se necessário
+    } catch (error) {
+      console.error('Erro ao inserir dados:', error);
+    }
+  };
+
+
+  return(
+    <div style={{height: '300px', width: '450px'}}>
+      <Card>
+        <h3>Here you will insert your datas for us to have the whole great control of your access to our system! You will have fun a lot here with the all exercises maded!! Please enjoy it a lot!!</h3>
+      </Card>
+      <Popup trigger={<Button style={{backgroundColor: 'Highlight', color: 'white'}}>Access the Insert Datas!!</Button>}>
+      <Card style={{backgroundColor: 'Highlight', color: 'white'}}>
+      <form onSubmit={handleFormSubmit}>
+        <div>
+          <label>
+            Name:
+            <Input type="text" name="nome" value={formData.nome} onChange={handleInputChange} />
+          </label>
+        </div>
+        <div>
+          <label>
+            Lastname:
+            <Input type="email" name="lastname" value={formData.Sobrenome} onChange={handleInputChange} />
+          </label>
+        </div>
+        <div>
+          <label>
+            WhatsApp:
+            <Input type="email" name="whatsapp" value={formData.WhatsApp} onChange={handleInputChange} />
+          </label>
+        </div>
+        <div>
+          <label>
+            Instrument Prefered:
+            <Input type="email" name="instrumentopref" value={formData.InstrumentoPref} onChange={handleInputChange} />
+          </label>
+        </div>
+        <div>
+          <label>
+            Place:
+            <Input type="email" name="localidade" value={formData.Localidade} onChange={handleInputChange} />
+          </label>
+        </div>
+      <Button style={{backgroundColor: 'blue', color: 'white'}} type="submit">Inserir Dados</Button>
+      <br/>
+      <Divider/>
+      <br/>
+      <Link to='./App'>
+        <Button><ArrowBackIcon/></Button>
+      </Link>
+    </form>
+      </Card>
+      </Popup>
+      <br/>
+      <Button style={{backgroundColor: 'white', color: 'blue'}}>
+        <a href='http://127.0.0.1:8000/Urls/ViewsStudy/' alt='datasnsert/edit/delete'>
+          Insert Datas
+        </a>
+      </Button>
+    </div>
+  )
+}
+
+/*
+export default function SeuComponente() {
   const [dados, setDados] = useState([]);
   const [novoDado, setNovoDado] = useState({
-    FullName: '',
-    age: 0,
-    ResidencePhone: '',
+    nome: '',
+    Sobrenome: '',
     WhatsApp: '',
-    Adress: '',
-    SelfDescription: '',
-    InstrumentChoice: ''
-    // Outras propriedades conforme necessário
+    InstrumentoPref: '',
+    Localidade: ''
+    // outras propriedades conforme necessário
   });
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(apiUrl);
-      setDados(response.data);
-    } catch (error) {
-      console.error('Erro ao buscar dados:', error);
-    }
-  };
-
-  const criarDado = async () => {
-    try {
-      await axios.post(apiUrl, novoDado);
-      fetchData(); // Recarrega os dados após a criação bem-sucedida
-      // Limpa os campos do formulário após a criação bem-sucedida
-      setNovoDado({ FullName: '', age: 0, ResidencePhone: '', WhatsApp: '', Adress: '', SelfDescription: '', InstrumentChoices: ({}) /* Outras propriedades conforme necessário */ });
-      alert('Dados criados com sucesso!!')
-    } catch (error) {
-      console.error('Erro ao criar dado:', error);
-    }
-  };
-
-  const atualizarDado = async (id, novoNome) => {
-    try {
-      await axios.put(`${apiUrl}/${id}`, { FullName: novoNome });
-      fetchData(); // Recarrega os dados após a atualização bem-sucedida
-    } catch (error) {
-      console.error('Erro ao atualizar dado:', error);
-    }
-  };
-
-  const deletarDado = async (id) => {
-    try {
-      await axios.delete(`${apiUrl}/${id}`);
-      fetchData(); // Recarrega os dados após a exclusão bem-sucedida
-    } catch (error) {
-      console.error('Erro ao excluir dado:', error);
-    }
-  };
 
   useEffect(() => {
-    fetchData(); // Busca os dados ao montar o componente
+    // Função para buscar dados da API
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://127.0.0.1:8000/Urls/ViewsStudy/');
+        const dadosAPI = await response.json();
+        setDados(dadosAPI);
+      } catch (error) {
+        console.error('Erro ao buscar dados da API:', error);
+      }
+    };
+
+    // Chama a função para buscar dados ao montar o componente
+    fetchData();
   }, []);
 
+  const handleChange = (event) => {
+    // Atualiza o estado do novoDado conforme o usuário digita no formulário
+    setNovoDado({
+      ...novoDado,
+      [event.target.Nome]: event.target.value,
+      [event.target.Sobrenome]: event.target.value,
+      [event.target.WhatsApp]: event.target.value,
+      [event.target.InstrumentoPref]: event.target.value,
+      [event.target.Localidade]: event.target.value,
+    });
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      // Faz a chamada à API para criar um novo dado
+      const response = await fetch('http://127.0.0.1:8000/Urls/ViewsStudy/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(novoDado),
+      });
+
+      // Verifica se a chamada foi bem-sucedida e atualiza o estado dos dados
+      if (response.ok) {
+        const novoDadoCriado = await response.json();
+        setDados([...dados, novoDadoCriado]);
+
+        // Limpa os campos do formulário após a criação bem-sucedida
+        setNovoDado({
+          Nome: '',
+          Sobrenome: '',
+          WhatsApp: '',
+          InstrumentoPref: '',
+          Localidade: ''
+        });
+      } else {
+        console.error('Erro ao criar novo dado:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Erro ao criar novo dado:', error);
+    }
+  };
+
   return (
-    <div style={{height: '730px'}}>
-      <Card style={{width: '400px', height: '630px', color: 'WindowFrame', backgroundColor: 'Highlight'}}>
-        <h3 style={{color: 'Window'}}>Datas Enter</h3>
+    <div>
+      <Card>
       <ul>
         {dados.map((dado) => (
-        <li key={dado.id}>
-          {dado.FullName}{' '}
-          {dado.age}{0}
-          {dado.ResidencePhone}{' '}
-          {dado.WhatsApp}{' '}
-          {dado.Adress}{' '}
-          {dado.Selfdescription}{' '}
-          {dado.InstrumentChoice}{' '}
-          <button onClick={() => atualizarDado(dado.id, 'NovoNome')}>Atualizar</button>
-          <button onClick={() => deletarDado(dado.id)}>Excluir</button>
-        </li>
-      ))}
-    </ul>
-    <div>
-      <h2>Criar Novo Dado</h2>
-        <form>
-          <div>
-            <label>Name:</label>
-          </div>
+          <li key={dado.id}>
+            {dado.Nome}
+            {dado.Sobrenome}
+            {dado.WhatsApp}
+            {dado.InstrumentoPref}
+            {dado.Localidade}
+          </li>
+
+        ))}
+      </ul>
+
+      <form onSubmit={handleSubmit}>
+        <label>
+          Name:
           <Input
-              type="text"
-              id="nomeInput"
-              value={novoDado.FullName}
-              onChange={(e) => setNovoDado({ FullName: e.target.value })}
-              style={{color: 'cyan'}}
+            type="text"
+            name="nome"
+            value={novoDado.Nome}
+            onChange={handleChange}
           />
-          <br />
-          <div>
-            <label>Age:</label>
-          </div>
-          <Input
-              type="text"
-              id="nomeInput"
-              value={novoDado.age}
-              onChange={(e) => setNovoDado({ age: e.target.value })}
-            style={{color: 'cyan'}}
-          />
-          <br />
-          <div>
-            <label>Residence Phone:</label>
-          </div>
-          <Input
-              type="text"
-              id="nomeInput"
-              value={novoDado.ResidencePhone}
-              onChange={(e) => setNovoDado({ ResidencePhone: e.target.value })}
-            style={{color: 'cyan'}}
-          />
-          <br/>
-          <div>
-            <label>WhatsApp:</label>
-          </div>
-          <Input
-              type="text"
-              id="nomeInput"
-              value={novoDado.WhatsApp}
-              onChange={(e) => setNovoDado({ WhatsApp: e.target.value })}
-            style={{color: 'cyan'}}
-          />
-          <br/>
-          <div>
-            <label>Adress:</label>
-          </div>
-          <Input
-              type="text"
-              id="nomeInput"
-              value={novoDado.Adress}
-              onChange={(e) => setNovoDado({ Adress: e.target.value })}
-            style={{color: 'cyan'}}
-          />
-          <br/>
-          <div>
-            <label>Self Description:</label>
-          </div>
-          <Input
-              type="text"
-              id="nomeInput"
-              value={novoDado.SelfDescription}
-              onChange={(e) => setNovoDado({ SelfDescription: e.target.value })}
-            style={{color: 'cyan'}}
-          />
-          <br/>
-          <div>
-            <label>Instrument Choices:</label>
-          </div>
-          <Input
-              type="text"
-              id="nomeInput"
-              value={novoDado.InstrumentChoice}
-              onChange={(e) => setNovoDado({ InstrumentChoice: e.target.value })}
-            style={{color: 'cyan'}}
-          />
-          <br/>
-          <Button style={{color: 'Highlight', backgroundColor: 'white'}} onClick={criarDado}>Adicionar</Button>
-        </form>
+        </label>
         <br/>
-      </div>
-      <Button style={{backgroundColor: 'midnightblue'}}>
-          <Link style={{color: 'orange'}} to='/App'><ArrowBackIcon/></Link>
+        <label>
+          Lastname:
+          <Input
+            type="text"
+            name="sobrenome"
+            value={novoDado.Sobrenome}
+            onChange={handleChange}
+          />
+        </label>
+        <br/>
+        <label>
+          WhatsApp:
+          <Input
+            type="text"
+            name="WhatsApp"
+            value={novoDado.WhatsApp}
+            onChange={handleChange}
+          />
+        </label>
+        <br/>
+        <label>
+          Instrument Preferred:
+          <Input
+            type="text"
+            name="instrumentoprefer"
+            value={novoDado.InstrumentoPref}
+            onChange={handleChange}
+          />
+        </label>
+        <br/>
+        <label>
+          Place:
+          <Input
+            type="text"
+            name="place"
+            value={novoDado.Localidade}
+            onChange={handleChange}
+          />
+        </label>
+        <br/>
+        <br/>
+        <Button style={{backgroundColor: 'Highlight', color: 'white'}} onClick={handleSubmit}>Criar Novo Dado</Button>
+      </form>
+      <Link to='/App'>
+        <Button style={{backgroundColor: 'darkblue', color: 'red'}}>
+          <ArrowBackIcon/>
         </Button>
+      </Link>
       </Card>
     </div>
-  );
+  )
 };
-
-export default EnterComponent;
+*/

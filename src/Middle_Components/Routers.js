@@ -11,7 +11,7 @@ import TheoryComponents from './Component_Theory';
 import { Grid, Card } from '@mui/material';
 import PraticeComponents from './Component_Pratice';
 import AtualizarPagina from './Pratice_Files/FilesPratices/UpdateLayout';
-import EnterComponent from './EnterDatas';
+import YourComponent from './CRUDEnterDatas.tsx';
 
 /*href='http://127.0.0.1:8000/Urls/Register_Datas/'*/
 
@@ -30,7 +30,7 @@ export default function RoteadorReact(){
                                     <Button type='primary' style={{borderStyle: 'ridge', borderColor: 'cyan',
                                         borderWidth: '1px', color: 'orange'}}><DeckIcon/>
                                         <NavLink style={{fontFamily: 'fantasy', fontSize: '20px', paddingRight: '50px', textShadow: 'revert'
-                                        }} rel="noreferrer noopener" to='/EnterDatas'>Register it selves</NavLink>
+                                        }} rel="noreferrer noopener" to='/CRUDEnterDatas'>Register it selves</NavLink>
                                     </Button>
                                     <Button type='primary' style={{borderStyle: 'ridge', borderColor: 'cyan',
                                     borderWidth: '1px',}}><ContactsIcon/>
@@ -56,7 +56,7 @@ export default function RoteadorReact(){
                     <Card style={{backgroundColor: 'blue', opacity: 0.8, borderRadius: '70px'}}>
                         <div>
                             <Routes>
-                                <Route exact path="/EnterDatas" element={<EnterComponent/>}/>
+                                <Route exact path="/CRUDEnterDatas" element={<YourComponent/>}/>
                             </Routes>
                         </div>
                         <div>
