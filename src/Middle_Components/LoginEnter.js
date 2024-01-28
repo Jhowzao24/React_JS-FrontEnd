@@ -8,6 +8,8 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Accordion from '@mui/material/Accordion';
+import { toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 
 class Login extends Component {
   constructor(props) {
@@ -27,10 +29,15 @@ class Login extends Component {
     this.setState({ question2: event.target.value });
   };
 
+  submitToast = () => {
+    toast.success('acessando ...')
+  }
+
   handleLogin = () => {
     const { question1, question2 } = this.state;
     if (question1 === 'som' && question2 === 'musica') {
       this.setState({ loggedIn: true });
+      this.submitToast();
     } else {
       console.log('Login failed');
     }
@@ -95,6 +102,7 @@ class Login extends Component {
                                 <Input style={{color: 'blue', fontFamily: 'serif', fontSize: '20px'}} type="text" placeholder="Question-2" value={question2} onChange={this.handlePasswordChange} /><br/>
                                 <Divider/>
                                 <Button style={styles.LogButton} onClick={this.handleLogin}>Access</Button><br/>
+                                <ToastContainer/>
                             </center>
                         </Card>
                         </Typography>

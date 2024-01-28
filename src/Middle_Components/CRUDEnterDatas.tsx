@@ -1,9 +1,11 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Button, Divider, Input } from '@mui/material';
+import { Button, Divider, Grid, Input, StepButton } from '@mui/material';
 import {Link} from 'react-router-dom';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack'
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 
 interface UserData {
   id: number;
@@ -51,10 +53,10 @@ const YourComponent: React.FC = () => {
     try {
       const response = await axios.get<UserData[]>(apiUrl);
       setUserData(response.data);
-      alert("Dados coletados com sucesso!!")
+      toast.info("Acessando áre de cadastramento!");
     } catch (error) {
       console.error('Error fetching data:', error);
-      alert('Erro ao coletar os dados!!');
+      toast.warning("Erro ao coletar os dados ...");
     }
   };
 
@@ -65,30 +67,10 @@ const YourComponent: React.FC = () => {
       fetchData();
       // Limpar os campos do formulário após a criação bem-sucedida
       setCreateInput({ Nome: '', Sobrenome: '', WhatsApp: '', InstrumentoPref: '', Localidade: '' /* Adicione outros campos conforme necessário */ });
-      alert('Dados inseridos com sucesso!!');
+      toast.success("Dados inseridos com sucesso!!")
     } catch (error) {
-      alert('Erro ao inserir os dados!!')
+      toast.warning("Erro ao coletar os dados ...");
       console.error('Error creating data:', error);
-    }
-  };
-
-  const updateData = async () => {
-    try {
-      await axios.put(apiUrl, { newData: updateInput });
-      fetchData();
-      setUpdateInput({ Nome: '', Sobrenome: '', WhatsApp: '', InstrumentoPref: '', Localidade: '' });
-      alert(dados);
-    } catch (error) {
-      console.error('Error updating data:', error);
-    }
-  };
-
-  const deleteData = async () => {
-    try {
-      await axios.delete(apiUrl);
-      fetchData();
-    } catch (error) {
-      console.error('Error deleting data:', error);
     }
   };
 
@@ -97,7 +79,7 @@ const YourComponent: React.FC = () => {
   }, []);
 
   return (
-    <div style={{backgroundColor: 'highlight', color: 'cyan', width: '650px', height: '800px', textAlign: 'center', paddingTop: '50px'}}>
+    <div style={{backgroundColor: 'highlight', color: 'yellow', width: '550px', height: '700px', textAlign: 'center', paddingTop: '3px', borderWidth: '5px', borderColor: 'cyan', borderStyle: 'outset', fontFamily: 'serif'}}>
 
       <div>
         <h2>Create</h2>
@@ -108,7 +90,7 @@ const YourComponent: React.FC = () => {
           }}
         >
       <div>
-        <label htmlFor="nome">Nome:</label>
+        <label htmlFor="nome">Name:</label>
         <Input
           type="text"
           id="nomeInput"
@@ -122,7 +104,7 @@ const YourComponent: React.FC = () => {
       <br/>
 
       <div>
-        <label htmlFor="sobrenome">Sobrenome:</label>
+        <label htmlFor="sobrenome">Lastname:</label>
         <Input
           type="text"
           id="sobrenomeInput"
@@ -176,16 +158,14 @@ const YourComponent: React.FC = () => {
         <br/>
         <Divider style={{borderColor: 'cyan'}}/>
         <br/>
+        <StepButton style={{backgroundColor: 'cyan', color: 'white', width: '200px'}} onClick={createData}>Create</StepButton>
         <br/>
-        <Button style={{backgroundColor: 'blue', color: 'white'}} onClick={createData}>Create</Button>
-        <br/>
-        <Button style={{backgroundColor: 'green', color: 'white'}} onClick={updateData}>Update Datas</Button>
-        <br/>
-        <Button style={{backgroundColor: 'red', color: 'white'}} onClick={deleteData}>Update Datas</Button>
-        <br/>
+        <div style={{paddingLeft: '50px', paddingTop: '10px'}}>
         <Link to='./App'>
-            <Button style={{backgroundColor: 'orangered', color: 'white'}}><ArrowBackIcon/></Button>
+            <Button style={{backgroundColor: 'orangered', color: 'white', float: 'left'}}><ArrowBackIcon/></Button>
         </Link>
+        <ToastContainer/>
+        </div>
       </form>
     </div>
     </div>

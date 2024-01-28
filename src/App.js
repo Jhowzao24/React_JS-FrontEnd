@@ -34,6 +34,7 @@ function App() {
     }, 10000);
     return () => clearTimeout(timer);
   }, []);
+
   return (
     <div className="App">
       <body className="App-header">

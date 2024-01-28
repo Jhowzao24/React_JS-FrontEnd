@@ -6,7 +6,7 @@ import Popup from 'reactjs-popup';
 export default function ProfileDatas(){
     const [Dreg, setDreg] = useState([]);
     useEffect(() => {
-        fetch('http://127.0.0.1:8000/Urls/Register_Datas/', {
+        fetch('http://127.0.0.1:8000/Urls/ViewsStudy/', {
             'method':'GET',
             headers:{
                 'Content-Type': 'application/json',
