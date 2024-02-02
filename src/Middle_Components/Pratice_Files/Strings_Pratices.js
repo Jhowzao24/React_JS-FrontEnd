@@ -38,6 +38,7 @@ import ViolinAfin from './FilesPratices/AfinatorViolin';
 import ViolaAfin from './FilesPratices/AfinatorViola';
 import { Link } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import Violin from './PraticaNotas';
 
 export default function FirstStud(){
     return(
@@ -297,7 +298,7 @@ export default function FirstStud(){
                         </Popup>
                     </Grid>
                 </div><hr/>
-                <Card style={{width: '700px', margin :'35px', height: '1150px',backgroundColor: 'darkcyan'}}>
+                <Card style={{width: '700px', margin :'35px', height: '1500px',backgroundColor: 'darkcyan'}}>
                 <StepButton style={{backgroundColor: 'midnightblue'}}>
                     <details><summary style={{color: 'gold'}}>Rhythm Game</summary>
                     <br/><br/>
@@ -386,6 +387,12 @@ export default function FirstStud(){
                 <StepButton style={{backgroundColor: 'midnightblue'}}>
                     <details><summary style={{color: 'gold'}}>Sigth Trainer Game</summary>
                         <DialogSightTrainer/>
+                    </details>
+                </StepButton>
+                <br/><br/><br/>
+                <StepButton style={{backgroundColor: 'midnightblue'}}>
+                    <details><summary style={{color: 'gold'}}>Sounds Notes Violin</summary>
+                        <Violin/>
                     </details>
                 </StepButton>
                 </Card>

@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 import { Grid } from '@mui/material';
 import Login from './Middle_Components/LoginEnter';
 import giphyViolin from './Middle_Components/Phases_Components/Middles_Images/giphyViolin.gif';
-
+import Violin from './Middle_Components/Pratice_Files/PraticaNotas';
 
 function App() {
   const styles = {

@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
+import  { motion } from 'framer-motion';
 
 interface UserData {
   id: number;
@@ -80,14 +81,23 @@ const YourComponent: React.FC = () => {
 
   return (
     <div style={{backgroundColor: 'highlight', color: 'yellow', width: '550px', height: '700px', textAlign: 'center', paddingTop: '3px', borderWidth: '5px', borderColor: 'cyan', borderStyle: 'outset', fontFamily: 'serif'}}>
-
       <div>
+        <motion.div
+      initial={{rotate: -180}}
+      animate={{rotate: 0}}
+      transition={{ duration: 1.8 }}>
         <h2>Create</h2>
+      </motion.div>
         <form
           onSubmit={(e) => {
             e.preventDefault();
             createData();
           }}
+        >
+        <motion.div 
+        initial={{ scale: -0 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 0.5 }}
         >
       <div>
         <label htmlFor="nome">Name:</label>
@@ -97,6 +107,7 @@ const YourComponent: React.FC = () => {
           value={createInput.Nome}
           onChange={(e) => setCreateInput({ ...createInput, Nome: e.target.value })}
           required
+          style={{color: 'white', paddingLeft: '15px', fontFamily: 'fantasy'}}
         />
       </div>
       <br/>
@@ -111,6 +122,7 @@ const YourComponent: React.FC = () => {
           value={createInput.Sobrenome}
           onChange={(e) => setCreateInput({ ...createInput, Sobrenome: e.target.value })}
           required
+          style={{color: 'white', paddingLeft: '15px', fontFamily: 'fantasy'}}
         />
       </div>
       <br/>
@@ -125,6 +137,7 @@ const YourComponent: React.FC = () => {
           value={createInput.WhatsApp}
           onChange={(e) => setCreateInput({ ...createInput, WhatsApp: e.target.value })}
           required
+          style={{color: 'white', paddingLeft: '15px', fontFamily: 'fantasy'}}
         />
       </div>
       <br/>
@@ -139,6 +152,7 @@ const YourComponent: React.FC = () => {
           value={createInput.InstrumentoPref}
           onChange={(e) => setCreateInput({ ...createInput, InstrumentoPref: e.target.value})}
           required
+          style={{color: 'white', paddingLeft: '15px', fontFamily: 'fantasy'}}
         />
       </div>
       <br/>
@@ -153,6 +167,7 @@ const YourComponent: React.FC = () => {
           value={createInput.Localidade}
           onChange={(e) => setCreateInput({ ...createInput, Localidade: e.target.value})}
           required
+          style={{color: 'white', paddingLeft: '15px', fontFamily: 'fantasy'}}
           />
         </div>
         <br/>
@@ -166,7 +181,8 @@ const YourComponent: React.FC = () => {
         </Link>
         <ToastContainer/>
         </div>
-      </form>
+        </motion.div>
+      </form><br/><br/>
     </div>
     </div>
   )

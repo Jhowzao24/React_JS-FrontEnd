@@ -12,6 +12,7 @@ import { Grid, Card } from '@mui/material';
 import PraticeComponents from './Component_Pratice';
 import AtualizarPagina from './Pratice_Files/FilesPratices/UpdateLayout';
 import YourComponent from './CRUDEnterDatas.tsx';
+import { motion } from 'framer-motion';
 
 /*href='http://127.0.0.1:8000/Urls/Register_Datas/'*/
 
@@ -19,6 +20,10 @@ export default function RoteadorReact(){
     return(
         <div>
             <BrowserRouter>
+            <motion.div
+            initial={{scale: 0}}
+            animate={{scale: 1}}
+            transition={{duration: 1.5}}>
                 <div>
                     <Grid container spacing={20}>
                         <center>
@@ -51,7 +56,7 @@ export default function RoteadorReact(){
                             <Grid container spacing={15} style={{paddingLeft: '600px'}}>
                             <AtualizarPagina/>
                             </Grid>
-                    </div><br/>
+                    </div></motion.div><br/>
                 <Grid container spacing={15} style={{float: 'left', paddingTop: '150px'}}>
                     <Card style={{backgroundColor: 'blue', opacity: 0.8, borderRadius: '70px'}}>
                         <div>
