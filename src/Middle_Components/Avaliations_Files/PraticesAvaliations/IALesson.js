@@ -2,6 +2,7 @@ import { Button, FormLabel } from '@material-ui/core';
 import { Tooltip } from '@mui/material';
 import { Card, Input } from 'antd';
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const Questionario = () => {
   const [resposta, setResposta] = useState('');
@@ -84,14 +85,25 @@ const Questionario = () => {
         </div>
       )
     } else if (resposta === 'Não') {
-      return <Card><p>Okay, do not worry, you are here to know about the cello!!</p></Card>;
-    } else {
-      return <p>Refresh the page please and response with Yes or Not</p>;
+      return (
+        <motion.div
+        initial={{x: -150}}
+        animate={{x: 0}}
+        transition={{duration: 3}}
+        >
+          <Card>Please try again to know the instrument better!</Card>
+        </motion.div>
+      )
     }
   }
 
   return (
-    <div>
+    <div style={{backgroundColor: 'Highlight'}}>
+      <motion.div
+      initial={{scale: 0}}
+      animate={{scale: 1}}
+      transition={{duration: 3}}
+      >
       {mostrarMensagem ? (
         exibirMensagem()
       ) : (
@@ -103,6 +115,7 @@ const Questionario = () => {
           <Button type="submit">Enviar</Button>
         </form>
       )}
+      </motion.div>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import { ButtonBase, Divider } from '@mui/material';
 import React, {useState} from 'react';
+import { motion } from 'framer-motion';
 
 export default function QuizzOneTime(){
     const [resultsPass, setResultsPass] = useState(0);
@@ -91,6 +92,11 @@ export default function QuizzOneTime(){
                 </div>
             ):(
                 <>
+                <motion.div
+                initial={{x: 550}}
+                animate={{x: 5}}
+                transition={{duration: 10}}
+                >
                     <div className='question-section'>
                         <div className='question-count'>
                             <span>Question{resultsPass + 1}</span> / {questions.length}
@@ -102,10 +108,17 @@ export default function QuizzOneTime(){
                     <div className='question-text'>
                         {questions[resultsPass].responsesOptions.map((responsesOption, index) => (
                             <>
+                            <motion.div
+                            initial={{scale: 0, rotateX: 150, rotateY: -150, rotateZ: 50}}
+                            animate={{scale: 1, rotateX: 0, rotateY: 0, rotateZ: 0}}
+                            transition={{duration: 15}}
+                            >
                                 <Divider/><ButtonBase style={{backgroundColor: 'cyan', color: 'black', width: '200px'}} key={index} onClick={() => AnswersButton(responsesOption.isOrNotCorrect)}><br/>{responsesOption.answerText}</ButtonBase>
+                            </motion.div>
                             </>
                         ))}
                     </div>
+                </motion.div>
                 </>
             )}
         </div>

@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Card, ButtonBase, Divider, Alert} from '@mui/material';
+import { motion } from 'framer-motion';
 
 export default function QuizzSixPhase(){
     const [rightStatus, setRightStatus] = useState(0);
@@ -287,6 +288,11 @@ export default function QuizzSixPhase(){
                     </div>
                 ):(
                     <>
+                    <motion.div
+                    initial={{x: -1250}}
+                    animate={{x: 5}}
+                    transition={{duration: 5}}
+                    >
                     <div className='question-section'>
                         <fieldset style={{borderColor: 'cyan', backgroundColor: 'blue', color: 'aqua'}}><legend>Quizz Phase Six</legend>
                         <div className='question-count'>
@@ -305,6 +311,7 @@ export default function QuizzSixPhase(){
                         </div>
                         </fieldset>
                     </div>
+                </motion.div>
                 </>
                 )}
             </Card>

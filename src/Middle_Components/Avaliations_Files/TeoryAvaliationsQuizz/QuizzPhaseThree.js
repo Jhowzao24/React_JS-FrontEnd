@@ -1,5 +1,6 @@
 import { Card, Divider, ButtonBase } from '@mui/material';
 import React, {useState} from 'react';
+import { motion } from 'framer-motion';
 
 export default function QuizzThreePhase(){
     const [currentStatus, setCurrentStatus] = useState(0);
@@ -197,6 +198,11 @@ export default function QuizzThreePhase(){
                     </div>
                 ):(
                     <>
+                    <motion.div
+                    initial={{scale: 0}}
+                    animate={{scale: 1}}
+                    transition={{duration: 3}}
+                    >
                     <div className='question-section'>
                         <fieldset style={{borderColor: 'yellow', backgroundColor: 'orangered'}}><legend>Quizz Phase Three</legend>
                         <div className='question-count'>
@@ -208,13 +214,20 @@ export default function QuizzThreePhase(){
                         <div className='question-text'>
                             {questionThree[currentStatus].answerOptions.map((answerOption, index) => (
                                 <>
+                                <motion.div
+                                initial={{scale: 0, X: 300}}
+                                animate={{scale: 1, x: 0}}
+                                transition={{duration: 5}}
+                                >
                                     <Divider/>
                                     <ButtonBase style={{backgroundColor: 'gold', color: 'black', width: '300px'}} key={index} onClick={() => ResponsingButton(answerOption.correctForm)}>{answerOption.answerLabel}</ButtonBase>
+                                </motion.div>
                                 </>
                             ))}
                         </div>
                         </fieldset>
                     </div>
+                </motion.div>
                 </>
                 )}
             </Card>

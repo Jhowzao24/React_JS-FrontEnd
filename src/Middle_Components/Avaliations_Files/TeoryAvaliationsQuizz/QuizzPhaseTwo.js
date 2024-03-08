@@ -1,5 +1,6 @@
 import { ButtonBase, Divider } from '@mui/material';
 import React, {useState} from 'react';
+import { motion } from 'framer-motion';
 
 export default function QuizzTwoPhase(){
     const [statusCurrent, setStatusCurrent] = useState(0);
@@ -177,6 +178,11 @@ export default function QuizzTwoPhase(){
                 </div>
             ):(
                 <>
+                <motion.div
+                initial={{scale: 0, rotate: -300}}
+                animate={{scale: 1, rotate: 0}}
+                transition={{duration: 10}}
+                >
                     <div className='question-section'>
                         <fieldset style={{borderColor: 'yellow', backgroundColor: 'orangered'}}><legend>Quizz Phase Two</legend>
                         <div className='question-count'>
@@ -195,6 +201,7 @@ export default function QuizzTwoPhase(){
                         </div>
                         </fieldset>
                     </div>
+                </motion.div>
                 </>
             )}
         </div>

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Button, Divider} from '@mui/material';
 import { Diver } from '../style';
+import { motion } from 'framer-motion';
 
 export default function NoteQuizz(){
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -118,6 +119,11 @@ export default function NoteQuizz(){
     };
     return(
         <div className='quizz'>
+            <motion.dialog
+            initial={{x: 0}}
+            animate={{x: 1}}
+            transition={{duration: 3}}
+            >
             <Diver>
             {showScore ? (
                 <div className="score-section" style={{fontSize: '25px', fontFamily: 'serif'}}>
@@ -144,6 +150,7 @@ export default function NoteQuizz(){
                     </>
                 )}
             </Diver>
+            </motion.dialog>
         </div>
     )
 }

@@ -62,7 +62,7 @@ const Violin: React.FC = () => {
             <button onClick={() => handleClickNote(329.63)}>SI</button>
         </Tooltip>
         <Tooltip title='DÓ, Third finger on the SOL string'>
-            <button onClick={() => handleClickNote(261.63)}>DÓ</button>
+            <button onClick={() => handleClickNote(523.25)}>DÓ</button>
         </Tooltip>
         <Tooltip title='RÉ, fourth finger on the SOL string, or the loose next string'>
             <button onClick={() => handleClickNote(261.63)}>RÉ</button>
@@ -128,7 +128,6 @@ const Violin: React.FC = () => {
           </Button>
         </DialogActions>
       </Dialog>
-      <h1>Violino Virtual</h1>
     </div>
   );
 };

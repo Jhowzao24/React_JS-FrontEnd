@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Divider, Button} from '@mui/material';
+import { motion } from 'framer-motion';
 
 export default function QuizzTreze(){
     const [status, setStaus] = useState(0);
@@ -73,6 +74,11 @@ export default function QuizzTreze(){
                 </div>
             ):(
                 <>
+                <motion.div
+                initial={{x: -500}}
+                animate={{x: 0}}
+                transition={{duration: 3}}
+                >
                     <div className='question-section'>
                         <fieldset style={{borderColor: 'blue', backgroundColor: 'green', color: 'gold'}}><legend>Quizz Phase Thirteen</legend>
                         <div className='question-count'>
@@ -84,13 +90,20 @@ export default function QuizzTreze(){
                         <div className='question-text'>
                             {questionaryTreze[status].respOptions.map((respOption, index) => (
                                 <>
+                                <motion.div
+                                initial={{scale: 0}}
+                                animate={{scale: 1}}
+                                transition={{duration: 5}}
+                                >
                                     <Divider/>
                                     <Button style={{backgroundColor: 'black', color: 'white', width: '300px'}} key={index} onClick={() =>Handleresponsing(respOption.correction)}>{respOption.respLabel}</Button>
+                                </motion.div>
                                 </>
                             ))}
                         </div>
                         </fieldset>
                     </div>
+                </motion.div>
                 </>
             )}
         </div>

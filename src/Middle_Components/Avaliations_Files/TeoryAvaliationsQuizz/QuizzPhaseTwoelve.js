@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Divider, Button} from '@mui/material';
+import { motion } from 'framer-motion';
 
 export default function QuizzDoze(){
     const [status, setStatus] = useState(0);
@@ -68,6 +69,11 @@ export default function QuizzDoze(){
                 </div>
             ):(
                 <>
+                <motion.div
+                initial={{x: 500, scale: 0}}
+                animate={{x: 0, scale: 1}}
+                transition={{duration: 7}}
+                >
                     <div className='question-section'>
                         <fieldset style={{borderColor: 'blue', backgroundColor: 'green'}}><legend>Quizz Phase Twelve</legend>
                         <div className='question-count'>
@@ -86,6 +92,7 @@ export default function QuizzDoze(){
                         </div>
                         </fieldset>
                     </div>
+                </motion.div>
                 </>
             )}
         </div>

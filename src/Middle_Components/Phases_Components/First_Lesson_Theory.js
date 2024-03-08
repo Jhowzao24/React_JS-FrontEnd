@@ -10,6 +10,7 @@ import AltSound from './Middles_Images/AltSound.gif';
 import intensit from './Middles_Images/intensit.png';
 import giphyViolin from './Middles_Images/giphyViolin.gif';
 import QuizzOneTime from '../Avaliations_Files/TeoryAvaliationsQuizz/QuizzPhaseOne';
+import { motion } from 'framer-motion';
 
 export default function FirstComp(){
     const [showModal, setShowModal] = useState(false)
@@ -154,6 +155,10 @@ export default function FirstComp(){
                 </Button>
                 </div>
                 <Grid style={{float: 'left', paddingLeft: '500px'}} container spacing={60}>
+                    <motion.div
+                    initial={{x: 2000, scale: 0, rotateX: 330, rotateY: -350, rotateZ: 50}}
+                    animate={{x: 0, scale: 1, rotateX: 0, rotateY: 0, rotateZ: 0}}
+                    transition={{duration: 5}}>
                     <fieldset style={{borderColor: 'midnightblue'}}>
                         <h3>So...,<br/> Answer this Quizz,<br/> to see if you learned<br/> all about the First Phase the theory</h3>
                     <Button style={{backgroundColor: 'dodgerblue', color: 'gold', fontFamily: 'serif'}}>
@@ -164,6 +169,7 @@ export default function FirstComp(){
                         </details>
                     </Button>
                     </fieldset>
+                    </motion.div>
                 </Grid>
             </Card>
         </div>

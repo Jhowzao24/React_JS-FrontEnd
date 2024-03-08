@@ -39,11 +39,14 @@ import ViolaAfin from './FilesPratices/AfinatorViola';
 import { Link } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Violin from './PraticaNotas';
+import { motion } from 'framer-motion';
+import DialogCelloPaut from './FilesPratices/DialogsFiles/DialogCelloPauta';
+import MeuCompApp from '../ExercisesCello/PentagramExercise';
 
 export default function FirstStud(){
     return(
         <div style={{backgroundColor: 'blue', float: 'left',}}>
-            <div style={{width: '700px', height: '3800px'}}>
+            <div style={{width: '750px', height: '5300px'}}>
             <Card>
                 <Paper>
                     <Popup trigger={<Button style={{color: 'midnightblue', fontFamily: 'fantasy', letterSpacing: '2px'}}>Parts of the Violin</Button>}>
@@ -181,7 +184,7 @@ export default function FirstStud(){
                     <Popup replacement='center' trigger={<Button style={{color: 'midnightblue', fontFamily: 'fantasy', letterSpacing: '2px'}}>Cello Pratice</Button>}>
                         <Card style={{width: '900px'}}>
                             <Grid style={{paddingLeft: '280px', paddingTop: '30px'}}>
-                                <img style={{width: '200px', height: '150px'}} src='https://th.bing.com/th/id/OIP.JbB95T5mPW_83HqAyNO-iQHaE6?pid=ImgDet&rs=1' alt='sentadoviolon'/>
+                                <img style={{width: '200px', height: '150px'}} src='https://www.encorda.com.br/wp-content/uploads/2020/05/original-0c03b24f38bd4932616d0978d592b3e0.jpg' alt='sentadoviolon'/>
                             </Grid>
                             <Questionario/>
                         </Card>
@@ -189,19 +192,35 @@ export default function FirstStud(){
                 </Paper>
             </Card><hr/>
             <Grid container spacing={0}>
+                <motion.div
+                initial={{x: -150}}
+                animate={{x: 1}}
+                transition={{duration: 3}}>
                 <Card>
                     <ViolinPratice/>
                 </Card>
+                </motion.div>
             </Grid>
             <Grid style={{paddingLeft: '268px'}} container spacing={5}>
+                <motion.div
+                initial={{x: -130}}
+                animate={{x: 0}}
+                transition={{duration: 3}}>
                 <Card>
                     <ViolaPratice/>
                 </Card>
+                </motion.div>
             </Grid>
             <Grid style={{paddingLeft: '490px'}} container spacing={5}>
+                <motion.div
+                initial={{x: 250}}
+                animate={{x: 0}}
+                transition={{duration: 3}}
+                >
                 <Card>
                     <VioloncelloPratice/>
                 </Card>
+                </motion.div>
             </Grid>
             <h3 style={{color: 'gold'}}>Lets pratice on real</h3><hr/><br/>
             <Grid style={{float: 'left'}} container spacing={0}>
@@ -283,21 +302,23 @@ export default function FirstStud(){
                     <NotesViola/>
                 </fieldset>
                 <Grid style={{float: 'left', paddingLeft: '330px'}} container spacing={30}>
-                        <Popup trigger={<Fab style={{boxShadow: '0 0 5px 5px', backgroundColor: 'orange', color: 'midnightblue'}}>Quizz</Fab>}>
+                        <Popup trigger={<Fab style={{boxShadow: '0 0 5px 5px', backgroundColor: 'orange', color: 'midnightblue'}}>Quizz1</Fab>}>
                             <ViolaQuizz/>
                         </Popup>
                     </Grid>
                     <Grid style={{float: 'left', paddingLeft: '50px'}} container spacing={6.7}>
-                        <Popup trigger={<Fab style={{boxShadow: '0 0 5px 5px', backgroundColor: 'orange', color: 'midnightblue'}}>Quizz</Fab>}>
+                        <Popup trigger={<Fab style={{boxShadow: '0 0 5px 5px', backgroundColor: 'orange', color: 'midnightblue'}}>Quizz2</Fab>}>
                             <ViolaSents/>
                         </Popup>
                     </Grid>
                     <Grid style={{float: 'left', paddingLeft: '240px'}} container spacing={6.7}>
-                        <Popup trigger={<Fab style={{boxShadow: '0 0 5px 5px', backgroundColor: 'orange', color: 'midnightblue'}}>Quizz</Fab>}>
+                        <Popup trigger={<Fab style={{boxShadow: '0 0 5px 5px', backgroundColor: 'orange', color: 'midnightblue'}}>Quizz3</Fab>}>
                             <ViolaVirtuoso/>
                         </Popup>
                     </Grid>
                 </div><hr/>
+                <br/><br/><br/>
+
                 <Card style={{width: '700px', margin :'35px', height: '1500px',backgroundColor: 'darkcyan'}}>
                 <StepButton style={{backgroundColor: 'midnightblue'}}>
                     <details><summary style={{color: 'gold'}}>Rhythm Game</summary>
@@ -361,7 +382,7 @@ export default function FirstStud(){
                 </StepButton>
                 <br/><hr/><br/>
                 <StepButton style={{backgroundColor: 'midnightblue'}}>
-                    <details><summary style={{color: 'gold'}}>Acerts Game</summary>
+                    <details><summary style={{color: 'gold'}}>Guess the Arpejos and the Scales</summary>
                         <DialogAcerts/>
                     </details>
                 </StepButton>
@@ -394,10 +415,49 @@ export default function FirstStud(){
                     <details><summary style={{color: 'gold'}}>Sounds Notes Violin</summary>
                         <Violin/>
                     </details>
+                </StepButton><br/><br/><hr/><br/>
+                <StepButton style={{backgroundColor: 'midnightblue'}}>
+                    <details><summary style={{color: 'gold'}}>Cello Memory Game</summary>
+                        <DialogCelloPaut/>
+                    </details>
                 </StepButton>
                 </Card>
-                <br/><hr/><br/>
+                <br/><hr/>
+                <div style={{margin: '10px'}}>
+                    <div>
+                        <MeuCompApp/>
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                <Grid container spacing={0} style={{paddingLeft: '30px', paddingTop: '150px'}}>
+                    <Grid style={{float: 'left', paddingLeft: '660px'}} container spacing={10}>
+                        <Popup trigger={<Fab style={{boxShadow: '0 0 5px 5px', backgroundColor: 'blue', color: 'white', fontFamily: 'serif'}}>
+                            Quizz
+                        </Fab>}>
+                            <Quiz/>
+                        </Popup>
+                    </Grid>
+                    <Grid style={{float: 'left', paddingLeft: '190px'}} container spacing={10}>
+                        <Popup trigger={<Fab style={{boxShadow: '0 0 5px 5px', backgroundColor: 'orange', color: 'midnightblue'}}>Quizz</Fab>}>
+                            <ViolaSents/>
+                        </Popup>
+                    </Grid>
+                    <Grid style={{float: 'left', paddingLeft: '420px'}} container spacing={10}>
+                        <Popup trigger={<Fab style={{boxShadow: '0 0 5px 5px', backgroundColor: 'orange', color: 'midnightblue'}}>Quizz</Fab>}>
+                            <ViolaVirtuoso/>
+                        </Popup>
+                    </Grid>
+                </Grid>
+                </div><br/>
+                <br/>
+                <br/>
+                <br/><br/><br/>
+                <br/><br/>
+                <br/><br/>
+                <br/><br/>
                 <MusicCreationScreen/>
+                <br/>
             </fieldset>
             </div>
             <Grid style={{paddingLeft: '260px'}} container spacing={25}>

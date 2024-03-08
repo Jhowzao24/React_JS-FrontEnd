@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { Divider, ButtonBase } from '@mui/material';
+import { motion } from 'framer-motion';
 
 export default function QuizzSetima(){
     const [status, setStatus] = useState(0);
@@ -168,6 +169,11 @@ export default function QuizzSetima(){
                 </div>
             ):(
                 <>
+                <motion.div
+                initial={{scale: 0}}
+                animate={{scale: 1}}
+                transition={{duration: 5}}
+                >
                     <div className='question-section'>
                         <fieldset style={{borderColor: 'blue', backgroundColor: 'dodgerblue'}}><legend>Quizz Phase Seven</legend>
                         <div className='question-count'>
@@ -179,13 +185,20 @@ export default function QuizzSetima(){
                         <div className='question-text'>
                             {questionarySete[status].answerOptions.map((answerOption, index) => (
                                 <>
+                                <motion.div
+                                initial={{x: -800}}
+                                animate={{x: 8}}
+                                transition={{duration: 5}}
+                                >
                                     <Divider/>
                                     <ButtonBase style={{backgroundColor: 'black', color: 'white', width: '300px'}} key={index} onClick={() =>HandleResponse(answerOption.correcting)}>{answerOption.answerLabel}</ButtonBase>
+                                </motion.div>
                                 </>
                             ))}
                         </div>
                         </fieldset>
                     </div>
+                </motion.div>
                 </>
             )}
         </div>

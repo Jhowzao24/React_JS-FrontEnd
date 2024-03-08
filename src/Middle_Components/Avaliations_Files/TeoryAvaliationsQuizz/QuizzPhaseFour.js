@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Card, Divider, ButtonBase} from '@mui/material';
+import { motion } from 'framer-motion';
 
 export default function QuizzQuarta(){
     const [currentStatus, setCurrentStatus] = useState(0);
@@ -183,13 +184,22 @@ export default function QuizzQuarta(){
     }
     return(
         <div>
-                        <Card style={{width: '400px'}}>
+            <motion.div
+            initial={{x: 350}}
+            animate={{x: 3}}
+            transition={{duration: 5}}
+            >
+            <Card style={{width: '400px'}}>
                 {appearScore ? (
                     <div className='score-section'>
                         <p>You got it right{score} of {questionFour.length}questions</p>
                     </div>
                 ):(
                     <>
+                    <motion.div
+                    initial={{scale: 0}}
+                    animate={{scale: 1}}
+                    transition={{suration: 3}}>
                     <div className='question-section'>
                         <fieldset style={{borderColor: 'yellow', backgroundColor: 'orangered'}}><legend>Quizz Phase Four</legend>
                         <div className='question-count'>
@@ -208,9 +218,11 @@ export default function QuizzQuarta(){
                         </div>
                         </fieldset>
                     </div>
+                    </motion.div>
                 </>
                 )}
             </Card>
+            </motion.div>
         </div>
     )
 }

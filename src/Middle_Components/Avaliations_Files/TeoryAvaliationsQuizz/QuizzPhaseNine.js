@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Divider, ButtonBase} from '@mui/material';
+import { motion } from 'framer-motion';
 
 export default function QuizzNono(){
     const [status, setStatus] = useState(0);
@@ -63,6 +64,11 @@ export default function QuizzNono(){
                 </div>
             ):(
                 <>
+                <motion.div
+                initial={{rotate: -330}}
+                animate={{rotate: 0}}
+                transition={{duration: 3}}
+                >
                 <div className='question-section'>
                     <fieldset style={{borderColor: 'blue', backgroundColor: 'dodgerblue'}}><legend>Quizz Phase Nine</legend>
                     <div className='question-count'>
@@ -74,13 +80,20 @@ export default function QuizzNono(){
                     <div className='question-text'>
                         {questionaryNine[status].respOptions.map((respOption, index) => (
                             <>
+                            <motion.div
+                            initial={{scale: 0}}
+                            animate={{scale: 1}}
+                            transition={{duration: 3}}
+                            >
                                 <Divider/>
                                 <ButtonBase style={{backgroundColor: 'black', color: 'white', width: '300px'}} key={index} onClick={() =>HandleResponsing(respOption.true_False)}>{respOption.respLabel}</ButtonBase>
+                            </motion.div>
                             </>
                         ))}
                     </div>
                     </fieldset>
                 </div>
+            </motion.div>
             </>
             )}
         </div>

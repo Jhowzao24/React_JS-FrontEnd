@@ -1,6 +1,7 @@
 import { Divider, PopoverPaper, Tooltip, Button, Grid, Fab, Paper } from '@mui/material';
 import React, {useState} from 'react';
 import QuizzOnze from '../Avaliations_Files/TeoryAvaliationsQuizz/QuizzPhaseEleven';
+import { motion } from 'framer-motion';
 
 export default function ElevenFase(){
     const alertF = {
@@ -38,26 +39,40 @@ export default function ElevenFase(){
         alert("You added the weak f, do not click this element again")
     }
     const aboutMetric = [
-        <div style={{width: '300px', height: '300px', backgroundColor: 'blue'}}>
-            <PopoverPaper style={{margin: '10px'}}>
+        <div style={{width: '300px', height: '300px', backgroundColor: 'blue', margin: '-60px'}}>
+            <motion.div
+            initial={{scale: 0, x: -500}}
+            animate={{scale: 1, x: 0}}
+            transition={{duration: 5}}
+            >
                 <h3>Ever what we talk, we use formed words by a lot of syllables. These words have strong accentuations in only one syllable, while the others syllables have one weak accentuation!</h3>
                 <Divider/>
                 <h3>By example, when we say the word "to lead", we do not say con-DU-zir; instead it, we say, con-du-ZIR, with the acentuation strongest at the thirth syllable</h3>
-            </PopoverPaper>
+            </motion.div>
         </div>
     ]
     const consider = [
-        <div style={{width: '500px', backgroundColor: 'blue'}}>
+        <div style={{width: '500px', backgroundColor: 'blue', margin: '-60px'}}>
+            <motion.div
+            initial={{scale: 0, rotateX: -250, rotateY: 250, rotateZ: 300}}
+            animate={{scale: 1, rotateX: 0, rotateY: 0, rotateZ: 0}}
+            transition={{duration: 6}}>
             <h4>The Métric Accent varies over with the formule of compasso, and it auxus to indentify it. By this goal, when we ear a musical stretch, we can to say, just earing the metrics accents, what is the formule of the compasso from that stretch(Same we not see the pentagram of te music)</h4>
             <Divider/>
             <h4><strong>The Métric Accent does not must to be literally executed on the music, it is, it is not order that to grow up  the intensity of the sound at the strong time, or that slow down the intensity of the sound of the weak time. The accent is naturaly feelled on the music when it is played in a way that was wrote</strong></h4>
+        </motion.div>
         </div>
     ]
     const compass3 = [
-        <div>
+        <div style={{backgroundColor: 'yellow', color: 'Highlight', margin: '-60px'}}>
+            <motion.div
+            initial={{rotateZ: -300, scale: 0}}
+            animate={{rotateZ: 0, scale: 1}}
+            transition={{duration: 5}}>
             <h3>The compasso 3/4</h3>
             <h4>This compasso wil receive the intensity like this: F- f - f</h4>
             <img style={{width: '400px', height: '100px'}} src='https://4.bp.blogspot.com/-W7kluiUc4_Q/Tp2YeT_BLCI/AAAAAAAAAHs/tTejxeDnX7c/s1600/Imagem2.png' alt='ternarioMetric'/>
+            </motion.div>
         </div>
     ]
     return(
@@ -78,7 +93,7 @@ export default function ElevenFase(){
             </Grid>
             <Grid style={{paddingLeft: '450px'}} container spacing={7}>
                 <Tooltip title={compass3}>
-                    <Fab style={{fontSize: '10px'}}>Details of 3/3</Fab>
+                    <Fab style={{fontSize: '10px', backgroundColor: 'Highlight', color: 'white'}}>Details of 3/3</Fab>
                 </Tooltip>
             </Grid>
             <br/>

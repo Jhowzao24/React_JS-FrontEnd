@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-pascal-case */
 import React from 'react';
 import {Button} from 'antd';
 import {BrowserRouter, NavLink, Route, Routes} from 'react-router-dom';
@@ -11,8 +12,8 @@ import TheoryComponents from './Component_Theory';
 import { Grid, Card } from '@mui/material';
 import PraticeComponents from './Component_Pratice';
 import AtualizarPagina from './Pratice_Files/FilesPratices/UpdateLayout';
-import YourComponent from './CRUDEnterDatas.tsx';
 import { motion } from 'framer-motion';
+import Api_Interface from './CRUDEnterDatas.tsx';
 
 /*href='http://127.0.0.1:8000/Urls/Register_Datas/'*/
 
@@ -58,10 +59,10 @@ export default function RoteadorReact(){
                             </Grid>
                     </div></motion.div><br/>
                 <Grid container spacing={15} style={{float: 'left', paddingTop: '150px'}}>
-                    <Card style={{backgroundColor: 'blue', opacity: 0.8, borderRadius: '70px'}}>
+                    <Card style={{backgroundColor: 'blue', opacity: 0.8, borderRadius: '70px', width: '850px'}}>
                         <div>
                             <Routes>
-                                <Route exact path="/CRUDEnterDatas" element={<YourComponent/>}/>
+                                <Route exact path="/CRUDEnterDatas" element={<Api_Interface/>}/>
                             </Routes>
                         </div>
                         <div>

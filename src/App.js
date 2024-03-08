@@ -3,9 +3,56 @@ import React, {useState, useEffect} from 'react';
 import { Grid } from '@mui/material';
 import Login from './Middle_Components/LoginEnter';
 import giphyViolin from './Middle_Components/Phases_Components/Middles_Images/giphyViolin.gif';
-import Violin from './Middle_Components/Pratice_Files/PraticaNotas';
+import { Button } from 'antd';
+import Popup from 'reactjs-popup';
 
 function App() {
+  function Exercise() {
+    const [tonality, setTonality] = useState('');
+    const [exercise, setExercise] = useState('');
+
+    // Função para gerar um exercício aleatório
+    function generateExercise() {
+        const tonalities = ['Dó Maior', 'Sol Maior', 'Ré Maior', 'Lá Maior'];
+        const exercises = [
+            'Arpejo Ascendente e Descendente',
+            'Escalas Cromáticas',
+            'Acordes de Sétima',
+            'Passagens Rápidas',
+            'Dobraduras de Corda',
+            'Harmonização de Melodia',
+        ];
+
+        // Escolher aleatoriamente uma tonalidade e um exercício
+        const randomTonality = tonalities[Math.floor(Math.random() * tonalities.length)];
+        const randomExercise = exercises[Math.floor(Math.random() * exercises.length)];
+
+        // Atualizar o estado com o exercício gerado
+        setTonality(randomTonality);
+        setExercise(randomExercise);
+    }
+
+    return (
+        <div>
+            <h1>Exercício Difícil para Violoncelo</h1>
+            <button onClick={generateExercise}>Gerar Exercício</button>
+            <div>
+                <h2>Tonalidade: {tonality}</h2>
+                <h3>Exercício: {exercise}</h3>
+                {/* Aqui você pode incluir instruções específicas para o exercício gerado */}
+            </div>
+        </div>
+    );
+}
+
+  const [showScreen, setShowScreen] = useState(false);
+
+  // Função para exibir a tela interna
+  function handleShowScreen() {
+      setShowScreen(true);
+  }
+
+
   const styles = {
     image: {
       width: '250px', 
@@ -54,6 +101,14 @@ function App() {
           <Login/>
         </Grid>
       </body>
+      <br/><br/>
+      <br/><br/>
+      <br/>
+      <button onClick={handleShowScreen}>Mostrar Tela Interna</button>
+      {showScreen && <Popup trigger={<Button>Exercise Cello!</Button>}>
+        <Exercise/>
+        </Popup>}
+      <br/>
     </div>
   );
 }

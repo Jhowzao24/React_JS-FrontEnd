@@ -2,6 +2,7 @@ import React from 'react';
 import { ContiVioloinLesson, Diver } from './style';
 import { Card, Grid, Tooltip } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { motion } from 'framer-motion';
 
 export default function LessonViolinOne(){
     const talaogif = [
@@ -18,6 +19,11 @@ export default function LessonViolinOne(){
     ]
     return(
         <ContiVioloinLesson>
+            <motion.div
+            initial={{scale: 0}}
+            animate={{xcale: 1}}
+            transition={{duration: 3}}
+            >
             <Card>
                 <h3>This Lesson reffers a form to play the Strings Instruments, by the signals of arcades</h3>
                 <h5>One of this signals is :
@@ -25,6 +31,11 @@ export default function LessonViolinOne(){
                         <img style={{width: '500px', height: '100px'}} src='https://th.bing.com/th/id/R.58b5b25a4eade3c22bfd9403a8f677cd?rik=LI4pNALACIlTwA&riu=http%3a%2f%2fwww.deficienciavisual.pt%2fIMAGENS%2ftxt-O_ensino_violino_DV_2.png&ehk=A8in9fOv%2f0pgiGl6DH%2fT8DmcdmHcIlFpN%2fHRps111tk%3d&risl=&pid=ImgRaw&r=0' alt='signalsArcade'/>
                     </ul>
                 </h5>
+                <motion.div
+                initial={{rotate: -250}}
+                animate={{rotate: 0}}
+                transition={{duration: 3}}
+                >
                 <center style={{margin: '10px'}}>
                     <Diver>
                         <h5>First signal is:(Talão)</h5>
@@ -41,7 +52,9 @@ export default function LessonViolinOne(){
                         </Tooltip>
                     </Grid>
                 </center>
+                </motion.div>
             </Card>
+            </motion.div>
         </ContiVioloinLesson>
     )
 }

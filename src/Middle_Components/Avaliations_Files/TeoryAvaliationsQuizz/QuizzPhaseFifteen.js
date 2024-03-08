@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {Divider, Button, Alert} from '@mui/material';
+import { motion } from 'framer-motion';
 
 export default function QuizzQuinze(){
     const [status, setStatus] = useState(0);
@@ -95,8 +96,14 @@ export default function QuizzQuinze(){
                         <div className='question-text'>
                             {questionQuinze[status].ansOptions.map((ansOption, index) => (
                                 <>
+                                <motion.div
+                                initial={{rotate: -180}}
+                                animate={{rotate: 0}}
+                                transition={{duration: 3}}
+                                >
                                     <Divider/>
                                     <Button style={{backgroundColor: 'black', color: 'Hightlight', width: '300px'}} key={index} onClick={() => Handelresponding(ansOption.correging)}>{ansOption.ansLabel}</Button>
+                                </motion.div>
                                 </>
                             ))}
                         </div>

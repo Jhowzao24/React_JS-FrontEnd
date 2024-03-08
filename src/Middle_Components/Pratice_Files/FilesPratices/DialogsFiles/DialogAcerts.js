@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Avatar, Dialog, DialogActions, DialogContent, DialogTitle } from '@material-ui/core';
 import { Button } from 'antd';
-import GameAcerts from '../../../Avaliations_Files/PraticesAvaliations/Acerts';
+import GameAccerts from '../../../Avaliations_Files/PraticesAvaliations/Game_Accerts';
 
 function DialogAcerts() {
   const [open, setOpen] = useState(false);
@@ -20,9 +20,9 @@ function DialogAcerts() {
         Abrir diálogo
       </Button>
       <Dialog open={open} onClose={handleClose} aria-labelledby="dialog-title">
-        <DialogTitle id="dialog-title"><Avatar style={{width: '150px', height: '150px', borderStyle: 'double', borderColor: 'blue', backgroundColor: 'lightgreen'}} variant='square' src='https://c8.alamy.com/comp/2A29DR5/3d-thief-on-phone-surrounded-by-a-forbidden-sign-illustration-with-isolated-white-background-2A29DR5.jpg'/></DialogTitle>
+        <DialogTitle id="dialog-title"><Avatar style={{width: '150px', height: '150px', borderStyle: 'double', borderColor: 'blue', backgroundColor: 'lightgreen'}} variant='square' src='https://th.bing.com/th/id/R.d82c05c40349ad6cf9549140837b2dae?rik=qOXrZdZp6Ugd4w&riu=http%3a%2f%2f1.bp.blogspot.com%2f-61KYS77OiCM%2fUABWk1VOczI%2fAAAAAAAAEuQ%2fIsxoxkERm0E%2fs1600%2ftarget(3).jpg&ehk=IFrgHccXPqiXQ4Y8XhKhVOhCgNmpJQGZ0Elgme0lyf8%3d&risl=&pid=ImgRaw&r=0'/></DialogTitle>
         <DialogContent style={{backgroundColor: 'midnightblue'}}>
-          <GameAcerts/>
+          <GameAccerts/>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">

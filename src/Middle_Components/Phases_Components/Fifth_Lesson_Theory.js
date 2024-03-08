@@ -6,6 +6,7 @@ import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import Moviment_6 from './Middles_Images/Moviment_6.jpg';
 import Left_Moviment from './Middles_Images/Left_Moviment.jpg';
 import QuizzQuinta from '../Avaliations_Files/TeoryAvaliationsQuizz/QuizzPhaseFive';
+import { motion } from 'framer-motion';
 
 export default function Cinco(){
     /*const [/*showModal, setShowModal] = useState(false)*/
@@ -18,9 +19,14 @@ export default function Cinco(){
     }, [])*/
     const tulSolfege = [
         <div>
+            <motion.div
+            initial={{scale: 0}}
+            animate={{scale: 1}}
+            transition={{duration: 5}}>
             <Card>
                 <p>This moviments will extends from center elevating to the left side, and after this will turn to the right side with 2 moviments and the last moviment will be to the up!</p>
             </Card>
+            </motion.div>
         </div>
     ]
     const reverseTitle = [
@@ -45,19 +51,28 @@ export default function Cinco(){
         </div>
     ]
     const tulRead = [
-        <div>
+        <div style={{backgroundColor: 'highlight'}}>
+            <motion.div
+            initial={{scale: 0, rotateX: 550, rotateY: -550, x: 600}}
+            animate={{scale: 1, rotateX: -3, rotateY: -3, x: 0}}
+            transition={{duration: 6}}>
             <Card style={{backgroundColor: 'Highlight', color: 'gold', width: '200px', height: '150px', fontFamily: 'cursive', fontSize: '15px', }}>
-                <Alert>
+                <Alert style={{backgroundColor: 'blue', color: 'white'}}>
                     <p>Take a look at the MSA!!
                     <br/>
                     <h3>Exercise Page: 47; 49; 51</h3>
                     </p>
                 </Alert>
             </Card>
+            </motion.div>
         </div>
     ]
     const explanPLan = [
         <div>
+            <motion.div
+            initial={{scale: 0, rotateX: 550, rotateY: -550, x: 600}}
+            animate={{scale: 1, rotateX: -3, rotateY: -3, x: 0}}
+            transition={{duration: 6}}>
             <Card style={{width: '500px', height: '570px', backgroundColor: 'darkred', borderRadius: '30px', borderStyle: 'double', borderColor: 'aqua'}}>
                 <h1 style={{color: 'darkblue', fontSize: '25px', fontFamily: 'serif'}}>
                     The formule of compasso in 6 is the simple formule of compass in 2 so, this, 2 x 3 = 6 moviments, it is 3 more moviments into the each 2 moviments
@@ -74,6 +89,7 @@ export default function Cinco(){
                     </ul>
                 </h2>
             </Card>
+            </motion.div>
         </div>
     ]
     const explaSe = ["In musical rehearsals, or in a situation that have regences, the candidate must ever to respect the regences signals of the conductor to execute the fermata, independentement of what your duration be more short or long rather than it was explaned here", <br/>, "It must still to realize the sounds intensity of the note, according determined by regence, keeping it sounding until that the conductor give the signal to cut the sound!!"]
@@ -122,8 +138,13 @@ export default function Cinco(){
                             <Fab style={{backgroundColor: 'gold'}}>
                                 <details><summary style={{opacity: 8, fontSize: '8px', color: 'midnightblue'}}>Notes in Tercines</summary>
                                     <Paper style={{backgroundColor: 'dodgerblue', width: '500', height: '300px'}}>
+                                        <motion.div
+                                        initial={{x: 300, rotateZ: -300, rotateX: 600}}
+                                        animate={{x: 0, rotateZ: 0, rotateX: 5}}
+                                        transition={{duration: 5}}>
                                         <img style={{width: '510px', height: '80px'}} src='https://flawiolara.com.br/wp-content/uploads/2015/05/tercina-de-colcheias-1024x238.png' alt='tercinasNotes'/>
                                         <p>As you can to see, at the same moviment of the semitime, there three notes with the same value, that determines the tercine moviment in a one hands moviment!</p>
+                                        </motion.div>
                                     </Paper>
                                 </details>
                             </Fab>
@@ -132,6 +153,10 @@ export default function Cinco(){
                             <Fab style={{backgroundColor: 'gold'}}>
                                 <details><summary style={{opacity: 8, fontSize: '8px', color: 'midnightblue'}}>Fermate</summary>
                                     <Box>
+                                        <motion.div
+                                        initial={{rotateX: 300, rotateY: -300}}
+                                        animate={{rotateX: 0, rotateY: 0}}
+                                        transition={{duration: 5}}>
                                     <Paper style={{backgroundColor: 'dodgerblue', width: '400px', height: '270px'}}>
                                         <Grid style={{float: 'left'}} container spacing={0}>
                                         <Tooltip data-tooltip='exemplo' title={fermata} id='tultip' arrow placement='right'>
@@ -144,6 +169,7 @@ export default function Cinco(){
                                         </Tooltip>
                                         </Grid>
                                     </Paper>
+                                    </motion.div>
                                     </Box>
                                 </details>
                             </Fab>

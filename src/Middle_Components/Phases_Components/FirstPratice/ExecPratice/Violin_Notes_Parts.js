@@ -3,6 +3,7 @@ import React from 'react';
 import BackspaceIcon from '@mui/icons-material/Backspace';
 import ArrowRighAltIcon from '@mui/icons-material/ArrowRightAlt';
 import ArrowDropDownCircleIcon from '@mui/icons-material/ArrowDropDownCircle';
+import { motion } from 'framer-motion';
 
 export default function ViolinPratice(){
     const style = {
@@ -34,6 +35,11 @@ export default function ViolinPratice(){
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
                 >
+                    <motion.div
+                    initial={{scale: 0}}
+                    animate={{scale: 1}}
+                    transition={{duration: 1}}
+                    >
                 <Box sx={style}>
                     <Paper>
                         <center>
@@ -41,6 +47,10 @@ export default function ViolinPratice(){
                         </center>
                         <Grid style={{paddingLeft: '200px'}}>
                             <StepLabel>Positioning</StepLabel>
+                            <motion.div
+                            initial={{rotate: -180}}
+                            animate={{rotate: 0}}
+                            transition={{duration: 1}}>
                         <Fab style={{transition: 'step-start'}}>
                             <details style={{fontSize: '5px'}}><summary style={{color: 'aqua', fontFamily: 'fantasy', fontSize: '5px', letterSpacing: '10px'}}>
                                 <img style={{width: '60px', height: '60px', borderRadius: '30px'}} src='https://i.pinimg.com/200x150/f3/fc/1e/f3fc1e583ced1e778e0ffd0143412217.jpg' alt='solfejo'/>
@@ -49,32 +59,56 @@ export default function ViolinPratice(){
                             <Divider style={{borderColor: 'midnightblue', borderWidth: '3px'}}/>
                                 <Grid style={{paddingRight: '300px', paddingTop: '15px'}}>
                                 <Button style={{width: '900px', backgroundColor: 'Highlight'}}> 
+                                <motion.div
+                                initial={{scale: 0}}
+                                animate={{scale: 1}}
+                                transition={{duration: 5}}>
                                     <Card style={{width: '880px', height: '700px'}}>
+                                        <motion.div
+                                        initial={{rotate: -280}}
+                                        animate={{rotate: 0}}
+                                        transition={{duration: 3}}>
                                         <Grid style={{float: 'left', paddingLeft: '50px'}}>
                                         <Tooltip title='Essa posição é a mais bela entre todas, pois da para se notar que, ela tocando nos mostra a suavidade que nos transmite somente ao olhar a forma em que ela toca e passa o arco e a maneira como ela esta com o seu corpo posicionado, bem mais flexibilidade esuavidade e liberdade no tocar, com classe, sem fazer bagunças e também trazendo a quem esta assistindo a calma que a musica pode transmitir sem ao menos tem um som se quer, então é essa a forma correta que se deve utilizar ao tocar esse instrumento de cordas!!'>
                                             <img style={{width: '300px', height: '200px'}} src='https://media2.giphy.com/media/Eg8NUd6YCs2TJHJmnE/giphy.gif?cid=ecf05e47xugf16zlc9v88mdpf3uisqira27jqoak9zoaruu9&ep=v1_gifs_search&rid=giphy.gif&ct=g' alt='softviolin'/>
                                         </Tooltip>
                                         </Grid>
+                                        </motion.div>
                                         <Grid style={{float: 'left', paddingLeft: '150px'}}>
+                                            <motion.div
+                                            initial={{rotate: -180}}
+                                            animate={{rotate: 0}}
+                                            transition={{duration: 3}}>
                                         <Tooltip title='Essa posição em específico, não deve ser repetida de maneira alguma cotidianamente e repetidamente, porque ela so te trara dores nas juntas dos braços das pernas, nas juntas de todo o corpo, e também das costas principal parte onde mais o violinista sente dores, então voce terá que se alto disciplinar com isso, e nunca se esquecer deste fator, com tudo isso, algumas vezes pode acontecer de destrair e mudar a posição o angulo onde esta sentado ou de pe, porém sem fazer movimentos bruscos para que não afete seus musculos causando distensões e ficando com algumas sequelas que vao levar tempo para sair de seu corpo, e voce sentira as dores todas as vezes que for tocar até que elas sumam!'>
                                             <img style={{width: '300px', height: '200px'}} src='https://media2.giphy.com/media/l2YWpJB3n7DL097Z6/giphy.gif?cid=ecf05e47g8gw1lym75lf5o139szj3xlji3bpsnw717q9bc91&ep=v1_gifs_search&rid=giphy.gif&ct=g' alt='softviolin'/>
                                         </Tooltip>
+                                        </motion.div>
                                         </Grid>
                                         <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                                         <Divider style={{backgroundColor: 'blue'}}/>
+                                        <motion.div
+                                        initial={{x: -180}}
+                                        animate={{x: 3}}
+                                        transition={{duration: 3}}>
                                         <Grid style={{float: 'left', paddingLeft: '50px', paddingTop: '10px'}} container spacing={0}>
-                                            <Tooltip title='Look, thi write position is more classic, because, the musician violinist can relax while he playing the music, and his back doesnt sore, because what is more important for all violinist is, you cant feell sore while you playing! You will be unmotivated if you play your sound with body sore, of course, sore everyone will feel it to the time on that to start violin for the first time, but with all the time, you will notice that your muscles will be more flexible, and the sores will disappear'>
+                                            <Tooltip title='Look, the write position is more classic, because, the musician violinist can relax while he playing the music, and his back doesnt sore, because what is more important for all violinist is, you cant feell sore while you playing! You will be unmotivated if you play your sound with body sore, of course, sore everyone will feel it to the time on that to start violin for the first time, but with all the time, you will notice that your muscles will be more flexible, and the sores will disappear'>
                                             <img style={{width: '300px', height: '200px'}} src='https://pbs.twimg.com/media/CVwMrUgUsAAgaoA.jpg' alt='expresion'/>
                                             </Tooltip>
                                         </Grid>
+                                        </motion.div>
                                         <Divider/>
                                     </Card> 
+                                    </motion.div>
                                 </Button>
                                 </Grid>
                                 <Button onClick={handleClose}><BackspaceIcon/></Button>
                             </Card>
                             </details>
-                        </Fab></Grid>
+                        </Fab></motion.div></Grid>
+                        <motion.div
+                        initial={{rotate: -130}}
+                        animate={{rotate: 0}}
+                        transition={{duration: 2}}>
                         <Grid style={{paddingLeft: '740px'}} container spacing={7}>
                             <Grid container spacing={3}>
                             <StepLabel>Notes at the mirror</StepLabel>
@@ -451,12 +485,14 @@ export default function ViolinPratice(){
                             </details>
                         </Fab>
                         </Grid>
+                        </motion.div>
                     </Paper>
                     <Grid style={{paddingLeft: '250px'}} container spacing={20}>
                         <img style={{width: '100px', height: '100px', borderRadius: '50px', borderColor: 'aqua', borderWidth: '2px', borderStyle: 'outset'}}
                         src='https://th.bing.com/th/id/R.c3616f5b1f307cccad484460631dd251?rik=0Ka%2fNH5s6%2fSM7A&pid=ImgRaw&r=0' alt='layout'/>
                     </Grid>
                 </Box>
+                </motion.div>
             </Modal>
         </div>
     )

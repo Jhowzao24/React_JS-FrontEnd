@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Divider, Button, Alert} from '@mui/material';
+import { motion } from 'framer-motion';
 
 export default function QuizzDesesseis(){
     const [status, setSatus] = useState(0);
@@ -172,6 +173,11 @@ export default function QuizzDesesseis(){
                     </div>
                 ):(
                     <>
+                    <motion.div
+                    initial={{scale: 0}}
+                    animate={{scale: 1}}
+                    transition={{duration: 5}}
+                    >
                     <div className='question-section'>
                         <fieldset style={{borderColor: 'cyan', backgroundColor: 'blue', color: 'gold'}}><legend style={{backgroundColor: 'white', borderRadius: '10px', color: 'black', fontFamily: 'serif'}}>Quizz Phase Sixteen</legend>
                         <div className='question-count'>
@@ -190,6 +196,7 @@ export default function QuizzDesesseis(){
                         </div>
                         </fieldset>
                     </div>
+                </motion.div>
                 </>
             )}
             </Alert>

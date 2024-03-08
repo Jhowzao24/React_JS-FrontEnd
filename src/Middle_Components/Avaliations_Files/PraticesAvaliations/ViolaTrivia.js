@@ -35,8 +35,28 @@ const StringsSong = () => {
     {
         question: 'What is the instrument make the Bass sound?',
         options: ['Cello', 'Viola', 'Violin', 'Guitar'],
-        answerIndex: 'Cello',
-    }
+        answer: 'Cello',
+    },
+    {
+      question: 'How much do you know Violin?',
+      options: ['Nothing much', 'The Enought', 'Too much', "I've never heared about this instrument yet"],
+      answer: 'The Enought',
+    },
+    {
+      question: 'So on what the violin impress you?',
+      options: ['The violin is my otive to play an instrument!', ' I do not make idea on what is violin!', 'Violin is an ashole!'],
+      answer: 'The violin is my otive to play an instrument!',
+    },
+    {
+      question: 'Viola is an instrument different of Violin an Cello, Do you agree that the Viola is most Bass sound?',
+      options: ['No', 'Yes', 'I do not care!'],
+      answer: 'Yes',
+    },
+    {
+      question: 'Cello is diferent of Violin and Viola, but Cello has an Medium sound? Do you angree?',
+      options: ['No', 'Yes', 'I am in doubt'],
+      answer: 'No',
+    },
     // Adicione mais perguntas aqui
   ];
 

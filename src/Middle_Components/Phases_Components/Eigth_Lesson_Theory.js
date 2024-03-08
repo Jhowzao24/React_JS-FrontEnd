@@ -2,6 +2,7 @@ import { Divider, Paper, Tooltip, Button, Grid } from '@mui/material';
 import React, { useState } from 'react';
 import CircleIcon from '@mui/icons-material/Circle';
 import QuizzOito from '../Avaliations_Files/TeoryAvaliationsQuizz/QuizzPhaseEight';
+import { motion } from 'framer-motion';
 
 export default function EithFase(){
     const [content, setContent] = useState('');
@@ -10,31 +11,54 @@ export default function EithFase(){
         setContent(content + '' +newContent);
     }
     const bequadro = [
-        <div>
+        <div style={{backgroundColor: 'cyan', color: 'blue', margin: '-60px'}}>
+            <motion.div
+            initial={{scale: 0}}
+            animate={{scale: 1}}
+            transition={{duration: 5}}>
             <h3>Bequadro</h3>
             <h4>The bequadro will annul the effect of all alterations that is putted in the middleof the any each compasso in the music, making the note turn back to the natural state!</h4>
+            </motion.div>
         </div>
     ]
     const doubleBemol = [
-        <div>
+        <div style={{backgroundColor: 'Highlight', color: 'purple', margin: '-60px'}}>
+            <motion.div
+            initial={{rotateX: -180, rotateY: 180}}
+            animate={{rotateX: 0, rotateY: 0}}
+            transition={{duration: 5}}
+            >
             <h1>Folded Bemol</h1>
             <h2>The folded bemol will fold the note to 2 semitones, but this accidents will alternate the tone sound of the note down, and it will not make like the sustenido the elevate the tone note to up</h2>
             <img style={{width: '300px', height: '50px'}} src='https://th.bing.com/th/id/R.c20de7c93c55f386678853f3ad5b03eb?rik=gEXBDc3RSLOOeg&pid=ImgRaw&r=0' alt='bemolDouble'/>
+            </motion.div>
         </div>
     ]
     const doubleSuste = [
-        <div>
+        <div style={{backgroundColor: 'purple', color: 'Highlght', margin: '-60px'}}>
+            <motion.div
+            initial={{rotateY: -200, rotateX: -200}}
+            animate={{rotateY: 0, rotateX: 0}}
+            transition={{duration: 6}}
+            >
             <h2>Folded Sharp</h2>
             <p>This will elevate the height of the note to 2(2 semitones= 1 Tone) semitone of the note</p>
             <img style={{width: '300px', height: '50px'}} src='https://keeponplaying.com.br/wp-content/uploads/2020/05/untitled-1024x164.png' alt='dbradosus'/>
             <p>As you can to see here, the note that is alterated is LÁ, but to the next compasso the note with a different name and height, significate the same content that the note that is being alterated to the last compasso</p>
+            </motion.div>
         </div>
     ]
     const scalesalterSucc = [
-        <div style={{width: '350px', backgroundColor: 'WindowFrame'}}>
+        <div style={{width: '350px', backgroundColor: 'WindowFrame', margin: '-60px'}}>
+            <motion.div
+            initial={{x: 650, rotateX: -180, rotateY: 180}}
+            animate={{x: 0, rotateX: 0, rotateY: 0}}
+            transition={{duration: 3}}
+            >
             <img style={{width: '300px', height: '150px'}} src='https://th.bing.com/th/id/OIP.VZSQksL2oBgObIF7qs9cMQHaCI?pid=ImgDet&rs=1' alt='dosucc'/>
             <p>The above image is the DÓ success scale, and the below scale is the alternative notes but it is based on the DÓ scale</p>
             <img style={{width: '300px', height: '150px'}} src='https://th.bing.com/th/id/OIP.XoBMQtteMRWT7i5wRp8VBQHaD4?pid=ImgDet&rs=1' alt='doaltern'/>
+            </motion.div>
         </div>
     ]
     return(
@@ -54,7 +78,7 @@ export default function EithFase(){
                             <div style={{backgroundColor: 'blue', color: 'white', margin: '10px'}}>
                                 <h5>The  tonalities  can be major or minor. Major Tonality refer to the majores scales, Minor Tonalities refer to the minor scales<br/>and, the tonailities has the same conjunt of notes and accidents the scale, but is not require, necessarily that your notes be successives(As it is thescale), maighting be alternates</h5>
                                 <Tooltip arrow placement='right-start' title={scalesalterSucc}>
-                                    <p style={{fontFamily: 'serif', color: 'Highlight'}}>Alternate and Success scales</p>
+                                    <p style={{fontFamily: 'serif', color: 'yellow'}}>Alternate and Success scales</p>
                                 </Tooltip>
                             </div>
                         </ul>

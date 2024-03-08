@@ -1,6 +1,7 @@
 import React from 'react';
 import { Modal, Box, Button, Paper, Grid, Divider, Fab, Card, CardMedia, StepLabel, Tooltip, CardActionArea } from '@mui/material';
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
+import { motion } from 'framer-motion';
 
 export default function ViolaPratice(){
     const click3 = (() => {
@@ -17,7 +18,7 @@ export default function ViolaPratice(){
     })
     const style = {
         position: 'absolute',
-        top: '50%',
+        top: '30%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
         width: 900,
@@ -58,7 +59,7 @@ export default function ViolaPratice(){
                     </Grid><Divider/><br/>
                     <CardMedia style={{paddingLeft: '50PX'}}>
                         <Fab>
-                            <details style={{fontSize: '5px'}}><summary><img style={{width: '100px', height: '100px', borderRadius: '50px'}} src='https://th.bing.com/th/id/R.d481b3065d4531b9a51d8a613294be22?rik=WBKlPiwB8jhh0w&pid=ImgRaw&r=0' alt='violadesc'/></summary>
+                            <details style={{fontSize: '5px'}}><summary><img style={{width: '100px', height: '100px', borderRadius: '50px'}} src='https://consordini.com/wp-content/uploads/2016/01/viola-and-violin.jpg' alt='violadesc'/></summary>
                                 <Card style={{width: '600px', height: '270px', fontSize: '12px'}}>
                                     <Paper>
                                         Learning Position at the Viola

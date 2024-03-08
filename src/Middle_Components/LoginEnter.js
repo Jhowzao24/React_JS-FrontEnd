@@ -40,6 +40,7 @@ class Login extends Component {
       this.submitToast();
     } else {
       console.log('Login failed');
+      toast.error('Login failed');
     }
   };
 
@@ -52,7 +53,9 @@ class Login extends Component {
             borderColor: 'cyan',
             borderStyle: 'ridge',
             borderWidth: '1px',
-            opacity: '0.8'
+            opacity: '0.8',
+            width: '330px',
+            heigth: '150px'
         },
         title: {
           fontSize: '20px',
@@ -61,7 +64,7 @@ class Login extends Component {
           color: 'white'
         },
         imagem: {
-            width: '60px', 
+            width: '30px', 
             borderRadius: '55px',
             borderColor: 'cyan',
             borderStyle: 'ridge',

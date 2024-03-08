@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Divider } from '@mui/material';
 import { Diver } from '../style';
+import { motion } from 'framer-motion';
 
 export default function QuizzViolin(){
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -131,6 +132,11 @@ export default function QuizzViolin(){
     }
     return(
         <div className="quiz">
+            <motion.circle
+            initial={{rotate: -180}}
+            animate={{rotate: 0}}
+            transition={{duration: 3}}
+            >
             <Diver>
             {showScore ? (
                 <div className="score-section" style={{fontSize: '25px', fontFamily: 'serif'}}>
@@ -157,6 +163,7 @@ export default function QuizzViolin(){
                     </>
                 )}
             </Diver>
+            </motion.circle>
         </div>
     )
 }

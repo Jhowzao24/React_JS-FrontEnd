@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Divider, ButtonBase} from '@mui/material';
+import { motion } from 'framer-motion';
 
 export default function QuizzOito(){
     const [status, setStatus] = useState(0);
@@ -253,9 +254,15 @@ export default function QuizzOito(){
                             <div className='question-text'>
                                 {questionEight[status].respOptions.map((respOption, index) => (
                                 <>
+                                <motion.div
+                                initial={{x: 300}}
+                                animate={{x: 5}}
+                                transition={{duration: 3}}
+                                >
                                     <Divider/>
                                     <ButtonBase style={{backgroundColor: 'black', color: 'Hightlight', width: '300px'}} key={index} onClick={() => Handleresponses(respOption.right)}>{respOption.respLabel}</ButtonBase>
-                                    </>
+                                </motion.div>
+                                </>
                                 ))}
                             </div>
                         </fieldset>

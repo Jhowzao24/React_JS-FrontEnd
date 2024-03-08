@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Divider, Button} from '@mui/material';
+import { motion } from 'framer-motion';
 
 export default function QuizzCatorze(){
     const [status, setStatus] = useState(0);
@@ -129,6 +130,11 @@ export default function QuizzCatorze(){
                 </div>
             ):(
                 <>
+                <motion.div
+                initial={{x: 180}}
+                animate={{x: 5}}
+                transition={{duration: 7}}
+                >
                     <div className='question-section'>
                         <fieldset style={{borderColor: 'blue', backgroundColor: 'green'}}><legend>Quizz Phase Fourteen</legend>
                         <div className='question-count'>
@@ -140,13 +146,19 @@ export default function QuizzCatorze(){
                         <div className='question-text'>
                             {questionFourteen[status].answerOptions.map((answerOption, index) => (
                                 <>
+                                <motion.div
+                                initial={{scale: 0}}
+                                animate={{scale: 1}}
+                                transition={{duration: 3}}>
                                     <Divider/>
                                     <Button style={{backgroundColor: 'black', color: 'white', width: '300px'}} key={index} onClick={() => questionaryKtorze(answerOption.corret)}>{answerOption.answerLabel}</Button>
+                                </motion.div>
                                 </>
                             ))}
                         </div>
                         </fieldset>
                     </div>
+                </motion.div>
                 </>
             )}
         </div>

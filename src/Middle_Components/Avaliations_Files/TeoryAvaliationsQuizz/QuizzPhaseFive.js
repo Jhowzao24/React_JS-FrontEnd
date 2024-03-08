@@ -1,5 +1,6 @@
 import { ButtonBase, Divider, Card } from '@mui/material';
 import React, {useState} from 'react';
+import { motion } from 'framer-motion';
 
 export default function QuizzQuinta(){
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -81,12 +82,17 @@ export default function QuizzQuinta(){
                             {questionfive[currentQuestion].askingLabel}
                         </div>
                         <div className='question-text'>
+                            <motion.div
+                            initial={{x: 350}}
+                            animate={{x: 3}}
+                            transition={{duration: 3}}>
                             {questionfive[currentQuestion].answerOptions.map((answerOption, index) => (
                                 <>
                                     <Divider/>
                                     <ButtonBase style={{backgroundColor: 'gold', color: 'black', width: '300px'}} key={index} onClick={() => HandleOptionsClick(answerOption.correct)}>{answerOption.answerLabel}</ButtonBase>
                                 </>
                             ))}
+                            </motion.div>
                         </div>
                         </fieldset>
                     </div>
