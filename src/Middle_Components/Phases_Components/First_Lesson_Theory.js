@@ -1,9 +1,6 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { Button, FormLabel, Paper, Grid, Alert, Card, Fab, Tooltip } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { Button, Paper, Grid, Alert, Card, Fab, Tooltip } from '@mui/material';
 import Popup from 'reactjs-popup';
-import Soms from './Middles_Images/Soms.jpeg';
-import music from './Middles_Images/music.jpeg';
-import Melody from './Middles_Images/Melody.jpg';
 import Timbre from './Middles_Images/Timbre.jpg';
 import duration from './Middles_Images/duration.jpeg';
 import AltSound from './Middles_Images/AltSound.gif';
@@ -11,11 +8,9 @@ import intensit from './Middles_Images/intensit.png';
 import giphyViolin from './Middles_Images/giphyViolin.gif';
 import QuizzOneTime from '../Avaliations_Files/TeoryAvaliationsQuizz/QuizzPhaseOne';
 import { motion } from 'framer-motion';
+import NotesExercise from './PhasesExercises/LineLessonPauta';
 
 export default function FirstComp(){
-    const [showModal, setShowModal] = useState(false)
-    const modalRef = useRef(null);
-    const close = () => setShowModal(false)
     useEffect(() => {
         /*const timeout = setTimeout(() => {
             setShowModal(true)
@@ -24,104 +19,285 @@ export default function FirstComp(){
     const [count, setCount] = useState(0)
     useEffect(() => {
         document.createComment = `You clicked ${count} time`
-    })
+    });
+    const [opMusic, setOpMusic] = useState(false);
+    const renderMusic = () => {
+        if(opMusic === 1){
+            return(
+                <center>
+                    <div style={{backgroundColor: 'black', color: 'cyan', fontSize: '10px', fontFamily: 'serif', borderRadius: '20px'}}>
+                        <h1>The Music is the most beautifull form to express our feelings by the coordinated sounds made by voices and instruments</h1>
+                    </div>
+                </center>
+            );
+        }else if(opMusic === 2){
+            return(
+                <center>
+                    <div style={{backgroundColor: 'black', color: 'cyan', fontSize: '10px', fontFamily: 'serif', borderRadius: '20px'}}>
+                        <h1>Music is the knowledge of the Human that can to find in life, it is the understanding of the soul!</h1>
+                        <h3 style={{color: 'gold'}}>the music will be the feelings manifesting for who you can to accert, you have a person goal, to anyone, and you want to play a music, that the letters or the melody can touch their feelings, this is the object of the music!</h3>
+                    </div>
+                </center>
+            );
+        }else if(opMusic === 3){
+            return(
+                <center>
+                    <div style={{backgroundColor: 'black', color: 'cyan', fontSize: '10px', fontFamily: 'serif', borderRadius: '20px'}}>
+                        <h1>You will got the music on the sense this bring, to make others dream and the others smile!!</h1>
+                        <h3 style={{color: 'gold'}}>If the sound music that you are playing touch the others feelings, you got it, you made it right! This is what most import for the music world!!</h3>
+                    </div>
+                </center>
+            );
+        }else if(opMusic === 4){
+            return(
+                <center>
+                    <div style={{backgroundColor: 'black', color: 'cyan', fontSize: '10px', fontFamily: 'serif', borderRadius: '20px'}}>
+                        <h1>The lite of you instrument will appear when you play the notes that will form a melody and this will produce any different sounds!!</h1>
+                    </div>
+                </center>
+            )
+        }
+    };
+    const [opSound, setOpSound] = useState(false);
+    const renderSound = () => {
+        if(opSound === 1){
+            return(
+                <center>
+                    <div style={{borderRadius: '30px', backgroundColor: 'black', color: 'gold', fontSize: '16px'}}>
+                        <h3>Sound is all we hear, so... The sound is the the propagation of waves in the air</h3>
+                    </div>
+                </center>
+            )
+        }else if(opSound === 2){
+            return(
+                <center>
+                    <div style={{borderRadius: '30px', backgroundColor: 'black', color: 'gold', fontSize: '16px'}}>
+                        <h3>So, a beat, a duck making noises, a motor's cars making noises, an instrument playing, is sound!!</h3>
+                    </div>
+                </center>
+            )
+        }else if(opSound === 3){
+            return(
+                <center>
+                    <div style={{borderRadius: '30px', backgroundColor: 'black', color: 'gold', fontSize: '16px'}}>
+                        <h3>Sounds is all you hear!!</h3>
+                    </div>
+                </center>
+            )
+        }else if(opSound === 4){
+            return(
+                <center>
+                    <div style={{borderRadius: '30px', backgroundColor: 'black', color: 'gold', fontSize: '16px'}}>
+                        <h3>Noise is sound too!!</h3>
+                    </div>
+                </center>
+            )
+        }
+    };
+    const [opMelody, setOpMelody] = useState(false);
+    const renderMelody = () => {
+        if(opMelody === 1){
+            return(
+                <center>
+                    <div style={{backgroundColor: 'WindowFrame', color: 'Highlight', boxShadow: '0 0 5px 3px'}}>
+                        <h3>It is the Successive of Sounds productions <b>||</b> <i>Could you remmember the queue</i></h3>
+                    </div>
+                </center>
+            )
+        }else if(opMelody === 2){
+            return(
+                <center>
+                    <div style={{backgroundColor: 'WindowFrame', color: 'Highlight', boxShadow: '0 0 5px 3px'}}>
+                        <h3>Melody is beautifull that will full your feelings or your mind</h3>
+                    </div>
+                </center>
+            )
+        }else if(opMelody === 3){
+            return(
+                <center>
+                    <div style={{backgroundColor: 'WindowFrame', color: 'Highlight', boxShadow: '0 0 5px 3px'}}>
+                        <h3>Melody is all the sequences sounds that make you follow a rithymic feel!!</h3>
+                    </div>
+                </center>
+            )
+        }else if(opMelody === 4){
+            return(
+                <center>
+                    <div style={{backgroundColor: 'WindowFrame', color: 'Highlight', boxShadow: '0 0 5px 3px'}}>
+                        <h3>Melody light the eyes on every where you go and play a music that will make the difference</h3>
+                    </div>
+                </center>
+            )
+        }
+    };
+    const [opHarmony, setOpHarmony] = useState(false);
+    const renderHarmony = () => {
+        if(opHarmony === 1){
+            return(
+                <center>
+                    <div style={{backgroundColor: 'WindowFrame', color: 'Highlight', boxShadow: '0 0 5px 3px'}}>
+                        <h3>First of all, it is the musical element that produce very sounds simultanially at the same time!</h3>
+                    </div>
+                </center>
+            )
+        }else if(opHarmony === 2){
+            return(
+                <center>
+                    <div style={{backgroundColor: 'WindowFrame', color: 'Highlight', boxShadow: '0 0 5px 3px'}}>
+                        <h3>Harmony can be look at when you hear two or three or more sounds than this at the same time ones!!</h3>
+                    </div>
+                </center>
+            )
+        }else if(opHarmony === 3){
+            return(
+                <center>
+                    <div style={{backgroundColor: 'WindowFrame', color: 'Highlight', boxShadow: '0 0 5px 3px'}}>
+                        <h3>Harmony is all the sequences sounds that made more than one note play simultanially!!</h3>
+                        <h3>In best words, when you hear a sound with very nstruments playing the different notes at the same time, this is a harmony</h3>
+                    </div>
+                </center>
+            )
+        }else if(opHarmony === 4){
+            return(
+                <center>
+                    <div style={{backgroundColor: 'WindowFrame', color: 'Highlight', boxShadow: '0 0 5px 3px'}}>
+                        <h3>Harmony, we have examples of harmony, that it demands on when you are walking with other person beside you and your feets are different, but it is toke at the same time, and when you are signing with anyone and this other person is singning other melody together you!</h3>
+                    </div>
+                </center>
+            )
+        }
+    };
+    const [opRhythm, setOpRhythm] = useState(false);
+    const renderRhythm = () => {
+        if(opRhythm === 1){
+            return(
+                <center>
+                    <div style={{backgroundColor: 'WindowFrame', color: 'Highlight', boxShadow: '0 0 5px 3px'}}>
+                        <h3>First of all, it is the musical element that produce very sounds simultanially at the same time!</h3>
+                    </div>
+                </center>
+            )
+        }else if(opRhythm === 2){
+            return(
+                <center>
+                    <div style={{backgroundColor: 'WindowFrame', color: 'Highlight', boxShadow: '0 0 5px 3px'}}>
+                        <h3>Rhythm will get you to every place you want to go, because when you make all the things on your rhythm you will well, and this is the enought way to check the best things in your life, at the music this will be the same form!!</h3>
+                    </div>
+                </center>
+            )
+        }else if(opRhythm === 3){
+            return(
+                <center>
+                    <div style={{backgroundColor: 'WindowFrame', color: 'Highlight', boxShadow: '0 0 5px 3px'}}>
+                        <h3>Harmony is all the sequences sounds that made more than one note play simultanially!!</h3>
+                        <h3>In best words, when you hear a sound with very nstruments playing the different notes at the same time, this is a harmony</h3>
+                    </div>
+                </center>
+            )
+        }else if(opRhythm === 4){
+            return(
+                <center>
+                    <div style={{backgroundColor: 'WindowFrame', color: 'Highlight', boxShadow: '0 0 5px 3px'}}>
+                        <h3>Rhythm you can to see it in any where you go, a beat of a palms, heart beats, you have a lots of form to cognize a rhythm!</h3>
+                    </div>
+                </center>
+            )
+        }else if(opRhythm === 5){
+            return(
+                <div>
+                    <Tooltip style={{backgroundColor: 'midnightblue'}} title={count}>
+                        <Button style={{fontSize: '12px', fontFamily: 'serif', color: 'lightblue', backgroundColor: 'Highlight'}} onClick={() => setCount(count + 1)}>One beat is like a one click! CLICK</Button>
+                    </Tooltip>
+                </div>
+            )
+        }
+    };
     return (
-        <div style={{nackgroundColor: 'Highlight', width: '300px', height: '900px'}}>
-            <Card style={{width: '1100px', height: '1200px'}}>
+        <div style={{nackgroundColor: 'Highlight', width: '300px', height: '1300px'}}>
+            <Card style={{width: '900px', height: '1500px'}}>
                 <center style={{color: 'midnightblue', fontFamily: 'fantasy', letterSpacing: '10px'}}>Music and Sound</center>
                 <Card style={{paddingLeft: '20px'}}>
                     <Grid style={{paddingLeft: '35px', paddingTop: '60px'}} container spacing={5}>
-                    <img style={{width: '70px', height: '70px', borderRadius: '50px'}} src={music} alt='musica'/>
-                    <FormLabel style={{opacity: 'revert-layer', color: 'blue', fontFamily: 'monospace'}}>What is Music ?</FormLabel>
-                    <Paper style={{backgroundColor: 'Highlight', color: 'gold', fontFamily: 'serif', fontSize: '15px'}}>
-                        <p>It is the most beautifull form to express our feelings by the coordinated sounds madeby voices and instruments</p>
-                        <i>This take we all to a closed location at the music, that is the understandly goals that you are increased to improve</i>
-                        </Paper>
+                    <Tooltip title='Click for 4 times to learn the content! Enjoy it!'>
+                        <Button style={{borderStyle: 'solid', borderColor: 'cyan', borderWidth: '3px'}} onClick={() => setOpMusic((opMusic % 4) + 1)}>What is the Music?</Button>
+                    </Tooltip>
+                    <Grid container spacing={8} style={{float: 'rigth', paddingLeft: '300px'}}>
+                        {renderMusic()}
                     </Grid>
-                    <Grid style={{float: 'left'}}>
-                        <img style={{width: '70px', height: '70px', borderRadius: '50px'}} src={Soms} alt='som'/>
+                    </Grid>
+                    <hr/>
+                    <Grid container spacing={0} style={{float: 'left'}}>
+                    <Tooltip title='Click for 4 times to learn the content! Enjoy it!'>
+                        <Button style={{borderStyle: 'solid', borderColor: 'cyan', borderWidth: '3px'}} onClick={() => setOpSound((opSound % 4) + 1)}>What is the Sound?</Button>
+                    </Tooltip>
                         <Grid style={{paddingLeft: '260px'}}  container spacing={8}>
-                        <Paper style={{backgroundColor: 'midnightblue', color: 'gold'}}>
-                        <FormLabel style={{opacity: 'revert-layer', color: 'Highlight', fontFamily: 'serif', fontSize: '15px'}}>What is Sound?</FormLabel>
-                            <p>Sound is all we hear, so... The sound is formated by the propagation of waves in the air</p>
-                            <i>So, a beat, a duck making noises, a motor's cars making noises, an instrument playing, is sound!!</i>
-                        </Paper>
-                        <Grid id='meu-modal' ref={modalRef} className='modal-beaut'>
-                            {
-                                showModal && (
-                                    <Card style={{backgroundColor: 'Highlight', color: 'gold'}} id='meu-modal'>
-                                        <p>Hello World</p>
-                                        <Button style={{color: 'gold'}} onClick={close}>C</Button>
-                                    </Card>
-                                )
-                            }
-                        </Grid>
+                            {renderSound()}
                         </Grid>
                     </Grid>
                 </Card>
                 <hr style={{borderColor: 'Highlight'}}/>
                 <center style={{color: 'midnightblue', fontFamily: 'fantasy', letterSpacing: '10px'}}>Musics Elements</center>
-                <Card style={{paddingLeft: '20px',height: '300px'}}>
-                    <img style={{widht: '70px', height: '70px', borderRadius: '50px'}} src={Melody} alt='melodia'/>
-                    <FormLabel style={{opacity: 'revert-layer', color: 'Highlight', fontFamily: 'serif', fontSize: '15px'}}>What is Melody ?</FormLabel>
-                    <Grid style={{paddingLeft: '400px'}} container spacing={8}>
-                    <Paper style={{backgroundColor: 'Highlight', color: 'gold', width: '600px', fontFamioly: 'serif', fontSize: '15px'}}>
-                        <p>It is the Successive of Sounds productions <b>||</b> <i>Could you remmember the queue</i></p>
-                    </Paper>
-                    </Grid>
-                <div style={{float: 'left', paddingLeft: '20px', paddingTop: '15px'}}>
-                    <img style={{width: '200px', height: '70px', borderRadius: '50px'}} src='https://th.bing.com/th/id/OIP.VVt1_c7o_F5MbwO8CmB0zAHaCQ?pid=ImgDet&rs=1' alt='melodia'/>
-                    <FormLabel style={{opacity: 'revert-layer', color: 'Highlight', fontFamily: 'serif', fontSize: '15px'}}>What is Harmony ?</FormLabel>
-                    <Grid style={{paddingLeft: '377px'}} container spacing={8}>
-                    <Paper style={{backgroundColor: 'Highlight', color: 'gold', fontFamily: 'serif', fontSize: '15px'}}>
-                        <p>It is the ordered sounds productions of various differents sounds simultaniously</p> 
-                    </Paper>
-                    </Grid>
-                </div>
-                <Grid container spacing={0}>
-                <div style={{paddingLeft: '15px', paddingTop: '20px'}}>
-                    <img style={{width: '190px', height: '70px', borderRadius: '50px'}} src='https://i0.wp.com/nurseonline.co.il/wp-content/uploads/2021/08/normal-sinus-rhythm-gif.gif?fit=1736%2C254&ssl=1' alt='melodia'/>
-                    <FormLabel style={{opacity: 'revert-layer', color: 'Highlight', fontFamily: 'serif', fontSize: '15px'}}>What is Rhythm ?</FormLabel>
-                    <Grid style={{paddingLeft: '377px'}} container spacing={8}>
-                    <Paper style={{backgroundColor: 'gold', color: 'Highlight', fontFamily: 'serif', fontSize: '15px'}}>
-                        <p>It is the time's ordered division | it Having the one unic beat for each time's division</p>
-                        <i>So, each beat that is sounded, will divid the time simultaniously, because, each time we go to next beat, this will acomulate</i> 
-                    </Paper>
-                    <Tooltip style={{backgroundColor: 'midnightblue'}} title={count}>
-                    <Button style={{fontSize: '12px', fontFamily: 'serif', color: 'lightblue', backgroundColor: 'Highlight'}} onClick={() => setCount(count + 1)}>One beat is like a one click! CLICK</Button>
+                <Card style={{paddingLeft: '20px',height: '350px'}}>
+                    <Tooltip title='Click for 4 times to learn the content! Enjoy it!'>
+                        <Button style={{borderStyle: 'solid', borderColor: 'cyan', borderWidth: '3px'}} onClick={() => setOpMelody((opMelody % 4) + 1)}>What is Melody?</Button>
                     </Tooltip>
+                    <Grid style={{paddingLeft: '200px'}} container spacing={5}>
+                        {renderMelody()}
+                    </Grid>
+                    <br/><br/>
+                <div style={{float: 'left', paddingTop: '15px'}}>
+                <Tooltip title='Click for 4 times to learn the content! Enjoy it!'>
+                    <Button style={{borderStyle: 'solid', borderColor: 'cyan', borderWidth: '3px'}} onClick={() => setOpHarmony((opHarmony % 4) + 1)}>What is Harmony?</Button>
+                </Tooltip>
+                    <Grid style={{paddingLeft: '250px'}} container spacing={8}>
+                        {renderHarmony()}
+                    </Grid>
+                </div><br/>
+                <Grid container spacing={0}>
+                <div style={{paddingTop: '20px'}}>
+                    <Grid style={{paddingTop: '30px'}} container spacing={0}>
+                        <Tooltip title='Click for 5 times to learn the content! Enjoy it!'>
+                            <Button style={{borderStyle: 'solid', borderColor: 'cyan', borderWidth: '3px'}} onClick={() => setOpRhythm((opRhythm % 5) + 1)}>What is Rhythm?</Button>
+                        </Tooltip>
+                        <Grid container spacing={5} style={{paddingLeft: '200px'}}>
+                            {renderRhythm()}
+                        </Grid>
                     </Grid>
                 </div>
                 </Grid>
                 </Card>
+                <br/>
                 <hr style={{borderColor: 'midnightblue'}}/>
+                <br/>
                 <Paper>
                     <center style={{color: 'midnightblue', fontFamily: 'fantasy', letterSpacing: '10px'}}>Properties of sound</center>
                     <div style={{paddingLeft: '100px', float: 'left'}}>
                     <Popup trigger={<Fab style={{backgroundColor: 'aqua', color: 'midnightblue', fontFamily: 'fantasy'}}>Timbre</Fab>}>
-                        <img style={{width: '100px', height: '100px'}} src={Timbre} alt='timbre'/>
-                        <i>It is the distinction of producted sounds by different sonorous fonts!<br/>
-                        being on the same height and intensity; It's thecolor of sound</i>
-                        <Card style={{width: '500px', backgroundColor: 'Highlight', color: 'gold'}}><ul>We can indentify distincts sounds of others</ul>
-                        <ul>By example: We can to indentify a sound that is play by violin, and distinct others
-                            different sounds that is played by other instruments, by thisproperty we candifferency the sounds
-                        </ul>
+                        <Card style={{margin: '-50px', backgroundColor: 'gold'}}>
+                            <img style={{width: '100px', height: '100px'}} src={Timbre} alt='timbre'/>
+                            <i>It is the distinction of producted sounds by different sonorous fonts!<br/>
+                            being on the same height and intensity; It's thecolor of sound</i>
+                            <Card style={{width: '300px', backgroundColor: 'Highlight', color: 'gold'}}><ul>We can indentify distincts sounds of others</ul>
+                                <ul>By example: We can to indentify a sound that is play by violin, and distinct others
+                                    different sounds that is played by other instruments, by thisproperty we candifferency the sounds
+                                </ul>
+                            </Card>
                         </Card>
                     </Popup>
                     </div>
-                    <div style={{paddingRight: '200px', float: 'right'}}>
+                    <div style={{paddingRight: '150px', float: 'right'}}>
                     <Popup trigger={<Fab style={{backgroundColor: 'aqua', color: 'midnightblue', fontFamily: 'fantasy'}}>Duration</Fab>}>
-                        <Card>
+                        <Card style={{margin: '-50px', backgroundColor: 'cyan'}}>
                         <img style={{width: '100px', height: '100px'}} src={duration} alt='duracao'/>
                         <i>It is the sustentation of sound in a determined space of time</i>
                         <ul>This will determine if the sound is SHORT or LONG</ul>
                         </Card>
                     </Popup>
                     </div>
-                    <div style={{paddingRight: '200px', float: 'right'}}>
+                    <div style={{paddingRight: '160px', float: 'right'}}>
                     <Popup trigger={<Fab style={{backgroundColor: 'aqua', color: 'midnightblue', fontFamily: 'fantasy'}}>Height</Fab>}>
-                        <Card>
-                            <img style={{width: '200px', height: '200px', borderRadius: '100px'}} src={AltSound} alt='alturaH'/>
+                        <Card style={{width: '350px', backgroundColor: 'blueviolet', color: 'gold', fontFamily: 'serif', fontSize: '20px'}}>
+                            <img style={{width: '100px', height: '200px', borderRadius: '100px'}} src={AltSound} alt='alturaH'/>
                             <i>It is the properties of waves sounds frequences that permited us to distinct between some
                                 sounds, ("Bass, Medium, High-pitched"), How much minor is the sounds frequence,
                                 more bass is this sound. How much greatter the frequence, more High-pitched is the sound
@@ -129,9 +305,9 @@ export default function FirstComp(){
                         </Card>
                     </Popup>
                     </div>
-                    <div style={{float: 'right', paddingRight: '200px'}}>
+                    <div style={{float: 'right', paddingRight: '130px'}}>
                     <Popup trigger={<Fab style={{backgroundColor: 'aqua', color: 'midnightblue', fontFamily: 'fantasy'}}>Intensity</Fab>}>
-                        <Card style={{width: '300px'}}>
+                        <Card style={{width: '450px', backgroundColor: 'ThreeDShadow', color: 'white', fontFamily: 'serif'}}>
                             <i>This will help you to distinct the different of weak sounds and the strong sounds</i>
                             <p>Look this two examples below</p>
                             <ul>
@@ -144,11 +320,17 @@ export default function FirstComp(){
                         </Card>
                     </Popup>
                     </div>
-                </Paper><br/><hr/><br/><hr/><br/><hr/><br/>
+                </Paper><br/><hr/><br/><hr/><br/><br/>
+                <center>
+                    <Button><details><summary>Exercises of the Elements and Properties! Remember on close this window to continue to the Kizz below!!!</summary>
+                    <NotesExercise/>
+                    </details></Button>
+                </center>
+                <br/><hr/><br/><br/><br/><br/>
                 <div style={{paddingLeft: '500px', paddingBotton: '70px'}}>
                 <Button>
                     <Card style={{float: 'right', width: '500px', height: '500px', paddingBotton: '20px'}}>
-                        <h3>I believe that when you end this all knoledges, you will be inspired so much</h3>
+                        <h3>This is the start of the whole knowledge that you must to learn</h3>
                         <hr style={{borderColor: 'Highlight'}}/>
                         <img style={{height: '300px'}} src={giphyViolin} alt='violinogif'/>
                     </Card>

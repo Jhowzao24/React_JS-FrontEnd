@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Avatar, Dialog, DialogActions, DialogContent, DialogTitle } from '@material-ui/core';
 import { Button } from 'antd';
 import GameCompass from '../../../Avaliations_Files/PraticesAvaliations/TestCompassFormule';
+import toast, { Toaster } from 'react-hot-toast';
 
 function DialogTestCompass() {
   const [open, setOpen] = useState(false);
@@ -11,28 +12,35 @@ function DialogTestCompass() {
   };
 
   const handleClose = () => {
+    toast.error('Getting out the system...');
     setOpen(false);
   };
+
+  const handleClosing = () => {
+    toast.success('Datas confirmed!');
+    setOpen(false);
+  }
 
   return (
     <div>
       <Button type="primary" onClick={handleClickOpen}>
-        Abrir diálogo
+        Compass Exercise
       </Button>
-      <Dialog open={open} onClose={handleClose} aria-labelledby="dialog-title">
-        <DialogTitle id="dialog-title"><Avatar style={{width: '150px', height: '150px', borderStyle: 'double', borderColor: 'blue', backgroundColor: 'lightgreen'}} variant='square' src='https://c8.alamy.com/comp/2A29DR5/3d-thief-on-phone-surrounded-by-a-forbidden-sign-illustration-with-isolated-white-background-2A29DR5.jpg'/></DialogTitle>
+      <Dialog open={open} onClose={handleClose} title="My Custom Dialog">
+        <DialogTitle id="dialog-title"><Avatar style={{width: '300px'}} src='https://cdn.statically.io/img/www.aprendateclado.com/f=auto&q=90&w=1200/wp-content/uploads/2017/10/3-Na-pauta.jpg' alt='avatares'/></DialogTitle>
         <DialogContent style={{backgroundColor: 'midnightblue'}}>
           <GameCompass/>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Fechar
+          <Button style={{backgroundColor: 'red', color: 'white'}} onClick={handleClose} color="primary">
+            Close
           </Button>
-          <Button onClick={handleClose} color="primary" autoFocus>
-            Confirmar
+          <Button style={{backgroundColor: 'Highlight', color: 'white'}} onClick={handleClosing} color="primary" autoFocus>
+            Confirm
           </Button>
         </DialogActions>
       </Dialog>
+      <Toaster/>
     </div>
   );
 }

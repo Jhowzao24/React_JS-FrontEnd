@@ -1,58 +1,14 @@
+/* eslint-disable react/jsx-no-undef */
+/* eslint-disable no-undef */
+/* eslint-disable react/jsx-pascal-case */
 import './App.css';
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import { Grid } from '@mui/material';
 import Login from './Middle_Components/LoginEnter';
 import giphyViolin from './Middle_Components/Phases_Components/Middles_Images/giphyViolin.gif';
-import { Button } from 'antd';
-import Popup from 'reactjs-popup';
+
 
 function App() {
-  function Exercise() {
-    const [tonality, setTonality] = useState('');
-    const [exercise, setExercise] = useState('');
-
-    // Função para gerar um exercício aleatório
-    function generateExercise() {
-        const tonalities = ['Dó Maior', 'Sol Maior', 'Ré Maior', 'Lá Maior'];
-        const exercises = [
-            'Arpejo Ascendente e Descendente',
-            'Escalas Cromáticas',
-            'Acordes de Sétima',
-            'Passagens Rápidas',
-            'Dobraduras de Corda',
-            'Harmonização de Melodia',
-        ];
-
-        // Escolher aleatoriamente uma tonalidade e um exercício
-        const randomTonality = tonalities[Math.floor(Math.random() * tonalities.length)];
-        const randomExercise = exercises[Math.floor(Math.random() * exercises.length)];
-
-        // Atualizar o estado com o exercício gerado
-        setTonality(randomTonality);
-        setExercise(randomExercise);
-    }
-
-    return (
-        <div>
-            <h1>Exercício Difícil para Violoncelo</h1>
-            <button onClick={generateExercise}>Gerar Exercício</button>
-            <div>
-                <h2>Tonalidade: {tonality}</h2>
-                <h3>Exercício: {exercise}</h3>
-                {/* Aqui você pode incluir instruções específicas para o exercício gerado */}
-            </div>
-        </div>
-    );
-}
-
-  const [showScreen, setShowScreen] = useState(false);
-
-  // Função para exibir a tela interna
-  function handleShowScreen() {
-      setShowScreen(true);
-  }
-
-
   const styles = {
     image: {
       width: '250px', 
@@ -67,53 +23,130 @@ function App() {
       color: 'white',
       backgroundColor: 'blue',
       opacity: '0.7',
-      width: '350px',
+      width: '1000px',
       letterSpacing: '10px',
       borderRadius: '25px',
-      fontSize: '30px'
+      fontSize: '30px',
+      alignText: 'center'
     }
   };
-  const [isVisible, setIsVisible] = useState(true);
-  useEffect(() => {
-    // Define um temporizador para mudar a visibilidade após 5 segundos
-    const timer = setTimeout(() => {
-      setIsVisible(false);
-    }, 10000);
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <div className="App">
       <body className="App-header">
-        <Grid container spacing={3} style={{float: 'right', paddingLeft: '30px'}}>
-          {isVisible && <h1 style={styles.h1} >Your virtual environment on string music</h1>}
-        </Grid>
         <Grid style={{float: 'left', paddingLeft: '150px', paddingTop: '150px'}} container spacing={15}>
           <center>
             <header>
+              <div>
               <img style={styles.image}
               src={giphyViolin} 
               alt='positionVioliner'/>
+              </div>
             </header>
           </center>
         </Grid>
-        <Grid container spacing={13} style={{paddingLeft: '670px'}}>
+        <Grid container spacing={15} style={{paddingLeft: '670px'}}>
           <Login/>
         </Grid>
+        <br/>
       </body>
-      <br/><br/>
-      <br/><br/>
-      <br/>
-      <button onClick={handleShowScreen}>Mostrar Tela Interna</button>
-      {showScreen && <Popup trigger={<Button>Exercise Cello!</Button>}>
-        <Exercise/>
-        </Popup>}
-      <br/>
     </div>
   );
 }
 
 export default App;
+
+/*
+function Sliders({ slides }){
+  const [indiceAtual, setIndiceAtual] = useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setIndiceAtual((indiceAtual + 1) % slides.length);
+    }, 10000);
+
+    return () => clearInterval(intervalId);
+  }, [indiceAtual, slides.length]);
+  return(
+    <div style={{ width: '100%', overflow: 'hidden' }}>
+    <div style={{ display: 'flex', transition: 'transform 0.9s', transform: `translateX(-${indiceAtual * 100}%)` }}>
+      {slides.map((slide, index) => (
+        <div key={index} style={{ width: '100%', flexShrink: 0, paddingTop: '100px', fontSize: '15px' }}>
+          <p style={{color: 'violet', backgroundColor: 'blue'}}>{slide.texto}</p>
+          <img src={slide.imagem} alt={slide.alt} style={{ width: '150px', heigth: '60px', borderRadius: '70px', boxShadow: '0 0 5px 5px', opacity: '0.8' }} />
+        </div>
+      ))}
+    </div>
+  </div>
+  )
+}*/
+
+
+
+
+  /*
+  const slides = [
+    {
+      imagem: 'https://th.bing.com/th/id/R.debf7ee25ec2870292b28e77f4c9af45?rik=jSMbqxXAqEwoBg&pid=ImgRaw&r=0',
+      texto: 'The Cello has a Bass sound that makes the grave on the orchestra, this sound means like a tempestuasty day!!',
+      alt: 'Descrição da imagem 1'
+    },
+    {
+      imagem: 'https://th.bing.com/th/id/OIP.eV3J1bybz4cAeh6RZDJCMQHaE_?rs=1&pid=ImgDetMain',
+      texto: 'Violin has an soft and a clean sound!!The Violin is the most beautiful instrument that make the conduction of the orchestra around the whole world!!',
+      alt: 'Descrição da imagem 2'
+    },
+    { 
+      imagem: 'https://th.bing.com/th/id/OIP.uAbxarKmbRUzFlnRXht4KQHaEq?rs=1&pid=ImgDetMain',
+      texto: 'The Viola has a perfect sound making the tenor in orchestra!!',
+      alt: 'Descrição da imagem 3'
+    },
+    {
+      imagem: 'https://i.pinimg.com/originals/4b/45/7b/4b457bdfc1da6bc7988eaf0f194f0128.jpg',
+      texto: 'You and the Violin conect yourselfs!!',
+      alt: 'Descrição da imagem 4',
+    },
+    {
+      imagem: 'https://thumbs.dreamstime.com/b/viol%C3%ADn-y-arco-cl%C3%A1sicos-dibujados-mano-instrumento-musical-ilustraci%C3%B3n-del-vector-74806957.jpg',
+      texto: 'Viola connects you with the heart of the harmony!!',
+      alt: 'Descrição da imagem 5',
+    },
+    {
+      imagem: 'https://i.pinimg.com/originals/f1/fc/a7/f1fca7f66608b895776153591cb5cf01.jpg',
+      texto: 'Viola and you will play the best harmony and make the best of the whole music!!',
+      alt: 'Descrição da imagem 6',
+    },
+    {
+      imagem: 'https://th.bing.com/th/id/OIP.83cAGXnTbINSymCgM59J5AHaLH?rs=1&pid=ImgDetMain',
+      texto: 'Resting with the Violin is the best resting time that youve never feel before!!But you will feel this when you start to play the violin!!',
+      alt: 'Detalhes da imagem 7',
+    }
+    // Adicione mais slides conforme necessário
+  ];
+  */
+
+  /*
+        <br/><br/><br/>
+        <Grid container spacing={20} style={{float: 'right', paddingLeft: '150px', paddingTop: '30px'}}>
+          <div>
+            <center>
+                <Sliders slides={slides} />
+            </center>
+          </div>
+        </Grid>
+
+*/
+
+
+/*
+  const [isVisible, setIsVisible] = useState(true);
+  useEffect(() => {
+    // Define um temporizador para mudar a visibilidade após 5 segundos
+    const timer = setTimeout(() => {
+      setIsVisible(false);
+    }, 30000);
+    return () => clearTimeout(timer);
+  }, []);*/
 
 
 /*import AvatarCre from './Middle_Components/Pratice_Files/FilesPratices/Avatars/AvatarOne';*/

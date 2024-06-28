@@ -1,7 +1,6 @@
 import React from 'react';
 import { Modal, Box, Button, Paper, Grid, Divider, Fab, Card, CardMedia, StepLabel, Tooltip, CardActionArea } from '@mui/material';
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
-import { motion } from 'framer-motion';
 
 export default function ViolaPratice(){
     const click3 = (() => {

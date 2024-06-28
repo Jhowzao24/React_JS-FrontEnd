@@ -22,7 +22,7 @@ interface UserData {
 const Api_Interface: React.FC = () => {
   const style = {
     containerDad: {
-      backgroundColor: 'darkviolet',
+      backgroundColor: 'purple',
       color: 'cyan',
       width: 630,
       height: 700,
@@ -118,7 +118,8 @@ const Api_Interface: React.FC = () => {
             color: 'white', 
             paddingLeft: '15px', 
             fontFamily: 'fantasy',
-            backgroundColor: 'blueviolet'
+            backgroundColor: 'blueviolet',
+            letterSpacing: '3px'
           }}
           placeholder='First Name!'
           />
@@ -139,7 +140,8 @@ const Api_Interface: React.FC = () => {
             color: 'white', 
             paddingLeft: '15px', 
             fontFamily: 'fantasy',
-            backgroundColor: 'blueviolet'
+            backgroundColor: 'blueviolet',
+            letterSpacing: '3px'
           }}
           placeholder='LastName'
           />
@@ -160,7 +162,8 @@ const Api_Interface: React.FC = () => {
             color: 'white', 
             paddingLeft: '15px', 
             fontFamily: 'fantasy',
-            backgroundColor: 'blueviolet'
+            backgroundColor: 'blueviolet',
+            letterSpacing: '3px'
           }}
           placeholder='Cellphonumber'
           />
@@ -177,8 +180,14 @@ const Api_Interface: React.FC = () => {
           value={createInput.InstrumentoPref}
           onChange={(e) => setCreateInput({ ...createInput, InstrumentoPref: e.target.value})}
           required
-          style={{color: 'white', paddingLeft: '15px', fontFamily: 'fantasy'}}
           placeholder='Own description'
+          style={{
+            color: 'white', 
+            paddingLeft: '15px', 
+            fontFamily: 'fantasy',
+            backgroundColor: 'blueviolet',
+            letterSpacing: '3px'
+          }}
           />
         </div>
         <br/>
@@ -193,13 +202,19 @@ const Api_Interface: React.FC = () => {
           value={createInput.Localidade}
           onChange={(e) => setCreateInput({ ...createInput, Localidade: e.target.value})}
           required
-          style={{color: 'white', paddingLeft: '15px', fontFamily: 'fantasy'}}
           placeholder='Locate'
+          style={{
+            color: 'white', 
+            paddingLeft: '15px', 
+            fontFamily: 'fantasy',
+            backgroundColor: 'blueviolet',
+            letterSpacing: '3px'
+          }}
           />
         </div>
         <Divider style={{borderColor: 'cyan'}}/>
         <br/>
-        <Button style={{backgroundColor: 'cyan', color: 'white', width: '200px'}} onClick={createData}>Create</Button>
+        <Button style={{backgroundColor: 'cyan', color: 'blue', width: '200px', fontFamily: 'serif', fontSize: '15px', boxShadow: '0 0 3px 3px'}} onClick={createData}>Create</Button>
         <br/>
         <br/>
         <br/>

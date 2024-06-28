@@ -21,10 +21,10 @@ export default function VioloncelloPratice(){
         <div>
             <Button style={{color: 'midnightblue', fontFamily: 'fantasy', letterSpacing: '2px', width: '300px'}} onClick={handleOpen}>
                 <Grid style={{paddingRight: '30px'}}>
-                    <img style={{width: '50px', height: '50px', borderRadius: '20px', boxShadow: '0 0 3px 5px', margin: '-15px'}} src='https://d1aeri3ty3izns.cloudfront.net/media/19/194329/1200/preview.jpg' alt='violinoprati'/>
+                    <img style={{width: '100px', height: '100px', borderRadius: '20px', boxShadow: '0 0 3px 5px', margin: '-15px'}} src='https://d1aeri3ty3izns.cloudfront.net/media/19/194329/1200/preview.jpg' alt='violinoprati'/>
                 </Grid>
                 <div style={{paddingRight: '30px'}}>
-                Pratice with Violoncelo
+                Notes Mirror Cello!
                 </div>
             </Button>
             <Modal

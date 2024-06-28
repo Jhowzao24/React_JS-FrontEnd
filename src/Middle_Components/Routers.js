@@ -26,31 +26,31 @@ export default function RoteadorReact(){
             animate={{scale: 1}}
             transition={{duration: 1.5}}>
                 <div>
-                    <Grid container spacing={20}>
+                    <Grid container spacing={15}>
                         <center>
                             <Grid style={{paddingRight: '50px', float: 'right'}} container spacing={5}>
-                            <div style={{backgroundColor: 'dodgerblue', margin: '30px'}}>
-                            <div style={{backgroundColor: 'midnightblue', borderStyle: 'ridge', borderColor: 'Highlight',
-                            borderRadius:'30px', position: 'sticky'}}>
+                            <div>
+                            <div style={{borderStyle: 'ridge', borderColor: 'Highlight',
+                            borderRadius:'30px', position: 'sticky', margin: '3px'}}>
                                 <div style={{float: 'right', paddingRight: '0px'}}>
                                     <Button type='primary' style={{borderStyle: 'ridge', borderColor: 'cyan',
-                                        borderWidth: '1px', color: 'orange'}}><DeckIcon/>
+                                        borderWidth: '1px', color: 'white', margin: '3px', boxShadow: '0 0 5px 3px'}}><DeckIcon/>
                                         <NavLink style={{fontFamily: 'fantasy', fontSize: '20px', paddingRight: '50px', textShadow: 'revert'
                                         }} rel="noreferrer noopener" to='/CRUDEnterDatas'>Register it selves</NavLink>
                                     </Button>
                                     <Button type='primary' style={{borderStyle: 'ridge', borderColor: 'cyan',
-                                    borderWidth: '1px',}}><ContactsIcon/>
+                                    borderWidth: '1px', margin: '3px', color: 'white', boxShadow: '0 0 5px 3px'}}><ContactsIcon/>
                                         <NavLink style={{fontFamily: 'fantasy', fontSize: '20px', paddingLeft: '50px',
-                                        color: 'white', paddingRight: '50px'}} to='/Contacts'>Contact</NavLink>
+                                     paddingRight: '50px', color: 'white'}} to='/Contacts'>Contact</NavLink>
                                     </Button>
                                     <Button type='primary' style={{borderStyle: 'ridge', borderColor: 'cyan',
-                                            borderWidth: '1px',}}><DesignServicesIcon/>
+                                            borderWidth: '1px', margin: '3px', color: 'white', boxShadow: '0 0 5px 3px'}}><DesignServicesIcon/>
                                         <NavLink style={{fontFamily: 'fantasy', fontSize: '20px', paddingLeft: '50px',
-                                            color: 'white', paddingRight: '50px'}} to='/Component_Pratice'>Pratice</NavLink>
+                                         paddingRight: '50px', color: 'white'}} to='/Component_Pratice'>Pratice</NavLink>
                                     </Button>
                                     <Button type='primary' style={{borderStyle: 'ridge', borderColor: 'cyan',
-                                            borderWidth: '1px',}}><BookOnlineIcon/>
-                                        <NavLink style={{fontFamily: 'fantasy', fontSize: '20px'}} to='/Component_Theory'>Theory</NavLink>
+                                            borderWidth: '1px', margin: '3px', color: 'white', boxShadow: '0 0 5px 3px'}}><BookOnlineIcon/>
+                                        <NavLink style={{fontFamily: 'fantasy', fontSize: '20px', color: 'white'}} to='/Component_Theory'>Theory</NavLink>
                                     </Button>
                                 </div>
                             </div></div></Grid></center></Grid>
@@ -59,7 +59,7 @@ export default function RoteadorReact(){
                             </Grid>
                     </div></motion.div><br/>
                 <Grid container spacing={15} style={{float: 'left', paddingTop: '150px'}}>
-                    <Card style={{backgroundColor: 'blue', opacity: 0.8, borderRadius: '70px', width: '850px'}}>
+                    <Card style={{backgroundColor: 'blue', opacity: 0.8, borderRadius: '70px', width: '870px'}}>
                         <div>
                             <Routes>
                                 <Route exact path="/CRUDEnterDatas" element={<Api_Interface/>}/>

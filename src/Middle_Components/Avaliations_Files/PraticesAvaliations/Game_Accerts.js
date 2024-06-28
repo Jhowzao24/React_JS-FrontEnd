@@ -1,7 +1,7 @@
 import { Input } from '@mui/material';
 import { Button } from 'antd';
 import React, { useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { Toaster, toast } from 'react-hot-toast';
 
 const GameAccerts = () => {
   // Defina as escalas/arpejos que serão usados no jogo
@@ -60,7 +60,7 @@ const GameAccerts = () => {
       <br/><br/>
       <Button onClick={checkNotes}>Verificar</Button>
       <Button onClick={handleScaleChange}>Próxima Escala/Arpejo</Button>
-      <ToastContainer/>
+      <Toaster/>
     </div>
   );
 };

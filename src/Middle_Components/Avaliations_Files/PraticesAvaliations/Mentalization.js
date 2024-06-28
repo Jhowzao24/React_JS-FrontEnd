@@ -1,3 +1,4 @@
+import { Fab } from '@mui/material';
 import { Button } from 'antd';
 import React, { useState } from 'react';
 
@@ -39,19 +40,21 @@ function JogoEquilibrio() {
   return (
     <div style={{color: 'lightblue'}}>
       <h1>Mental Balancing Game</h1>
+      <h3>this game will help you to cognize the attention on the notes visualy faster</h3>
+      <h5>As at the music this is extremily important, do not think that it is losting time!!</h5>
       {jogoIniciado ? (
         <div>
           <p>Pontuation: {pontuacao}</p>
           <p>Remaining time: {tempoRestante}</p>
           <div>
             {Array.from({ length: 9 }).map((_, index) => (
-              <button
+              <Fab
                 key={index}
                 disabled={jogoIniciado && posicaoAtual !== index + 1}
                 onClick={() => verificarPosicao(index + 1)}
               >
                 {index + 1}
-              </button>
+              </Fab>
             ))}
           </div>
         </div>

@@ -23,7 +23,7 @@ function AppDialog() {
       </Button>
       <Dialog open={open} onClose={handleClose} aria-labelledby="dialog-title">
         <DialogTitle id="dialog-title"><img style={{width: '200px'}} src={avatar} alt='avatar'/></DialogTitle>
-        <DialogContent style={{backgroundColor: 'dodgerblue'}}>
+        <DialogContent style={{backgroundColor: 'purple'}}>
           <ChordProgressionQuiz/>
         </DialogContent>
         <DialogActions>

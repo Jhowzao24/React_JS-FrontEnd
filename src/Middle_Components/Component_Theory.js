@@ -50,7 +50,7 @@ function TheoryComponents() {
           <Popup trigger={<Button style={{color: 'ButtonHighlight',
         borderStyle: 'initial', borderColor: 'Scrollbar', borderWidth: '5px',
         backgroundColor: 'cadetblue'}}><ExpandCircleDownIcon/></Button>}>
-            <Paper style={{width: '500px'}}>
+            <Paper style={{width: '350px', margin: '30px'}}>
               <FirstComp/>
             </Paper>
             </Popup>

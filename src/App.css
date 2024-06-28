@@ -1,9 +1,14 @@
 .App {
   text-align: center;
-  background-color: rgba(5,0,0,0.5);
+  /*background-color: rgba(5,0,0,0.5);*/
   /*background-image: url('https://wallpapercave.com/wp/wp2863995.gif');*/
   /*background-image: url('https://gifs.eco.br/wp-content/uploads/2022/09/gifs-de-notas-musicais-13.gif');*/
-  background-image: url('https://images3.alphacoders.com/930/thumb-1920-930334.jpg')
+  /*background-image: url('https://images3.alphacoders.com/930/thumb-1920-930334.jpg')*/
+  background-image: url('https://i.ytimg.com/vi/uylrJpfpBsU/maxresdefault.jpg'), url('https://th.bing.com/th/id/R.746f7ed3ef9ebf0e517225cf558002dc?rik=ZNN727IvTVYoow&pid=ImgRaw&r=0');
+  /*https://i.ytimg.com/vi/uylrJpfpBsU/maxresdefault.jpg*/
+  background-position: center, center;
+  /*background-size: cover, cover;*/
+  /*background-repeat: no-repeat, no-repeat;*/
 }
 
 .App-header {
