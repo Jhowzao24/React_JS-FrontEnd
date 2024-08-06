@@ -2,7 +2,40 @@ import { Divider, Grid, Tooltip, Button, Paper } from '@mui/material';
 import React, {useState} from 'react';
 import QuizzDesesseis from '../Avaliations_Files/TeoryAvaliationsQuizz/QuizzPhaseSixteen';
 
+
+
 export default function DecimaSestaFase(){
+    const [isFullScreen, setIsFullScreen] = useState(false);
+    const toggleFullScreen = () => {
+      setIsFullScreen(!isFullScreen);
+    };
+    return(
+      <div>
+        <header>
+          <Button style={{backgroundColor : 'cyan', color: 'blue'}} onClick={toggleFullScreen}>
+            {isFullScreen ? 'Exit Full Screen' : 'Phase 16'}
+          </Button>
+          {isFullScreen && (
+            <div>
+              <div className={`card ${isFullScreen ? 'full-screen' : ''}`}>
+                <FaseDesesseis/>
+                {isFullScreen && (
+                  <Button style={{color: 'blue', backgroundColor: 'orangered'}} onClick={toggleFullScreen} className="return-button">
+                    Return
+                  </Button>
+                )}
+              </div>
+            </div>
+          )}
+        </header>
+      </div>
+    )
+  }
+
+
+
+
+function FaseDesesseis(){
     const solene = [
         <div style={{margin: '-50px', backgroundColor: 'midnightblue', color: 'orange', width: '500px', height: '50px', fontSize: '15px', fontFamily: 'serif', borderRadius: '5px'}}>
             <p>It is the form of to presentn before an authority recognizing your greatness, sounding with majesty, but ina respectfull manner. It is hymns and musics that we adress to God and to our Feelings</p>
@@ -97,7 +130,7 @@ export default function DecimaSestaFase(){
         setSemiPhrase(true);
     }
     return(
-        <div style={{width: '600px', margin: '-100px', backgroundColor: 'oldlace'}}>
+        <div style={{width: '1400px', margin: '-100px', backgroundColor: 'oldlace'}}>
             <center style={{margin: '30px'}}>
                 <h1>Phrases and Semiphrases</h1>
                 <Divider/>
@@ -111,68 +144,68 @@ export default function DecimaSestaFase(){
                 <div>
                     <img style={{width: '500px'}} src='https://4.bp.blogspot.com/-qtcCxw2gU4I/Vd5IvK0dYoI/AAAAAAAAGcU/U23zST5m7Ic/s1600/Minueto%2B-%2BJ.%2BS.%2BBACH.jpg' alt='phrasesemiphrase'/>
                 </div>
-                <Grid style={{float: 'left', paddingLeft: '800px'}} container spacing={84}>
+                <Grid style={{float: 'left', paddingLeft: '1170px'}} container spacing={83}>
                     {Phrase && <p style={{position: 'relative', color: 'blue'}}>|_______________________Phrase_______________________</p>}
                 </Grid>
-                <Grid style={{float: 'left', paddingLeft: '630px'}} container spacing={74}>
+                <Grid style={{float: 'left', paddingLeft: '1010px'}} container spacing={73}>
                     {Phrase && <p style={{position: 'relative', color: 'blue'}}>_____________________________________________________________________</p>}
                 </Grid>
-                <Grid style={{float: 'left', paddingLeft: '550px'}} container spacing={64}>
+                <Grid style={{float: 'left', paddingLeft: '920px'}} container spacing={63}>
                     {Phrase && <p style={{position: 'relative', color: 'blue'}}>_____________________________________________________________________</p>}
                 </Grid>
-                <Grid style={{float: 'left', paddingLeft: '470px'}} container spacing={54}>
+                <Grid style={{float: 'left', paddingLeft: '850px'}} container spacing={53}>
                     {Phrase && <p style={{position: 'relative', color: 'blue'}}>_____________________________________________________________________</p>}
                 </Grid>
-                <Grid style={{float: 'left', paddingLeft: '390px'}} container spacing={44}>
+                <Grid style={{float: 'left', paddingLeft: '760px'}} container spacing={43}>
                     {Phrase && <p style={{position: 'relative', color: 'blue'}}>_____________________________________________________________________</p>}
                 </Grid>
-                <Grid style={{float: 'left', paddingLeft: '310px'}} container spacing={34}>
+                <Grid style={{float: 'left', paddingLeft: '680px'}} container spacing={33}>
                     {Phrase && <p style={{position: 'relative', color: 'blue'}}>_____________________________________________________________________</p>}
                 </Grid>
-                <Grid style={{float: 'left', paddingLeft: '230px'}} container spacing={24}>
+                <Grid style={{float: 'left', paddingLeft: '600px'}} container spacing={23}>
                     {Phrase && <p style={{position: 'relative', color: 'blue'}}>_____________________________________________________________________</p>}
                 </Grid>
-                <Grid style={{float: 'left', paddingLeft: '760px'}} container spacing={80}>
-                    {Semiphrase && <p style={{position: 'relative', color: 'orangered', fontSize: '10px'}}>|__________________SemiPhrase_________________|</p>}
+                <Grid style={{float: 'left', paddingLeft: '1090px'}} container spacing={76}>
+                    {Semiphrase && <p style={{position: 'relative', color: 'orangered', fontSize: '11px'}}>|__________________SemiPhrase_________________|</p>}
                 </Grid>
-                <Grid style={{float: 'left', paddingLeft: '970px'}} container spacing={80}>
-                    {Semiphrase && <p style={{position: 'relative', color: 'orangered', fontSize: '10px'}}>|__________________SemiPhrase_______________</p>}
+                <Grid style={{float: 'left', paddingLeft: '1290px'}} container spacing={76}>
+                    {Semiphrase && <p style={{position: 'relative', color: 'orangered', fontSize: '11px'}}>|__________________SemiPhrase_______________</p>}
                 </Grid>
-                <Grid style={{float: 'left', paddingLeft: '600px'}} container spacing={70}>
-                    {Semiphrase && <p style={{position: 'relative', color: 'orangered', fontSize: '10px'}}>|_____________________SemiPhrase___________________|</p>}
+                <Grid style={{float: 'left', paddingLeft: '950px'}} container spacing={66}>
+                    {Semiphrase && <p style={{position: 'relative', color: 'orangered', fontSize: '11px'}}>|_____________________SemiPhrase___________________|</p>}
                 </Grid>
-                <Grid style={{float: 'left', paddingLeft: '830px'}} container spacing={70}>
-                    {Semiphrase && <p style={{position: 'relative', color: 'orangered', fontSize: '10px'}}>|______________________SemiPhrase_____________________|</p>}
+                <Grid style={{float: 'left', paddingLeft: '1180px'}} container spacing={66}>
+                    {Semiphrase && <p style={{position: 'relative', color: 'orangered', fontSize: '11px'}}>|______________________SemiPhrase_____________________|</p>}
                 </Grid>
-                <Grid style={{float: 'left', paddingLeft: '510px'}} container spacing={60}>
-                    {Semiphrase && <p style={{position: 'relative', color: 'orangered', fontSize: '10px'}}>|______________________SemiPhrase_____________________|</p>}
+                <Grid style={{float: 'left', paddingLeft: '870px'}} container spacing={56}>
+                    {Semiphrase && <p style={{position: 'relative', color: 'orangered', fontSize: '11px'}}>|______________________SemiPhrase_____________________|</p>}
                 </Grid>
-                <Grid style={{float: 'left', paddingLeft: '750px'}} container spacing={60}>
-                    {Semiphrase && <p style={{position: 'relative', color: 'orangered', fontSize: '10px'}}>|______________________SemiPhrase_____________________|</p>}
+                <Grid style={{float: 'left', paddingLeft: '1100px'}} container spacing={56}>
+                    {Semiphrase && <p style={{position: 'relative', color: 'orangered', fontSize: '11px'}}>|______________________SemiPhrase_____________________|</p>}
                 </Grid>
-                <Grid style={{float: 'left', paddingLeft: '440px'}} container spacing={50}>
-                    {Semiphrase && <p style={{position: 'relative', color: 'orangered', fontSize: '10px'}}>|______________________SemiPhrase_____________________|</p>}
+                <Grid style={{float: 'left', paddingLeft: '780px'}} container spacing={46}>
+                    {Semiphrase && <p style={{position: 'relative', color: 'orangered', fontSize: '11px'}}>|______________________SemiPhrase_____________________|</p>}
                 </Grid>
-                <Grid style={{float: 'left', paddingLeft: '680px'}} container spacing={50}>
-                    {Semiphrase && <p style={{position: 'relative', color: 'orangered', fontSize: '10px'}}>|_____________________SemiPhrase____________________|</p>}
+                <Grid style={{float: 'left', paddingLeft: '1020px'}} container spacing={46}>
+                    {Semiphrase && <p style={{position: 'relative', color: 'orangered', fontSize: '11px'}}>|_____________________SemiPhrase____________________|</p>}
                 </Grid>
-                <Grid style={{float: 'left', paddingLeft: '360px'}} container spacing={41}>
-                    {Semiphrase && <p style={{position: 'relative', color: 'orangered', fontSize: '10px'}}>|______________________SemiPhrase_____________________|</p>}
+                <Grid style={{float: 'left', paddingLeft: '710px'}} container spacing={37}>
+                    {Semiphrase && <p style={{position: 'relative', color: 'orangered', fontSize: '11px'}}>|______________________SemiPhrase_____________________|</p>}
                 </Grid>
-                <Grid style={{float: 'left', paddingLeft: '600px'}} container spacing={41}>
-                    {Semiphrase && <p style={{position: 'relative', color: 'orangered', fontSize: '10px'}}>|______________________SemiPhrase_____________________|</p>}
+                <Grid style={{float: 'left', paddingLeft: '950px'}} container spacing={37}>
+                    {Semiphrase && <p style={{position: 'relative', color: 'orangered', fontSize: '11px'}}>|______________________SemiPhrase_____________________|</p>}
                 </Grid>
-                <Grid style={{float: 'left', paddingLeft: '280px'}} container spacing={31}>
-                    {Semiphrase && <p style={{position: 'relative', color: 'orangered', fontSize: '10px'}}>|______________________SemiPhrase_____________________|</p>}
+                <Grid style={{float: 'left', paddingLeft: '630px'}} container spacing={27}>
+                    {Semiphrase && <p style={{position: 'relative', color: 'orangered', fontSize: '11px'}}>|______________________SemiPhrase_____________________|</p>}
                 </Grid>
-                <Grid style={{float: 'left', paddingLeft: '520px'}} container spacing={31}>
-                    {Semiphrase && <p style={{position: 'relative', color: 'orangered', fontSize: '10px'}}>|______________________SemiPhrase_____________________|</p>}
+                <Grid style={{float: 'left', paddingLeft: '870px'}} container spacing={27}>
+                    {Semiphrase && <p style={{position: 'relative', color: 'orangered', fontSize: '11px'}}>|______________________SemiPhrase_____________________|</p>}
                 </Grid>
-                <Grid style={{float: 'left', paddingLeft: '210px'}} container spacing={21}>
-                    {Semiphrase && <p style={{position: 'relative', color: 'orangered', fontSize: '10px'}}>|________________________SemiPhrase_______________________|</p>}
+                <Grid style={{float: 'left', paddingLeft: '570px'}} container spacing={18}>
+                    {Semiphrase && <p style={{position: 'relative', color: 'orangered', fontSize: '11px'}}>|________________________SemiPhrase_______________________|</p>}
                 </Grid>
-                <Grid style={{float: 'left', paddingLeft: '460px'}} container spacing={21}>
-                    {Semiphrase && <p style={{position: 'relative', color: 'orangered', fontSize: '10px'}}>|____________________SemiPhrase_________________|</p>}
+                <Grid style={{float: 'left', paddingLeft: '830px'}} container spacing={18}>
+                    {Semiphrase && <p style={{position: 'relative', color: 'orangered', fontSize: '11px'}}>|____________________SemiPhrase_________________|</p>}
                 </Grid>
             </center>
             <hr/>

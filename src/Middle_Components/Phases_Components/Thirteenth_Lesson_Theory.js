@@ -1,10 +1,41 @@
-import { Grid, Tooltip } from '@mui/material';
-import React from 'react';
+import { Grid, Tooltip, Button } from '@mui/material';
+import React, { useState } from 'react';
 import QuizzTreze from '../Avaliations_Files/TeoryAvaliationsQuizz/QuizzPhaseThirteen';
 
+
 export default function Thirteenth(){
+    const [isFullScreen, setIsFullScreen] = useState(false);
+    const toggleFullScreen = () => {
+      setIsFullScreen(!isFullScreen);
+    };
     return(
-        <div style={{margin: '-40px', backgroundColor: 'deepskyblue', borderRadius: '20px', width: '600px', height: '1900px'}}>
+      <div>
+        <header>
+          <Button style={{backgroundColor : 'cyan', color: 'blue'}} onClick={toggleFullScreen}>
+            {isFullScreen ? 'Exit Full Screen' : 'Phase 13'}
+          </Button>
+          {isFullScreen && (
+            <div>
+              <div className={`card ${isFullScreen ? 'full-screen' : ''}`}>
+                <FaseTreze/>
+                {isFullScreen && (
+                  <Button style={{color: 'blue', backgroundColor: 'orangered'}} onClick={toggleFullScreen} className="return-button">
+                    Return
+                  </Button>
+                )}
+              </div>
+            </div>
+          )}
+        </header>
+      </div>
+    )
+  }
+
+
+
+function FaseTreze(){
+    return(
+        <div style={{margin: '-40px', backgroundColor: 'deepskyblue', borderRadius: '20px', width: '1400px', height: '1800px'}}>
             <center style={{margin: '20px'}}>
                 <h1>Early rhythms</h1><hr/>
                 <h2>The early rhythms of a music, that is located only at the begin of the musical score!
@@ -14,12 +45,12 @@ export default function Thirteenth(){
                 <h4>First of all,we will start talking about the Tético rhythmic</h4>
                 <h5>For knowing it better, the Tético rhythm is all the starter note in the compasso, where there is a dot, you must to put the mouse under, take notice at the example below</h5>
                 <img style={{width: '550px', height: '120px'}} src='https://th.bing.com/th/id/OIP.hRfPvC6OfMqDhdWwO6_jggAAAA?rs=1&pid=ImgDetMain' alt='teticoritmo'/>
-                <Grid style={{paddingLeft: '215px'}} container spacing={9}>
+                <Grid style={{paddingLeft: '635px'}} container spacing={9}>
                     <Tooltip title='This isthe skeptic rhythm, the first note of the compasso, ever that you see a compasso that is completed with the first time of the compasso, you ready must to know, this is the skeptic rhythm compasso'>
                         <p style={{fontFamily: 'fantasy'}}>T</p>
                     </Tooltip>
                 </Grid>
-                <Grid style={{paddingLeft: '370px'}} container spacing={6.4}>
+                <Grid style={{paddingLeft: '790px'}} container spacing={6.4}>
                     <Tooltip title='This isthe skeptic rhythm, the first note of the compasso, ever that you see a compasso that is completed with the first time of the compasso, you ready must to know, this is the skeptic rhythm compasso'>
                         <p style={{fontFamily: 'fantasy'}}>T</p>
                     </Tooltip>
@@ -43,14 +74,14 @@ export default function Thirteenth(){
                 <ul>
                     <h5>Compasso Ternary</h5>
                     <Grid style={{paddingLeft: '300px'}} container spacing={1}>
-                        <img style={{width: '200px', height: '100px'}} src='https://luiseduardolopez.es/wp-content/uploads/2016/10/anacrusa-ejemplo.jpg' alt='binario'/>
+                        <img style={{width: '200px', height: '100px'}} src='https://th.bing.com/th/id/OIP.t3nKidzI1LCx7wISEGMj5gHaCP?rs=1&pid=ImgDetMain' alt='ternario'/>
                     </Grid>
                 </ul>
                 <br/>
                 <h5>Compasso Quaternary</h5>
                 <br/>
                 <Grid container spacing={1}>
-                    <img style={{width: '300px', height: '100px'}} src='https://www.pianogratis.com/imagenes/anacrusa1.gif' alt='binario'/>
+                    <img style={{width: '300px', height: '100px'}} src='https://th.bing.com/th/id/OIP.wGxjZW9F8Fv_n1fQqacLzgHaDt?w=600&h=300&rs=1&pid=ImgDetMain' alt='qauternario'/>
                 </Grid>
             </center>
             <br/>

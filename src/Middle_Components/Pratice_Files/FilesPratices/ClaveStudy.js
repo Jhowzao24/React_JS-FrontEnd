@@ -1020,7 +1020,7 @@ const closeBequadroMod = () => {
           <Modal isVisible={modalVisil3} onClose={closerModal3}>
             <h1 style={{color: 'white', fontFamily: 'fantasy', fontSize: '60px', backgroundColor: 'darkcyan', borderRadius: '45px'}}>𝄞</h1>
             <h1>This figure will show for the readership, that the height of the whole notes around the pentagram will have a height begining from the second line, the second line will receive the name of SUN!
-            <img style={{width: '170px'}} src='https://th.bing.com/th/id/OIP.JsDoDff1pt_kOuYHRO_qzAHaDt?rs=1&pid=ImgDetMain' alt='SUNPent'/>
+            <img style={{width: '170px'}} src='https://th.bing.com/th/id/R.b3a408bc3386bf9746c65a678de59bbc?rik=lX3pcgi2uhranw&pid=ImgRaw&r=0' alt='SUNPent'/>
             </h1>
             <Divider style={{borderColor: 'blue'}}/>
           </Modal>
@@ -1038,9 +1038,8 @@ const closeBequadroMod = () => {
             <br/>
             <h4>This image below show to you how this symbol works better!</h4>
             <img style={{borderRadius: '50px', margin: '40px'}} src='https://pa1.narvii.com/6365/c1893d0b71716b7ee573b5aeb86e0462c28746f6_hq.gif' alt='bequadroquebrando'/>
-            <Grid container spacing={20} style={{paddingLeft: '800px'}}>
-              <h4>Take notice at this symbol that it make a transformation at the choice note that it is behind, the alteration at the note that received the # symbol before, have been received an other alteration to the natural state!</h4>
-            </Grid>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <h4>Take notice at this symbol that it make a transformation at the choice note that it is behind, the alteration at the note that received the # symbol before, have been received an other alteration to the natural state!</h4>
           </Modal>
         </Grid>
         <Grid container spacing={2} style={{paddingLeft: '130px'}}>

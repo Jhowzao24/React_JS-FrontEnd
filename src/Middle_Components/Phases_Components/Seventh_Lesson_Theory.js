@@ -1,10 +1,38 @@
-import { Divider, Fab, Grid, Tooltip, Paper } from '@mui/material';
-import React from 'react';
+import { Divider, Fab, Grid, Tooltip, Paper, Button } from '@mui/material';
+import React, { useState } from 'react';
 import CircleNotificationsIcon from '@mui/icons-material/CircleNotifications';
 import MouseIcon from '@mui/icons-material/Mouse';
 import QuizzSetima from '../Avaliations_Files/TeoryAvaliationsQuizz/QuizzPhaseSeven';
 
 export default function SetimaFase(){
+    const [isFullScreen, setIsFullScreen] = useState(false);
+    const toggleFullScreen = () => {
+      setIsFullScreen(!isFullScreen);
+    };
+    return(
+      <div>
+        <header>
+          <Button style={{backgroundColor : 'cyan', color: 'blue'}} onClick={toggleFullScreen}>
+            {isFullScreen ? 'Exit Full Screen' : 'Phase 7'}
+          </Button>
+          {isFullScreen && (
+            <div>
+              <div className={`card ${isFullScreen ? 'full-screen' : ''}`}>
+                <FaseSete/>
+                {isFullScreen && (
+                  <Button style={{color: 'blue', backgroundColor: 'orangered'}} onClick={toggleFullScreen} className="return-button">
+                    Return
+                  </Button>
+                )}
+              </div>
+            </div>
+          )}
+        </header>
+      </div>
+    )
+  }
+
+  function FaseSete(){
     const GetArmor = [
         <div style={{backgroundColor: 'mediumturquoise', width: '700px', color: 'black'}}>
             <h3>Understand it:</h3>
@@ -100,7 +128,7 @@ export default function SetimaFase(){
         </div>
     ]
     return(
-        <div style={{width: '700px', height: '1200px', backgroundColor: 'orangered'}}>
+        <div style={{width: '1300px', height: '1200px', backgroundColor: 'orangered'}}>
             <center><h1>Armor of the Clave</h1></center>
             <Divider/>
             <Tooltip arrow placement='right-start' title={armorClave}>

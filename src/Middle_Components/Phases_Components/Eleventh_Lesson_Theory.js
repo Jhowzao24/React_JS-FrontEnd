@@ -3,7 +3,38 @@ import React, {useState} from 'react';
 import QuizzOnze from '../Avaliations_Files/TeoryAvaliationsQuizz/QuizzPhaseEleven';
 import { motion } from 'framer-motion';
 
+
 export default function ElevenFase(){
+    const [isFullScreen, setIsFullScreen] = useState(false);
+    const toggleFullScreen = () => {
+      setIsFullScreen(!isFullScreen);
+    };
+    return(
+      <div>
+        <header>
+          <Button style={{backgroundColor : 'cyan', color: 'blue'}} onClick={toggleFullScreen}>
+            {isFullScreen ? 'Exit Full Screen' : 'Phase 11'}
+          </Button>
+          {isFullScreen && (
+            <div>
+              <div className={`card ${isFullScreen ? 'full-screen' : ''}`}>
+                <FaseOnze/>
+                {isFullScreen && (
+                  <Button style={{color: 'blue', backgroundColor: 'orangered'}} onClick={toggleFullScreen} className="return-button">
+                    Return
+                  </Button>
+                )}
+              </div>
+            </div>
+          )}
+        </header>
+      </div>
+    )
+  }
+
+
+
+function FaseOnze(){
     const alertF = {
         FEnlish: "Ellement F Added",
         FPortuguese: "Elemento F Adicionado"
@@ -76,7 +107,7 @@ export default function ElevenFase(){
         </div>
     ]
     return(
-        <div style={{width: '700px', height: '1100px', backgroundColor: 'lime', margin: '-40px'}}>
+        <div style={{width: '1300px', height: '1100px', backgroundColor: 'lime', margin: '-40px'}}>
             <center><h1>Metric Accent</h1></center>
             <p style={{backgroundColor: 'cornflowerblue', color: 'yellow', fontFamily: 'serif', textAlign: 'center', letterSpacing: '5px'}}>Pass the mouse over to the marked texts below</p>
             <Divider style={{borderColor: 'blue'}}/><br/>

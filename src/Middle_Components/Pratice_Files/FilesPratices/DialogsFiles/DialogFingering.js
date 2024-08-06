@@ -17,7 +17,7 @@ function DialogFingeringViolin() {
   return (
     <div>
       <Button type="primary" onClick={handleClickOpen}>
-        Playing it on putting
+        Put the Fermata!
       </Button>
       <Dialog open={open} onClose={handleClose} aria-labelledby="dialog-title">
         <DialogTitle id="dialog-title"><Avatar style={{width: '150px', height: '150px', borderStyle: 'double', borderColor: 'blue', backgroundColor: 'lightgreen'}} variant='square' src='https://c8.alamy.com/comp/2A29DR5/3d-thief-on-phone-surrounded-by-a-forbidden-sign-illustration-with-isolated-white-background-2A29DR5.jpg'/></DialogTitle>

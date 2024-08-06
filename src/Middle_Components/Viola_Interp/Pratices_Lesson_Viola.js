@@ -14,6 +14,7 @@ import NotesViola from '../Pratice_Files/FilesPratices/NotesViola';
 import ViolaQuizzOther from '../Avaliations_Files/PraticesAvaliations/ViolaOtherQuizz';
 import ViolaJumpNotes from './ViolaNotesJump';
 import { Toaster, toast } from 'react-hot-toast';
+import ViolaModify from '../NotesScaleChange/ViolaScaleChange';
 
 function Viola_Player(){
     return(
@@ -175,7 +176,8 @@ function Viola_Player(){
                             <ViolaQuizzOther/>
                         </Popup>
                     </Grid>
-                </div><hr/>
+                </div><hr/><br/><br/>
+                <ViolaModify/>
                 <br/>
                 <ViolaJumpNotes/>
                 <br/><br/>

@@ -1,9 +1,40 @@
-import { ButtonBase, Card, Fab, Paper, CardActionArea, Grid } from '@mui/material';
-import React from 'react';
+import { ButtonBase, Card, Fab, Paper, CardActionArea, Grid, Button } from '@mui/material';
+import React, { useState } from 'react';
 import Popup from 'reactjs-popup';
 import QuizzQuarta from '../Avaliations_Files/TeoryAvaliationsQuizz/QuizzPhaseFour';
 
+
 export default function Phase4(){
+    const [isFullScreen, setIsFullScreen] = useState(false);
+    const toggleFullScreen = () => {
+      setIsFullScreen(!isFullScreen);
+    };
+    return(
+      <div>
+        <header>
+          <Button style={{backgroundColor : 'cyan', color: 'blue'}} onClick={toggleFullScreen}>
+            {isFullScreen ? 'Exit Full Screen' : 'Phase 4'}
+          </Button>
+          {isFullScreen && (
+            <div>
+              <div className={`card ${isFullScreen ? 'full-screen' : ''}`}>
+                <QuartaFase/>
+                {isFullScreen && (
+                  <Button style={{color: 'blue', backgroundColor: 'orangered'}} onClick={toggleFullScreen} className="return-button">
+                    Return
+                  </Button>
+                )}
+              </div>
+            </div>
+          )}
+        </header>
+      </div>
+    )
+  }
+
+
+
+function QuartaFase(){
     /*Manipulated datas from the Ligatures 4.1*/
     const Title_1 = `LIGATURE`
     const Ul_1 = `Ligature is a curve line that  is puted over or below two or more notes,
@@ -101,7 +132,7 @@ export default function Phase4(){
     const ExpInt7 = `This interval is based on the distance between Seven notes` 
     return(
         <div>
-            <Card style={{width: '500px', height: '1100px'}}>
+            <Card style={{width: '1300px', height: '1100px'}}>
                 <img alt='music' style={{width:'100px', height: '100px', borderRadius: '30px',
                     paddingRight: '10px', backgroundColor: 'yellow', paddingLeft: '10px'}}
                      src='https://th.bing.com/th/id/OIP.c_yCvxMR4I_4jYtlSwTH1AHaHa?pid=ImgDet&rs=1'/>
@@ -434,6 +465,6 @@ export default function Phase4(){
                 </Popup>
                 <QuizzQuarta/>
             </Card><br/><br/>
-        </div>
+    </div>
     )
 }

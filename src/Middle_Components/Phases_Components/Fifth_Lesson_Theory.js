@@ -1,6 +1,6 @@
 import React, { useEffect, useState, /*useRef*/ } from 'react';
 import Card from '@mui/material/Card';
-import { Alert, Box, Divider, Fab, Grid, Paper, Tooltip } from '@mui/material';
+import { Alert, Box, Divider, Fab, Grid, Paper, Tooltip, Button } from '@mui/material';
 import AutoStoriesTwoToneIcon from '@mui/icons-material/AutoStoriesTwoTone';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import Moviment_6 from './Middles_Images/Moviment_6.jpg';
@@ -9,6 +9,36 @@ import QuizzQuinta from '../Avaliations_Files/TeoryAvaliationsQuizz/QuizzPhaseFi
 import { motion } from 'framer-motion';
 
 export default function Cinco(){
+    const [isFullScreen, setIsFullScreen] = useState(false);
+    const toggleFullScreen = () => {
+      setIsFullScreen(!isFullScreen);
+    };
+    return(
+      <div>
+        <header>
+          <Button style={{backgroundColor : 'cyan', color: 'blue'}} onClick={toggleFullScreen}>
+            {isFullScreen ? 'Exit Full Screen' : 'Phase 5'}
+          </Button>
+          {isFullScreen && (
+            <div>
+              <div className={`card ${isFullScreen ? 'full-screen' : ''}`}>
+                <QuintaFase/>
+                {isFullScreen && (
+                  <Button style={{color: 'blue', backgroundColor: 'orangered'}} onClick={toggleFullScreen} className="return-button">
+                    Return
+                  </Button>
+                )}
+              </div>
+            </div>
+          )}
+        </header>
+      </div>
+    )
+  }
+
+
+
+function QuintaFase(){
     /*const [/*showModal, setShowModal] = useState(false)*/
     //const modalRef = useRef(null);
     //const close = () => setShowModal(false)
@@ -123,7 +153,7 @@ export default function Cinco(){
     })
     return(
         <div>
-            <Box className='paperoid' style={{width: '800px', height: '800px'}}>
+            <Box className='paperoid' style={{width: '1300px', height: '800px'}}>
                 <center>
                     <p style={{color: 'gold', fontFamily: 'fantasy', backgroundColor: 'ButtonText'}}>5nd Phase</p>
                     <Grid style={{float: 'left', paddingLeft: '10px', backgroundHeight: '400px', borderColor: 'gold', borderWidth: '5px', borderStyle: 'dashed'}}>
@@ -142,7 +172,7 @@ export default function Cinco(){
                                         initial={{x: 300, rotateZ: -300, rotateX: 600}}
                                         animate={{x: 0, rotateZ: 0, rotateX: 5}}
                                         transition={{duration: 5}}>
-                                        <img style={{width: '510px', height: '80px'}} src='https://flawiolara.com.br/wp-content/uploads/2015/05/tercina-de-colcheias-1024x238.png' alt='tercinasNotes'/>
+                                        <img style={{width: '300px', height: '80px'}} src='https://th.bing.com/th/id/R.c3a8e2c9ac97140ab9d4af6a4372a45b?rik=HLVUJ04gUcQiKQ&pid=ImgRaw&r=0' alt='tercinasNotes'/>
                                         <p>As you can to see, at the same moviment of the semitime, there three notes with the same value, that determines the tercine moviment in a one hands moviment!</p>
                                         </motion.div>
                                     </Paper>
@@ -165,7 +195,7 @@ export default function Cinco(){
                                         </Grid>
                                         <Grid style={{float: 'left', paddingLeft: '200px'}} container spacing={0}>
                                         <Tooltip onClick={() => setCount(count + 1)} title={placeferm} arrow placement='left'>
-                                        <img style={{width: '150px', height: '130px', borderWidth: '3px', borderStyle: 'double'}} src='https://musiccrashcourses.com/images/notation/fermata.png' alt='tercinasNotes'/>
+                                        <img style={{width: '150px', height: '130px', borderWidth: '3px', borderStyle: 'double'}} src='https://th.bing.com/th/id/OIP.bvlAMDQxvBuM2KvlYQYfXwHaJN?rs=1&pid=ImgDetMain' alt='tercinasNotes'/>
                                         </Tooltip>
                                         </Grid>
                                     </Paper>

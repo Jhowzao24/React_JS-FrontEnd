@@ -1,10 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, Paper, Button, Fab, Grid, Alert, Divider } from '@mui/material';
 import Popup from 'reactjs-popup';
 import Table_Notes from './Middles_Images/Table_Notes.png';
 import QuizzTwoPhase from '../Avaliations_Files/TeoryAvaliationsQuizz/QuizzPhaseTwo';
 
 export default function Smodule(){
+    const [isFullScreen, setIsFullScreen] = useState(false);
+    const toggleFullScreen = () => {
+      setIsFullScreen(!isFullScreen);
+    };
+    return(
+      <div>
+        <header>
+          <Button style={{backgroundColor : 'cyan', color: 'blue'}} onClick={toggleFullScreen}>
+            {isFullScreen ? 'Exit Full Screen' : 'Phase 2'}
+          </Button>
+          {isFullScreen && (
+            <div>
+              <div className={`card ${isFullScreen ? 'full-screen' : ''}`}>
+                <ModuleSecond/>
+                {isFullScreen && (
+                  <Button style={{color: 'blue', backgroundColor: 'orangered'}} onClick={toggleFullScreen} className="return-button">
+                    Return
+                  </Button>
+                )}
+              </div>
+            </div>
+          )}
+        </header>
+      </div>
+    )
+  }
+
+function ModuleSecond(){
     const [finishedTimeout, setFinishedTimeout] = React.useState(false);
     React.useEffect(() => {
       const id = setTimeout(() => {
@@ -14,7 +42,7 @@ export default function Smodule(){
       return () => clearTimeout(id);
     }, []);
     return(
-        <div style={{width: '1000px', height: '900px', backgroundColor: 'midnightblue', color: 'cyan'}}>
+        <div style={{width: '1400px', height: '900px', backgroundColor: 'midnightblue', color: 'cyan'}}>
             <Paper>Musical Figures</Paper>
             <i>Before you start, take notice on to catch this all information, it will be very important for you</i>
             <div style={{paddingLeft: '200px'}}>
@@ -44,13 +72,13 @@ export default function Smodule(){
             </Fab>}>
                 <center><Card>
                     <p>Quarter Note</p>
-                    <img style={{width: '50px', height: '50px', borderRadius: '100px'}}  src='https://th.bing.com/th/id/R.9cb28f03924817e423d5ebaaeb99e5ee?rik=lccWrurlXarfKw&pid=ImgRaw&r=0' alt='seminima'/>
-                    <img style={{width: '50px', height: '50px', borderRadius: '100px'}}  src='https://th.bing.com/th/id/R.9cb28f03924817e423d5ebaaeb99e5ee?rik=lccWrurlXarfKw&pid=ImgRaw&r=0' alt='seminima'/>
+                    <img style={{width: '50px', height: '50px', borderRadius: '100px'}}  src='https://th.bing.com/th/id/OIP.ueck1D92bk4ertQ3001hVAAAAA?rs=1&pid=ImgDetMain' alt='seminima'/>
+                    <img style={{width: '50px', height: '50px', borderRadius: '100px'}}  src='https://th.bing.com/th/id/OIP.ueck1D92bk4ertQ3001hVAAAAA?rs=1&pid=ImgDetMain' alt='seminima'/>
                 </Card></center>
             </Popup></Grid>
             <Grid style={{float: 'right', paddingLeft: '380px'}} container spacing={7}>
             <Popup trigger={<Fab style={{backgroundColor: 'cyan'}}>
-                <img style={{width: '50px', height: '50px', borderRadius: '100px'}}  src='https://th.bing.com/th/id/R.9cb28f03924817e423d5ebaaeb99e5ee?rik=lccWrurlXarfKw&pid=ImgRaw&r=0' alt='seminima'/>
+                <img style={{width: '50px', height: '50px', borderRadius: '100px'}}  src='https://th.bing.com/th/id/OIP.ueck1D92bk4ertQ3001hVAAAAA?rs=1&pid=ImgDetMain' alt='seminima'/>
             </Fab>}>
                 <center>
                     <Card>
@@ -189,7 +217,8 @@ export default function Smodule(){
                         </Card>
                     </Popup>
                 </Grid>
-            </center><br/><br/><br/><hr/><br/>
+            </center><br/><br/>
+            <br/><hr/><br/>
             <center>
                 <Card>
                     Exercises

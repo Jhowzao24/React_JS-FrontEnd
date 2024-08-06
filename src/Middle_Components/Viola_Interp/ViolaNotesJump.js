@@ -1,6 +1,7 @@
 import { Button, Divider, Tooltip } from 'antd';
 import React, {useEffect, useState} from 'react';
 import { Toaster, toast } from 'react-hot-toast';
+import PentCreator from '../PentagramasCreator/Pentagram_One';
 
 export default function ViolaJumpNotes(){
     /*Primeiro dedo lições!!!!*/
@@ -275,9 +276,9 @@ export default function ViolaJumpNotes(){
 
                     <fieldset><legend style={{fontFamily: 'serif', fontSize: '25px', backgroundColor: 'lightgrey', color: 'Highlight', boxShadow: '0 0 3px 5px'}}>Fingers at the Viola strings positions!</legend>
                     <details style={{color: 'blue'}}><summary style={{fontSize: '13px', fontFamily: 'serif', backgroundColor: 'lightblue'}}>1º Finger!</summary>
-                    <fieldset style={{color: 'gold', borderColor: 'gold'}}>
+                    <fieldset style={{color: 'blue', borderColor: 'gold'}}>
                         <center>
-                            <h1>Playing at cello strings!</h1>
+                            <h1>Playing at Viola strings!</h1>
                             <br/>
                             <h3>First of all you must to learn about the fingers you have to touch</h3>
                             <h3>Let's play all the strings with the first finger! And discovery what notes this will take!!</h3>
@@ -323,9 +324,9 @@ export default function ViolaJumpNotes(){
 
 
                     <details style={{color: 'blue'}}><summary style={{fontSize: '13px', fontFamily: 'serif', backgroundColor: 'lightblue'}}>2º Finger!</summary>
-                    <fieldset style={{color: 'gold', borderColor: 'gold'}}>
+                    <fieldset style={{color: 'blue', borderColor: 'gold'}}>
                         <center>
-                            <h1>Playing at cello strings!</h1>
+                            <h1>Playing at Viola strings!</h1>
                             <br/>
                             <h3>First of all you must to learn about the fingers you have to touch</h3>
                             <h3>Let's play all the strings with the second finger! And discovery what notes this will take!!</h3>
@@ -372,9 +373,9 @@ export default function ViolaJumpNotes(){
 
 
                     <details style={{color: 'blue'}}><summary style={{fontSize: '13px', fontFamily: 'serif', backgroundColor: 'lightblue'}}>3º Finger!</summary>
-                    <fieldset style={{color: 'gold', borderColor: 'gold'}}>
+                    <fieldset style={{color: 'blue', borderColor: 'gold'}}>
                         <center>
-                            <h1>Playing at cello strings!</h1>
+                            <h1>Playing at Viola strings!</h1>
                             <br/>
                             <h3>First of all you must to learn about the fingers you have to touch</h3>
                             <h3>Let's play all the strings with the third finger! And discovery what notes this will take!!</h3>
@@ -421,9 +422,9 @@ export default function ViolaJumpNotes(){
 
 
                     <details style={{color: 'blue'}}><summary style={{fontSize: '13px', fontFamily: 'serif', backgroundColor: 'lightblue'}}>4º Finger!</summary>
-                    <fieldset style={{color: 'gold', borderColor: 'gold'}}>
+                    <fieldset style={{color: 'blue', borderColor: 'gold'}}>
                         <center>
-                            <h1>Playing at cello strings!</h1>
+                            <h1>Playing at Viola strings!</h1>
                             <br/>
                             <h3>First of all you must to learn about the fingers you have to touch</h3>
                             <h3>Let's play all the strings with the fourth finger! And discovery what notes this will take!!</h3>
@@ -475,6 +476,11 @@ export default function ViolaJumpNotes(){
                         {fing3}
                         {fing4}
                     </p>
+                    <details><summary>Table of scales</summary>
+                        <fieldset>
+                            <PentCreator/>
+                        </fieldset>
+                    </details>
                     <Toaster/>
                 </div>
             </div>

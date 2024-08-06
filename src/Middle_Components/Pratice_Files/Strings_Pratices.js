@@ -22,6 +22,7 @@ import ViolaDominion from '../Viola_Interp/Pratices_Lesson_Viola';
 import CelloPratice from '../Cello_Interp/Pratice_Cello_Lesson';
 import Metronome from './FilesPratices/SortingInputs';
 import DialogClaves from './FilesPratices/DialogsFiles/DialogCelloPauta';
+import DialogNotesFigures from './FilesPratices/DialogsFiles/DialogNotesFigures';
 
 export default function FirstStud(){
     const [trueOpen, setTrueOpen] = useState(false);
@@ -34,7 +35,7 @@ export default function FirstStud(){
             color: 'black',
             fontFamily: 'serif',
         }
-    }
+    };
     return(
         <div style={{backgroundColor: 'blue', float: 'left', height: '5000px'}}>
             <div style={{width: '750px', height: '5000px'}}>
@@ -122,7 +123,7 @@ export default function FirstStud(){
                                 </StepButton>
                                 <br/><hr/><br/>
                                 <StepButton style={{backgroundColor: 'midnightblue'}}>
-                                    <details><summary style={{color: 'gold'}}>Put note and Play it</summary>
+                                    <details><summary style={{color: 'gold'}}>Put note and the Fermata</summary>
                                         <DialogFingeringViolin/>
                                     </details>
                                 </StepButton>
@@ -147,6 +148,12 @@ export default function FirstStud(){
                                 <StepButton style={{backgroundColor: 'midnightblue'}}>
                                     <details><summary style={{color: 'gold', fontFamily: 'revert'}}>Clave Exercise</summary>
                                         <DialogClaves/>
+                                    </details>
+                                </StepButton>
+                                <br/><br/><br/>
+                                <StepButton style={{backgroundColor: 'midnightblue'}}>
+                                    <details><summary style={{color: 'gold', fontFamily: 'revert'}}>Add figures!</summary>
+                                        <DialogNotesFigures/>
                                     </details>
                                 </StepButton>
                             </Card>

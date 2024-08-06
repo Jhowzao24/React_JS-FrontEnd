@@ -2,7 +2,39 @@ import { Button, Grid } from '@mui/material';
 import React, {useState} from 'react';
 import QuizzQuinze from '../Avaliations_Files/TeoryAvaliationsQuizz/QuizzPhaseFifteen';
 
+
 export default function DeciQuintaFase(){
+    const [isFullScreen, setIsFullScreen] = useState(false);
+    const toggleFullScreen = () => {
+      setIsFullScreen(!isFullScreen);
+    };
+    return(
+      <div>
+        <header>
+          <Button style={{backgroundColor : 'cyan', color: 'blue'}} onClick={toggleFullScreen}>
+            {isFullScreen ? 'Exit Full Screen' : 'Phase 15'}
+          </Button>
+          {isFullScreen && (
+            <div>
+              <div className={`card ${isFullScreen ? 'full-screen' : ''}`}>
+                <FaseQuinze/>
+                {isFullScreen && (
+                  <Button style={{color: 'blue', backgroundColor: 'orangered'}} onClick={toggleFullScreen} className="return-button">
+                    Return
+                  </Button>
+                )}
+              </div>
+            </div>
+          )}
+        </header>
+      </div>
+    )
+  }
+
+
+
+
+function FaseQuinze(){
     const [showAndamentNumb, setShowAndamentNumb] = useState(false);
     const handleAndante = () => {
         setShowAndamentNumb(true);
@@ -14,9 +46,16 @@ export default function DeciQuintaFase(){
     const [counteR, setcounteR] = useState(0);
     const handleClickDeacres = () => {
         setcounteR(counteR + 1)
-    }
+    };
+    const imageStyle = {
+        maxWidth: '100%',
+        height: 'auto',
+        imageRendering: 'crisp-edges',  // Firefox
+        WebkitImageRendering: 'optimize-contrast',  // Chrome, Safari
+        msInterpolationMode: 'nearest-neighbor',  // Internet Explorer
+      };
     return(
-        <div style={{backgroundColor: 'lightblue', width: '600px', margin: '-100px'}}>
+        <div style={{backgroundColor: 'lightblue', width: '1400px', margin: '-10px'}}>
             <center style={{margin: '50px'}}>
                 <h1>Progress</h1>
                 <hr/>
@@ -31,7 +70,7 @@ export default function DeciQuintaFase(){
                 <Grid style={{float: 'left', paddingLeft: '660px'}} container spacing={70}>
                     <Button style={{backgroundColor: 'grey', color: 'blue', fontFamily: 'serif'}} onClick={handleAndante}>Andamento</Button>
                 </Grid>
-                <Grid style={{float: 'left', paddingLeft: '600px', position: 'relative'}} container spacing={63}>
+                <Grid style={{float: 'left', paddingLeft: '980px', position: 'relative'}} container spacing={63}>
                     {showAndamentNumb && <div><Grid style={{float: 'left', paddingLeft: '30px', paddingTop: '15px'}} container spacing={-4}><button style={{backgroundColor: 'dodgerblue', width: '20px', height: '18px', color: 'white'}} onClick={handleClickIncres}>+</button><p style={{fontSize: '12px', float: 'right', paddingLeft: '10px'}}>{Counter}-{counteR}</p><Grid style={{float: 'left', paddingLeft: '100px'}} container spacing={4}><button style={{width: '20px', height: '20px', color: 'white', backgroundColor: 'dodgerblue'}} onClick={handleClickDeacres}>-</button></Grid></Grid></div>}
                 </Grid>
                 <h5 style={{margin: '50px'}}>Whatever the progress choiced, every figures must to have your values insteaded with precision, it is, it must not to be a low speed to cut the values of the longs figures</h5>
@@ -46,10 +85,12 @@ export default function DeciQuintaFase(){
                         <h3>This indicate a few  reduction on the speed</h3>
                     </fieldset>
                     <h5>Look the example below:</h5>
-                    <img style={{width: '500px'}} src='https://lirp.cdn-website.com/99c0615a/dms3rep/multi/opt/MTS-MODULO-11-01-1920w.jpg' alt='pocorall'/>
+                    <img style={imageStyle} src='https://th.bing.com/th/id/OIP.1Aox7C24y4-hW4X47PVToQHaBD?rs=1&pid=ImgDetMain' alt='pocorall'/>
                 </center>
                 <br/><br/><br/>
-                <QuizzQuinze/>
+                <Grid container spacing={0} style={{paddingLeft: '350px'}}>
+                    <QuizzQuinze/>
+                </Grid>
             </center>
         </div>
     )

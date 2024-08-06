@@ -13,6 +13,8 @@ import ViolaVirtuoso from '../Avaliations_Files/PraticesAvaliations/Virtuoso';
 import { Tooltip } from 'antd';
 import AutoMoveQueue from './CelloNotesJump';
 import { Toaster, toast } from 'react-hot-toast';
+import PentCreator from '../PentagramasCreator/Pentagram_One';
+import CelloModify from '../NotesScaleChange/CelloModificationScale';
 
 const Title1 = [
   <div style={{margin: -'-30px', backgroundColor: 'gold', color: 'black'}}>
@@ -151,8 +153,10 @@ function CelloPlayer(){
                         </header>
                       <br/>
                       <AutoMoveQueue/>
-                    <br/>
+                    <br/><br/><br/>
+                    <CelloModify/>
                 </Paper>
+                <PentCreator/>
             </Card><hr/>
         </div>
     )

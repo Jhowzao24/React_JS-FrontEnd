@@ -1,10 +1,40 @@
 import { Button, Divider, Grid, Paper, Tooltip } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import intensity from './Middles_Images/intensity.jpg';
 import Popup from 'reactjs-popup';
 import QuizzDez from '../Avaliations_Files/TeoryAvaliationsQuizz/QuizzPhaseTen';
 
+
 export default function DecimaFase(){
+    const [isFullScreen, setIsFullScreen] = useState(false);
+    const toggleFullScreen = () => {
+      setIsFullScreen(!isFullScreen);
+    };
+    return(
+      <div>
+        <header>
+          <Button style={{backgroundColor : 'cyan', color: 'blue'}} onClick={toggleFullScreen}>
+            {isFullScreen ? 'Exit Full Screen' : 'Phase 10'}
+          </Button>
+          {isFullScreen && (
+            <div>
+              <div className={`card ${isFullScreen ? 'full-screen' : ''}`}>
+                <FaseDez/>
+                {isFullScreen && (
+                  <Button style={{color: 'blue', backgroundColor: 'orangered'}} onClick={toggleFullScreen} className="return-button">
+                    Return
+                  </Button>
+                )}
+              </div>
+            </div>
+          )}
+        </header>
+      </div>
+    )
+  }
+
+
+function FaseDez(){
     const tip1 = [
         <div>
             <img style={{width: '450px', height: '300px'}} src={intensity} alt='intensidade'/>
@@ -30,7 +60,7 @@ export default function DecimaFase(){
         </div>
     ]
     return(
-        <div style={{width: '500px', height: '700px', backgroundColor: 'cadetblue'}}>
+        <div style={{width: '1300px', height: '700px', backgroundColor: 'cadetblue'}}>
             <h1 style={{textAlign: 'center'}}>Dinamic</h1>
             <h4>What is this on real?
                 <ul>

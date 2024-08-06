@@ -5,6 +5,34 @@ import QuizzOito from '../Avaliations_Files/TeoryAvaliationsQuizz/QuizzPhaseEigh
 import { motion } from 'framer-motion';
 
 export default function EithFase(){
+    const [isFullScreen, setIsFullScreen] = useState(false);
+    const toggleFullScreen = () => {
+      setIsFullScreen(!isFullScreen);
+    };
+    return(
+      <div>
+        <header>
+          <Button style={{backgroundColor : 'cyan', color: 'blue'}} onClick={toggleFullScreen}>
+            {isFullScreen ? 'Exit Full Screen' : 'Phase 8'}
+          </Button>
+          {isFullScreen && (
+            <div>
+              <div className={`card ${isFullScreen ? 'full-screen' : ''}`}>
+                <FaseOito/>
+                {isFullScreen && (
+                  <Button style={{color: 'blue', backgroundColor: 'orangered'}} onClick={toggleFullScreen} className="return-button">
+                    Return
+                  </Button>
+                )}
+              </div>
+            </div>
+          )}
+        </header>
+      </div>
+    )
+  }
+
+function FaseOito(){
     const [content, setContent] = useState('');
     const handleAddContent = () => {
         const newContent = prompt('Write anything here:');
@@ -30,7 +58,7 @@ export default function EithFase(){
             >
             <h1>Folded Bemol</h1>
             <h2>The folded bemol will fold the note to 2 semitones, but this accidents will alternate the tone sound of the note down, and it will not make like the sustenido the elevate the tone note to up</h2>
-            <img style={{width: '300px', height: '50px'}} src='https://th.bing.com/th/id/R.c20de7c93c55f386678853f3ad5b03eb?rik=gEXBDc3RSLOOeg&pid=ImgRaw&r=0' alt='bemolDouble'/>
+            <img style={{width: '300px', height: '70px'}} src='https://th.bing.com/th/id/R.acb87e0ecba1334935386195efb1eb55?rik=ts6lQJjBiXChBg&pid=ImgRaw&r=0' alt='bemolDouble'/>
             </motion.div>
         </div>
     ]
@@ -62,7 +90,7 @@ export default function EithFase(){
         </div>
     ]
     return(
-        <div style={{borderColor: 'blue', borderStyle: 'double', width: '800px', backgroundColor: 'black'}}>
+        <div style={{borderColor: 'blue', borderStyle: 'double', width: '1300px', backgroundColor: 'black'}}>
             <Paper style={{margin: '20px', backgroundColor: 'dodgerblue', borderStyle: 'double', borderColor: 'blue'}}>
                 <center style={{margin: '20px'}}>
                     <h1>Tonality</h1>
@@ -94,7 +122,7 @@ export default function EithFase(){
                             <img style={{width: '50px', height: '50px', float: 'left'}} src='https://th.bing.com/th/id/R.17ce90a1b4839dd69ad403b2edaa4ffd?rik=jdk64ymJ6Ath2g&pid=ImgRaw&r=0' alt='dobradosus'/>
                         </Tooltip>
                         <Tooltip arrow placement='top-start' title={doubleBemol}>
-                            <img style={{width: '50px', height: '50px', float: 'right'}} src='https://pianopoetico.files.wordpress.com/2020/10/image-7.png?w=224' alt='dobradosus'/>
+                            <img style={{width: '50px', height: '50px', float: 'right'}} src='https://th.bing.com/th/id/OIP.73mB6eeq5uMOinSdn0nQyQAAAA?rs=1&pid=ImgDetMain' alt='dobradoBemol'/>
                         </Tooltip>
                         <Tooltip arrow placement='top-start' title={bequadro}>
                             <img style={{width: '50px', height: '50px'}} src='https://th.bing.com/th/id/R.9a34876e0fdff1ac8477eafa38d8b479?rik=k%2fx0tFhLUbyrTg&riu=http%3a%2f%2fbequadros.com.br%2fwp-content%2fuploads%2f2015%2f02%2fBequadro1.jpg&ehk=kW5Yc%2fWoA81XU4iYN6NWpZVvmnYkr%2bNn4VtZMc%2byYsg%3d&risl=&pid=ImgRaw&r=0' alt='bequadro'/>
@@ -107,7 +135,7 @@ export default function EithFase(){
                         <Button style={{backgroundColor: 'black', float: 'right'}} onClick={handleAddContent}>Add #</Button>
                         <img style={{width: '400px', height: '110px'}} src='https://th.bing.com/th/id/OIP.9LQllvVcQujQfTq6GnJcPgHaCo?pid=ImgDet&rs=1' alt='pentagram'/>
                         <Grid container spacing={21.5}>
-                            <h3 style={{paddingLeft: '400px'}}>{content}<CircleIcon/></h3>
+                            <h3 style={{paddingLeft: '700px'}}>{content}<CircleIcon/></h3>
                         </Grid>
                         <p>As you could to see, You added a signal of accident / #, b, X or bb, But you see on where this signalwill appear at the pentagram notes!</p>
                         <h5>Follow the next Quizz bellow to maintain your knowledges!</h5>

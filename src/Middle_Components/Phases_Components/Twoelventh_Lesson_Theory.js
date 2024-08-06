@@ -2,7 +2,38 @@ import { Button, ButtonBase, Divider, Grid, Tooltip } from '@mui/material';
 import React, { useState } from 'react';
 import QuizzDoze from '../Avaliations_Files/TeoryAvaliationsQuizz/QuizzPhaseTwoelve';
 
+
 export default function DozeFase(){
+    const [isFullScreen, setIsFullScreen] = useState(false);
+    const toggleFullScreen = () => {
+      setIsFullScreen(!isFullScreen);
+    };
+    return(
+      <div>
+        <header>
+          <Button style={{backgroundColor : 'cyan', color: 'blue'}} onClick={toggleFullScreen}>
+            {isFullScreen ? 'Exit Full Screen' : 'Phase 12'}
+          </Button>
+          {isFullScreen && (
+            <div>
+              <div className={`card ${isFullScreen ? 'full-screen' : ''}`}>
+                <FaseDoze/>
+                {isFullScreen && (
+                  <Button style={{color: 'blue', backgroundColor: 'orangered'}} onClick={toggleFullScreen} className="return-button">
+                    Return
+                  </Button>
+                )}
+              </div>
+            </div>
+          )}
+        </header>
+      </div>
+    )
+  }
+
+
+
+function FaseDoze(){
         const [Contente, setContente] = useState([])
         const handleAdMoreCont = () => {
             const newContente = ['Regular']
@@ -20,7 +51,7 @@ export default function DozeFase(){
             setAcentuado([] +newAcentuado);
         }
         return(
-            <div style={{width: '700px', height: '1500px', backgroundColor: 'darkred', margin: '-40px', color: 'cyan'}}>
+            <div style={{width: '1300px', height: '1500px', backgroundColor: 'darkred', margin: '-40px', color: 'cyan'}}>
                 <h1 style={{textAlign: 'center'}}>Syncopation</h1>
                 <Grid style={{margin: '50px'}}>
                     <h6>The syncopetion happen when a sound is articulated at the weak time, or the weak part of the time and prolong itself under the strong time or strong part following. The strong accent or half strong that must to appear is suprimed, this not appear</h6>
@@ -73,7 +104,7 @@ export default function DozeFase(){
                     <h6>But, at case of sincopa, there is musicals styles(by example at the lathyn popular music, at jazz, etc), that make an major accentuation on this sincopated note, creating with this, an a differentiated rythm</h6>
                     <Divider style={{borderColor: 'cyan'}}/>
                     <h6>It can happen still that the composer wants this accentuation more strongest over the sincopa. On this case, he puts a signal of accent on this note(resource very present on diverses instruments methods), As to see at the example below:</h6>
-                    <img style={{width: '600px', height: '115px'}} src='https://d2nwkt1g6n1fev.cloudfront.net/skydocu/wp-content/uploads/content/logicpro/images/logicpro-es-S0695_scoSyncopationUL3.png' alt='sincopapresente'/>
+                    <img style={{width: '600px', height: '115px'}} src='https://th.bing.com/th/id/R.5dedc2e69f7fd5ac6950861d86abb06e?rik=aRQeyoxWgfkiPA&pid=ImgRaw&r=0' alt='sincopapresente'/>
                 </Grid>
                 <Grid style={{paddingLeft: '200px'}} container spacing={5}>
                     <Tooltip title='This is the Sincopas accentuated, click and you will see it where theyis found'>

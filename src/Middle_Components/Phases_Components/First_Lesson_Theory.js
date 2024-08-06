@@ -9,8 +9,137 @@ import giphyViolin from './Middles_Images/giphyViolin.gif';
 import QuizzOneTime from '../Avaliations_Files/TeoryAvaliationsQuizz/QuizzPhaseOne';
 import { motion } from 'framer-motion';
 import NotesExercise from './PhasesExercises/LineLessonPauta';
+//import { toast, Toaster } from 'react-hot-toast';
+
+const dataMusic = [
+    {
+        "id": 1,
+        "DescriptionMusic": "The Music is the most beautifull form to express our feelings by the coordinated sounds made by voices and instruments!"
+    },
+    {
+        "id": 2,
+        "DescriptionMusic2": "Music is the knowledge of the Human that can to find in life, it is the understanding of the soul!",
+        "DescMusicAdded1": "the music will be the feelings manifesting for who you can to accert, you have a person goal, to anyone, and you want to play a music, that the letters or the melody can touch their feelings, this is the object of the music!"
+    },
+    {
+        "id": 3,
+        "DescriptionMusic3": "You will got the music on the sense this bring, to make others dream and the others smile!!",
+        "DescMusicAdded2": "If the sound music that you are playing touch the others feelings, you got it, you made it right! This is what most import for the music world!!"
+    },
+    {
+        "id": 4,
+        "DescriptionMusic4": "The lite of you instrument will appear when you play the notes that will form a melody and this will produce any different sounds!!"
+    }
+  ];
+
+  const dataSound = [
+    {
+        "id": 1,
+        "Description1": "Sound is all we hear, so... The sound is the the propagation of waves in the air"
+    },
+    {
+        "id": 2,
+        "Description2": "So, a beat, a duck making noises, a motor's cars making noises, an instrument playing, is sound!!"
+    },
+    {
+        "id": 3,
+        "Description3": "Sounds is all you hear!!"
+    },
+    {
+        "id": 4,
+        "Description4": "Noise is sound too!!"
+    }
+  ];
+
+  const dataMelody = [
+    {
+        "id": 1,
+        "DescriptionMelody": "It is the Successive of Sounds productions <b>||</b> <i>Could you remmember the queue"
+    },
+    {
+        "id": 2,
+        "DescriptionMelody2": "Melody is beautifull that will full your feelings or your mind"
+    },
+    {
+        "id": 3,
+        "DescriptionMelody3": "Melody is all the sequences sounds that make you follow a rithymic feel!!"
+    },
+    {
+        "id": 4,
+        "DescriptionMelody4": "Melody light the eyes on every where you go and play a music that will make the difference"
+    }
+  ];
+
+  const dataHarmony = [
+    {
+        "id": 1,
+        "DescriptionHarmony1": "First of all, it is the musical element that produce very sounds simultanially at the same time!"
+    },
+    {
+        "id": 2,
+        "DescriptionHarmony2": "Harmony can be look at when you hear two or three or more sounds than this at the same time ones!!"
+    },
+    {
+        "id": 3,
+        "DescriptionHarmony3": "Harmony is all the sequences sounds that made more than one note play simultanially!!",
+        "DescHarmony3Complement": "In best words, when you hear a sound with very nstruments playing the different notes at the same time, this is a harmony"
+    },
+    {
+        "id": 4,
+        "DescriptionHarmony4": "Harmony, we have examples of harmony, that it demands on when you are walking with other person beside you and your feets are different, but it is toke at the same time, and when you are signing with anyone and this other person is singning other melody together you!"
+    }
+  ];
+
+  const dataRhythm = [
+    {
+        "id": 1,
+        "DescriptionRhythm1": "First of all, it is the musical element that produce very sounds simultanially at the same time!"
+    },
+    {
+        "id": 2,
+        "DescriptionRhythm2": "Rhythm will get you to every place you want to go, because when you make all the things on your rhythm you will well, and this is the enought way to check the best things in your life, at the music this will be the same form!!"
+    },
+    {
+        "id": 3,
+        "DescriptionRhythm3": "Harmony is all the sequences sounds that made more than one note play simultanially!!",
+        "DescriptionRhythm3Complement": "In best words, when you hear a sound with very nstruments playing the different notes at the same time, this is a harmony"
+    },
+    {
+        "id": 4,
+        "DescriptionRhythm4": "Rhythm you can to see it in any where you go, a beat of a palms, heart beats, you have a lots of form to cognize a rhythm!"
+    }
+  ]
+
 
 export default function FirstComp(){
+  const [isFullScreen, setIsFullScreen] = useState(false);
+  const toggleFullScreen = () => {
+    setIsFullScreen(!isFullScreen);
+  };
+  return(
+    <div>
+      <header>
+        <Button style={{backgroundColor : 'cyan', color: 'blue'}} onClick={toggleFullScreen}>
+          {isFullScreen ? 'Exit Full Screen' : 'Phase 1'}
+        </Button>
+        {isFullScreen && (
+          <div>
+            <div className={`card ${isFullScreen ? 'full-screen' : ''}`}>
+              <StudyFirst/>
+              {isFullScreen && (
+                <Button style={{color: 'blue', backgroundColor: 'orangered'}} onClick={toggleFullScreen} className="return-button">
+                  Return
+                </Button>
+              )}
+            </div>
+          </div>
+        )}
+      </header>
+    </div>
+  )
+}
+
+function StudyFirst(){
     useEffect(() => {
         /*const timeout = setTimeout(() => {
             setShowModal(true)
@@ -26,7 +155,11 @@ export default function FirstComp(){
             return(
                 <center>
                     <div style={{backgroundColor: 'black', color: 'cyan', fontSize: '10px', fontFamily: 'serif', borderRadius: '20px'}}>
-                        <h1>The Music is the most beautifull form to express our feelings by the coordinated sounds made by voices and instruments</h1>
+                        {dataMusic.map(item => (
+                            <div key={item.id}>
+                                <h1>{item.DescriptionMusic}</h1>
+                            </div>
+                        ))}
                     </div>
                 </center>
             );
@@ -34,8 +167,12 @@ export default function FirstComp(){
             return(
                 <center>
                     <div style={{backgroundColor: 'black', color: 'cyan', fontSize: '10px', fontFamily: 'serif', borderRadius: '20px'}}>
-                        <h1>Music is the knowledge of the Human that can to find in life, it is the understanding of the soul!</h1>
-                        <h3 style={{color: 'gold'}}>the music will be the feelings manifesting for who you can to accert, you have a person goal, to anyone, and you want to play a music, that the letters or the melody can touch their feelings, this is the object of the music!</h3>
+                        {dataMusic.map(item => (
+                            <div key={item.id}>
+                                <h1>{item.DescriptionMusic2}</h1>
+                                <h3 style={{color: 'gold'}}>{item.DescMusicAdded1}</h3>
+                            </div>
+                        ))}
                     </div>
                 </center>
             );
@@ -43,8 +180,12 @@ export default function FirstComp(){
             return(
                 <center>
                     <div style={{backgroundColor: 'black', color: 'cyan', fontSize: '10px', fontFamily: 'serif', borderRadius: '20px'}}>
-                        <h1>You will got the music on the sense this bring, to make others dream and the others smile!!</h1>
-                        <h3 style={{color: 'gold'}}>If the sound music that you are playing touch the others feelings, you got it, you made it right! This is what most import for the music world!!</h3>
+                        {dataMusic.map(item => (
+                            <div key={item.id}>
+                                <h1>{item.DescriptionMusic3}</h1>
+                                <h3>{item.DescMusicAdded2}</h3>
+                            </div>
+                        ))}
                     </div>
                 </center>
             );
@@ -52,7 +193,11 @@ export default function FirstComp(){
             return(
                 <center>
                     <div style={{backgroundColor: 'black', color: 'cyan', fontSize: '10px', fontFamily: 'serif', borderRadius: '20px'}}>
-                        <h1>The lite of you instrument will appear when you play the notes that will form a melody and this will produce any different sounds!!</h1>
+                        {dataMusic.map(item => (
+                            <div key={item.id}>
+                                <h1>{item.DescriptionMusic4}</h1>
+                            </div>
+                        ))}
                     </div>
                 </center>
             )
@@ -64,7 +209,9 @@ export default function FirstComp(){
             return(
                 <center>
                     <div style={{borderRadius: '30px', backgroundColor: 'black', color: 'gold', fontSize: '16px'}}>
-                        <h3>Sound is all we hear, so... The sound is the the propagation of waves in the air</h3>
+                        {dataSound.map(item => (
+                            <h3>{item.Description1}</h3>
+                        ))}
                     </div>
                 </center>
             )
@@ -72,7 +219,9 @@ export default function FirstComp(){
             return(
                 <center>
                     <div style={{borderRadius: '30px', backgroundColor: 'black', color: 'gold', fontSize: '16px'}}>
-                        <h3>So, a beat, a duck making noises, a motor's cars making noises, an instrument playing, is sound!!</h3>
+                        {dataSound.map(item => (
+                            <h3>{item.Description2}</h3>
+                        ))}
                     </div>
                 </center>
             )
@@ -80,7 +229,9 @@ export default function FirstComp(){
             return(
                 <center>
                     <div style={{borderRadius: '30px', backgroundColor: 'black', color: 'gold', fontSize: '16px'}}>
-                        <h3>Sounds is all you hear!!</h3>
+                        {dataSound.map(item => (
+                            <h3>{item.Description3}</h3>
+                        ))}
                     </div>
                 </center>
             )
@@ -88,7 +239,9 @@ export default function FirstComp(){
             return(
                 <center>
                     <div style={{borderRadius: '30px', backgroundColor: 'black', color: 'gold', fontSize: '16px'}}>
-                        <h3>Noise is sound too!!</h3>
+                        {dataSound.map(item => (
+                            <h3>{item.Description4}</h3>
+                        ))}
                     </div>
                 </center>
             )
@@ -100,7 +253,9 @@ export default function FirstComp(){
             return(
                 <center>
                     <div style={{backgroundColor: 'WindowFrame', color: 'Highlight', boxShadow: '0 0 5px 3px'}}>
-                        <h3>It is the Successive of Sounds productions <b>||</b> <i>Could you remmember the queue</i></h3>
+                        {dataMelody.map(item => (
+                            <h3>{item.DescriptionMelody}</h3>
+                        ))}
                     </div>
                 </center>
             )
@@ -108,7 +263,9 @@ export default function FirstComp(){
             return(
                 <center>
                     <div style={{backgroundColor: 'WindowFrame', color: 'Highlight', boxShadow: '0 0 5px 3px'}}>
-                        <h3>Melody is beautifull that will full your feelings or your mind</h3>
+                        {dataMelody.map(item => (
+                            <h3>{item.DescriptionMelody2}</h3>
+                        ))}
                     </div>
                 </center>
             )
@@ -116,7 +273,9 @@ export default function FirstComp(){
             return(
                 <center>
                     <div style={{backgroundColor: 'WindowFrame', color: 'Highlight', boxShadow: '0 0 5px 3px'}}>
-                        <h3>Melody is all the sequences sounds that make you follow a rithymic feel!!</h3>
+                        {dataMelody.map(item => (
+                            <h3>{item.DescriptionMelody3}</h3>
+                        ))}
                     </div>
                 </center>
             )
@@ -124,7 +283,9 @@ export default function FirstComp(){
             return(
                 <center>
                     <div style={{backgroundColor: 'WindowFrame', color: 'Highlight', boxShadow: '0 0 5px 3px'}}>
-                        <h3>Melody light the eyes on every where you go and play a music that will make the difference</h3>
+                        {dataMelody.map(item => (
+                            <h3>{item.DescriptionMelody4}</h3>
+                        ))}
                     </div>
                 </center>
             )
@@ -136,7 +297,9 @@ export default function FirstComp(){
             return(
                 <center>
                     <div style={{backgroundColor: 'WindowFrame', color: 'Highlight', boxShadow: '0 0 5px 3px'}}>
-                        <h3>First of all, it is the musical element that produce very sounds simultanially at the same time!</h3>
+                        {dataHarmony.map(item => (
+                            <h3>{item.DescriptionHarmony1}</h3>
+                        ))}
                     </div>
                 </center>
             )
@@ -144,7 +307,9 @@ export default function FirstComp(){
             return(
                 <center>
                     <div style={{backgroundColor: 'WindowFrame', color: 'Highlight', boxShadow: '0 0 5px 3px'}}>
-                        <h3>Harmony can be look at when you hear two or three or more sounds than this at the same time ones!!</h3>
+                        {dataHarmony.map(item => (
+                            <h3>{item.DescriptionHarmony2}</h3>
+                        ))}
                     </div>
                 </center>
             )
@@ -152,8 +317,12 @@ export default function FirstComp(){
             return(
                 <center>
                     <div style={{backgroundColor: 'WindowFrame', color: 'Highlight', boxShadow: '0 0 5px 3px'}}>
-                        <h3>Harmony is all the sequences sounds that made more than one note play simultanially!!</h3>
-                        <h3>In best words, when you hear a sound with very nstruments playing the different notes at the same time, this is a harmony</h3>
+                        {dataHarmony.map(item => (
+                            <div key={item.id}>
+                                <h3>{item.DescriptionHarmony3}</h3>
+                                <h3>{item.DescHarmony3Complement}</h3>
+                            </div>
+                        ))}
                     </div>
                 </center>
             )
@@ -161,7 +330,9 @@ export default function FirstComp(){
             return(
                 <center>
                     <div style={{backgroundColor: 'WindowFrame', color: 'Highlight', boxShadow: '0 0 5px 3px'}}>
-                        <h3>Harmony, we have examples of harmony, that it demands on when you are walking with other person beside you and your feets are different, but it is toke at the same time, and when you are signing with anyone and this other person is singning other melody together you!</h3>
+                        {dataHarmony.map(item => (
+                            <h3>{item.DescriptionHarmony4}</h3>
+                        ))}
                     </div>
                 </center>
             )
@@ -173,7 +344,9 @@ export default function FirstComp(){
             return(
                 <center>
                     <div style={{backgroundColor: 'WindowFrame', color: 'Highlight', boxShadow: '0 0 5px 3px'}}>
-                        <h3>First of all, it is the musical element that produce very sounds simultanially at the same time!</h3>
+                        {dataRhythm.map(item => (
+                            <h3>{item.DescriptionRhythm1}</h3>
+                        ))}
                     </div>
                 </center>
             )
@@ -181,7 +354,9 @@ export default function FirstComp(){
             return(
                 <center>
                     <div style={{backgroundColor: 'WindowFrame', color: 'Highlight', boxShadow: '0 0 5px 3px'}}>
-                        <h3>Rhythm will get you to every place you want to go, because when you make all the things on your rhythm you will well, and this is the enought way to check the best things in your life, at the music this will be the same form!!</h3>
+                        {dataRhythm.map(item => (
+                            <h3>{item.DescriptionRhythm2}</h3>
+                        ))}
                     </div>
                 </center>
             )
@@ -189,8 +364,12 @@ export default function FirstComp(){
             return(
                 <center>
                     <div style={{backgroundColor: 'WindowFrame', color: 'Highlight', boxShadow: '0 0 5px 3px'}}>
-                        <h3>Harmony is all the sequences sounds that made more than one note play simultanially!!</h3>
-                        <h3>In best words, when you hear a sound with very nstruments playing the different notes at the same time, this is a harmony</h3>
+                        {dataRhythm.map(item => (
+                            <div key={item.id}>
+                                <h3>{item.DescriptionRhythm3}</h3>
+                                <h4>{item.DescriptionRhythm3Complement}</h4>
+                            </div>
+                        ))}
                     </div>
                 </center>
             )
@@ -198,7 +377,9 @@ export default function FirstComp(){
             return(
                 <center>
                     <div style={{backgroundColor: 'WindowFrame', color: 'Highlight', boxShadow: '0 0 5px 3px'}}>
-                        <h3>Rhythm you can to see it in any where you go, a beat of a palms, heart beats, you have a lots of form to cognize a rhythm!</h3>
+                        {dataRhythm.map(item => (
+                            <h3>{item.DescriptionRhythm4}</h3>
+                        ))}
                     </div>
                 </center>
             )
@@ -213,8 +394,8 @@ export default function FirstComp(){
         }
     };
     return (
-        <div style={{nackgroundColor: 'Highlight', width: '300px', height: '1300px'}}>
-            <Card style={{width: '900px', height: '1500px'}}>
+        <div style={{nackgroundColor: 'Highlight', width: '800px', height: '1300px'}}>
+            <Card style={{width: '1400px', height: '1500px'}}>
                 <center style={{color: 'midnightblue', fontFamily: 'fantasy', letterSpacing: '10px'}}>Music and Sound</center>
                 <Card style={{paddingLeft: '20px'}}>
                     <Grid style={{paddingLeft: '35px', paddingTop: '60px'}} container spacing={5}>

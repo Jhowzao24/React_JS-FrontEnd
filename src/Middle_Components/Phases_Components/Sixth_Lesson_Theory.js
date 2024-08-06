@@ -1,8 +1,36 @@
 import { Card, Grid, Paper, Tooltip, Divider, Button } from '@mui/material';
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import QuizzSixPhase from '../Avaliations_Files/TeoryAvaliationsQuizz/QuizzPhaseSix';
 
-export default class SextoPh extends Component{
+export default function SextoPH(){
+    const [isFullScreen, setIsFullScreen] = useState(false);
+    const toggleFullScreen = () => {
+      setIsFullScreen(!isFullScreen);
+    };
+    return(
+      <div>
+        <header>
+          <Button style={{backgroundColor : 'cyan', color: 'blue'}} onClick={toggleFullScreen}>
+            {isFullScreen ? 'Exit Full Screen' : 'Phase 6'}
+          </Button>
+          {isFullScreen && (
+            <div>
+              <div className={`card ${isFullScreen ? 'full-screen' : ''}`}>
+                <SextaPhase/>
+                {isFullScreen && (
+                  <Button style={{color: 'blue', backgroundColor: 'orangered'}} onClick={toggleFullScreen} className="return-button">
+                    Return
+                  </Button>
+                )}
+              </div>
+            </div>
+          )}
+        </header>
+      </div>
+    )
+  }
+
+class SextaPhase extends Component{
     render(){
         const bem = [
             <div style={{width: '500px', height: '500px', backgroundColor: 'Highlight'}}>
@@ -121,7 +149,7 @@ export default class SextoPh extends Component{
             </div>
         ]
         return(
-            <div style={{width: '1000px', height: '500px', backgroundColor: 'dodgerblue'}}>
+            <div style={{width: '1300px', height: '600px', backgroundColor: 'dodgerblue'}}>
                 <Card style={{width: '455px', height: '455px', margin: '30px', backgroundColor: 'AppWorkspace'}}>
                     <Grid>
                         <Paper style={{textAlign: 'center', backgroundColor: 'darkcyan', margin: '15px', color: 'gold', fontFamily: 'serif', fontSize: '20px'}}>

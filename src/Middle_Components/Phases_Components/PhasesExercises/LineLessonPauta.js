@@ -1,6 +1,6 @@
 import { Button } from '@mui/material';
 import React, {useState} from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { Toaster, toast } from 'react-hot-toast';
 
 function SpaceNotes(){
   const [notes] = useState(['Timbre', 'Intensity', 'Duration', 'Height']);
@@ -9,7 +9,7 @@ function SpaceNotes(){
   const handleNoteClick = (clickedNote) => {
     if (clickedNote === 'Intensity') {
       toast.success('Congratulation, you righted it!');
-      toast.info(notes);
+      toast.success(notes);
       setScore(score + 1);
       setCurrentNoteIndex(currentNoteIndex + 1);
     } else {
@@ -28,7 +28,7 @@ function SpaceNotes(){
           <Button style={{backgroundColor: 'Highlight', color: 'white', fontFamily: 'cursive'}} onClick={() => handleNoteClick('Height')}>Height</Button>
         </div>
         <br/>
-      <ToastContainer/>
+      <Toaster/>
     </div>
   )
 }
@@ -43,7 +43,7 @@ const NotesExercise = () => {
     if (clickedNote === 'Rhythm') {
       toast.success('Congratulation, you accerted it!!');
       setNotes('Rhythm');
-      toast.info(notes);
+      toast.success(notes);
       setScore(score + 1);
       setCurrentNoteIndex(currentNoteIndex + 1);
     } else {
@@ -60,7 +60,7 @@ const NotesExercise = () => {
           <Button style={{backgroundColor: 'gold', color: 'red', fontFamily: 'monospace'}} onClick={() => handleNoteClick('Melody')}>Melody</Button>
           <Button style={{backgroundColor: 'gold', color: 'red', fontFamily: 'monospace'}} onClick={() => handleNoteClick('Harmony')}>Harmony</Button>
         </div>
-      <ToastContainer/>
+      <Toaster/>
       <br/>
       <fieldset>
         <SpaceNotes/>

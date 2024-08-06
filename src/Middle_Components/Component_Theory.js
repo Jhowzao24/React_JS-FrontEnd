@@ -50,9 +50,7 @@ function TheoryComponents() {
           <Popup trigger={<Button style={{color: 'ButtonHighlight',
         borderStyle: 'initial', borderColor: 'Scrollbar', borderWidth: '5px',
         backgroundColor: 'cadetblue'}}><ExpandCircleDownIcon/></Button>}>
-            <Paper style={{width: '350px', margin: '30px'}}>
               <FirstComp/>
-            </Paper>
             </Popup>
         </Paper></Stepper><hr style={{borderColor: 'Highlight'}}/>
       </div>
@@ -130,9 +128,7 @@ function TheoryComponents() {
           <Popup className='pop' trigger={<Button style={{color: 'ButtonHighlight',
         borderStyle: 'initial', borderColor: 'Scrollbar', borderWidth: '5px',
         backgroundColor: 'cadetblue'}}><ExpandCircleDownIcon/></Button>}>
-          <Paper style={{cursor: 'pointer', width: '500px'}}>
-              <SetimaFase/> 
-          </Paper>
+            <SetimaFase/> 
           </Popup>
         </Paper></Stepper>
         <hr style={{borderColor: 'Highlight'}}/>

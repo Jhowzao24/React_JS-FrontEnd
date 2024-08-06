@@ -4,12 +4,18 @@
   /*background-image: url('https://wallpapercave.com/wp/wp2863995.gif');*/
   /*background-image: url('https://gifs.eco.br/wp-content/uploads/2022/09/gifs-de-notas-musicais-13.gif');*/
   /*background-image: url('https://images3.alphacoders.com/930/thumb-1920-930334.jpg')*/
-  background-image: url('https://i.ytimg.com/vi/uylrJpfpBsU/maxresdefault.jpg'), url('https://th.bing.com/th/id/R.746f7ed3ef9ebf0e517225cf558002dc?rik=ZNN727IvTVYoow&pid=ImgRaw&r=0');
+  background-image: url('https://i.pinimg.com/originals/0b/a8/df/0ba8dfceaa16c47b713cbed42c1e6b34.jpg');
   /*https://i.ytimg.com/vi/uylrJpfpBsU/maxresdefault.jpg*/
+  /*https://th.bing.com/th/id/R.f08ec3b9d33a5123a0827b2f22336f10?rik=PvnzEKEZkH%2fklA&pid=ImgRaw&r=0&sres=1&sresct=1*/
   background-position: center, center;
   /*background-size: cover, cover;*/
   /*background-repeat: no-repeat, no-repeat;*/
+  display: flex;
 }
+
+/*https://th.bing.com/th/id/R.ed8a70f6233bf8cc8c288a30f07bc8ef?rik=kvfxdUv9uYhPpA&pid=ImgRaw&r=0*/
+
+/*https://wallpapercave.com/wp/wp1847915.jpg*/
 
 .App-header {
   min-height: 100vh;
@@ -25,3 +31,64 @@
 .App-link {
   color: #61dafb;
 }
+
+.card {
+  width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.full-screen {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 40px;
+  background: midnightblue;
+  z-index: 1000;
+  overflow: auto;
+  box-shadow: none;
+}
+
+.optimized-image {
+  max-width: 100%;
+  height: auto;
+  image-rendering: crisp-edges; /* Firefox */
+  -webkit-image-rendering: optimize-contrast; /* Chrome, Safari */
+  -ms-interpolation-mode: nearest-neighbor; /* Internet Explorer */
+}
+
+.balloon-container {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Evita que o balão saia dos limites visíveis */
+}
+
+.balloon {
+  position: absolute;
+  font-size: 3rem; /* Ajuste o tamanho conforme necessário */
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Animação de flutuação */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* Altura máxima do flutuar */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+

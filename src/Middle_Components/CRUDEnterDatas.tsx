@@ -1,13 +1,22 @@
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Button, Divider, Input } from '@mui/material';
+import { Button, Divider, Input, Card } from '@mui/material';
 import {Link} from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { toast } from 'react-toastify';
-import { ToastContainer } from 'react-toastify';
+import { Toaster, toast } from 'react-hot-toast';
 import  { motion } from 'framer-motion';
 import './ComponentesCSS.css';
+import { Tooltip } from 'antd';
+
+export interface User {
+  id: number;
+  Nome: string;
+  LastName: string;
+  WhatsApp: string;
+  InstrumentoPref: string;
+  Localidade: string;
+  [key: string]: any;
+}
 
 interface UserData {
   id: number;
@@ -22,25 +31,25 @@ interface UserData {
 const Api_Interface: React.FC = () => {
   const style = {
     containerDad: {
-      backgroundColor: 'purple',
+      backgroundColor: 'darkblue',
       color: 'cyan',
       width: 630,
-      height: 700,
+      height: 860,
       alignContent: 'center',
       paddingTop: '3px',
-      borderWidth: '5px',
-      borderColor: 'cyan',
+      borderWidth: '3px',
+      borderColor: 'gold',
       borderStyle: 'outset',
       fontFamily: 'serif',
-      margin: '100px',
-      boxShadow: '0 0 30px 13px',
+      margin: '120px',
+      boxShadow: '0 0 13px 13px',
     }
   }
   const apiUrl = 'http://127.0.0.1:8000/Urls/ViewsStudy/'; // Substitua pelo URL real da sua API
   const [userData, setUserData] = useState<UserData[]>([]);
   const dados = userData;
   const ShowInfo = () => {
-    toast.update(`${dados}`);
+    toast.arguments(`${dados}`);
   }
   const [createInput, setCreateInput] = useState<{ 
     Nome: string; 
@@ -61,10 +70,10 @@ const Api_Interface: React.FC = () => {
     try {
       const response = await axios.get<UserData[]>(apiUrl);
       setUserData(response.data);
-      toast.update("Acessando áre de cadastramento...!");
+      toast.success("Acessando áre de cadastramento...!");
     } catch (error) {
       console.error('Error fetching data:', error);
-      toast.warning("Erro ao coletar os dados ...");
+      toast.error("Erro ao coletar os dados ...");
     }
   };
 
@@ -77,7 +86,7 @@ const Api_Interface: React.FC = () => {
       setCreateInput({ Nome: '', Sobrenome: '', WhatsApp: '', InstrumentoPref: '', Localidade: '' /* Adicione outros campos conforme necessário */ });
       toast.success("Dados inseridos com sucesso!!")
     } catch (error) {
-      toast.warning("Erro ao coletar os dados ...");
+      toast.error("Erro ao coletar os dados ...");
       console.error('Error creating data:', error);
     }
   };
@@ -87,7 +96,7 @@ const Api_Interface: React.FC = () => {
   }, []);
 
   return (
-    <div style={style.containerDad}>
+    <Card style={style.containerDad}>
       <div>
         <motion.div
         initial={{rotate: -180}}
@@ -107,7 +116,7 @@ const Api_Interface: React.FC = () => {
         transition={{ duration: 0.5 }}
         >
         <div>
-          <label htmlFor="nome">Name:</label>
+          <label htmlFor="nome">Name:</label><br/>
           <Input
           type="text"
           id="nomeInput"
@@ -118,8 +127,7 @@ const Api_Interface: React.FC = () => {
             color: 'white', 
             paddingLeft: '15px', 
             fontFamily: 'fantasy',
-            backgroundColor: 'blueviolet',
-            letterSpacing: '3px'
+            letterSpacing: '3px',
           }}
           placeholder='First Name!'
           />
@@ -129,7 +137,7 @@ const Api_Interface: React.FC = () => {
         <br/>
 
         <div>
-          <label htmlFor="sobrenome">Lastname:</label>
+          <label htmlFor="sobrenome">Lastname:</label><br/>
           <Input
           type="text"
           id="sobrenomeInput"
@@ -140,7 +148,6 @@ const Api_Interface: React.FC = () => {
             color: 'white', 
             paddingLeft: '15px', 
             fontFamily: 'fantasy',
-            backgroundColor: 'blueviolet',
             letterSpacing: '3px'
           }}
           placeholder='LastName'
@@ -151,7 +158,7 @@ const Api_Interface: React.FC = () => {
         <br/>
 
         <div>
-          <label htmlFor="celularInput">WhatsApp:</label>
+          <label htmlFor="celularInput">WhatsApp:</label><br/>
           <Input
           type="text"
           id="celularInput"
@@ -162,7 +169,6 @@ const Api_Interface: React.FC = () => {
             color: 'white', 
             paddingLeft: '15px', 
             fontFamily: 'fantasy',
-            backgroundColor: 'blueviolet',
             letterSpacing: '3px'
           }}
           placeholder='Cellphonumber'
@@ -173,7 +179,7 @@ const Api_Interface: React.FC = () => {
         <br/>
 
         <div>
-          <label htmlFor="descricaoinput">Instrument Prefered:</label>
+          <label htmlFor="descricaoinput">Instrument Prefered:</label><br/>
           <Input
           type="text"
           id="descricaoinput"
@@ -185,7 +191,6 @@ const Api_Interface: React.FC = () => {
             color: 'white', 
             paddingLeft: '15px', 
             fontFamily: 'fantasy',
-            backgroundColor: 'blueviolet',
             letterSpacing: '3px'
           }}
           />
@@ -195,7 +200,7 @@ const Api_Interface: React.FC = () => {
         <br/>
 
         <div>
-          <label htmlFor="local">Place:</label>
+          <label htmlFor="local">Place:</label><br/>
           <Input
           type="text"
           id="local"
@@ -207,7 +212,6 @@ const Api_Interface: React.FC = () => {
             color: 'white', 
             paddingLeft: '15px', 
             fontFamily: 'fantasy',
-            backgroundColor: 'blueviolet',
             letterSpacing: '3px'
           }}
           />
@@ -223,12 +227,18 @@ const Api_Interface: React.FC = () => {
         <Link to='./App'>
             <Button style={{backgroundColor: 'orangered', color: 'white', float: 'left'}}><ArrowBackIcon/></Button>
         </Link>
-        <ToastContainer/>
+        <Toaster/>
         </div>
         </motion.div>
-        </form><br/><br/>
+        </form><br/>
+        <a href="http://127.0.0.1:8000/admin/BackApp/studentsreg/" target="_blank" rel="noopener noreferrer">
+          <Tooltip title='Click on this button below  you will access the layout to update, so choice the user that you are, and click on the name and  after edit your datas! Please do not click on other user name'>
+            <Button style={{backgroundColor: 'blue', color: 'cyan'}}>Edit Datas here!</Button>
+          </Tooltip>
+        </a>
+        <br/>
       </div>
-    </div>
+    </Card>
   )
 };
 

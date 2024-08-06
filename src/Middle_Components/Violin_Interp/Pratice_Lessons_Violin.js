@@ -18,7 +18,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ViolinJumperNotas from './ViolinNotesJump';
 import { Toaster, toast } from 'react-hot-toast';
 import SortViolinLesson from './SortingViolinDatas';
-import Violin_Slider_Quizzes from './SlidesViolin_QUIZZ/Slide_Violin';
+import StateModify from '../NotesScaleChange/ModificationStates';
 
 function Violin_Player(){
     return(
@@ -202,12 +202,12 @@ function Violin_Player(){
                         </Popup>
                     </Grid>
                 </div><br/><br/><br/>
+                <StateModify/>
+                <br/><br/>
                 <ViolinJumperNotas/>
                 <br/>
                 <SortViolinLesson/>
                 <br/><Divider/><br/>
-                <br/><br/><br/>
-                <Violin_Slider_Quizzes/>
         </div>
     )
 }
