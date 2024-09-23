@@ -2,7 +2,6 @@ import { Button, Divider, Tooltip } from 'antd';
 import React, {useEffect, useState} from 'react';
 import { Grid, Card } from '@mui/material';
 import { Toaster, toast } from 'react-hot-toast';
-import PentCreator from '../PentagramasCreator/Pentagram_One';
 
 function PositionChange(){
     const [resposta, setResposta] = useState(null);
@@ -791,7 +790,6 @@ export default function ViolinJumperNotas(){
                     <PositionChange/>
                 </details>
                 <details><summary style={{color: 'blueviolet', fontSize: '15px'}}>Scale Table</summary>
-                <PentCreator/>
                 </details>
             </div>
         )

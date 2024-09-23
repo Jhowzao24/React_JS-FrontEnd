@@ -13,7 +13,6 @@ import ViolaVirtuoso from '../Avaliations_Files/PraticesAvaliations/Virtuoso';
 import { Tooltip } from 'antd';
 import AutoMoveQueue from './CelloNotesJump';
 import { Toaster, toast } from 'react-hot-toast';
-import PentCreator from '../PentagramasCreator/Pentagram_One';
 import CelloModify from '../NotesScaleChange/CelloModificationScale';
 
 const Title1 = [
@@ -156,7 +155,6 @@ function CelloPlayer(){
                     <br/><br/><br/>
                     <CelloModify/>
                 </Paper>
-                <PentCreator/>
             </Card><hr/>
         </div>
     )

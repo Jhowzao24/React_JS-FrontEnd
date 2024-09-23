@@ -23,6 +23,9 @@ import CelloPratice from '../Cello_Interp/Pratice_Cello_Lesson';
 import Metronome from './FilesPratices/SortingInputs';
 import DialogClaves from './FilesPratices/DialogsFiles/DialogCelloPauta';
 import DialogNotesFigures from './FilesPratices/DialogsFiles/DialogNotesFigures';
+import AppWallet from '../Creator_Of_Card/CardWallet';
+import MyApp from '../Creator_Of_Card/CardCreator';
+import RecognizeNote from '../Creator_Of_Card/FoundNote';
 
 export default function FirstStud(){
     const [trueOpen, setTrueOpen] = useState(false);
@@ -37,8 +40,8 @@ export default function FirstStud(){
         }
     };
     return(
-        <div style={{backgroundColor: 'blue', float: 'left', height: '5000px'}}>
-            <div style={{width: '750px', height: '5000px'}}>
+        <div style={{backgroundColor: 'blue', float: 'left', height: '6300px'}}>
+            <div style={{width: '750px', height: '6300px'}}>
                 <ViolinDominion/>
                 <ViolaDominion/>
                 <CelloPratice/>
@@ -48,7 +51,7 @@ export default function FirstStud(){
                 <tbody>
                     <tr>
                         <td>
-                            <Card style={{width: '700px', margin :'35px', height: '1500px',backgroundColor: 'darkcyan'}}>
+                            <Card style={{width: '700px', margin :'35px', height: '1700px',backgroundColor: 'darkcyan'}}>
                                 <StepButton style={{backgroundColor: 'midnightblue'}}>
                                     <details><summary style={{color: 'gold'}}>Rhythm Game</summary>
                                         <br/><br/>
@@ -156,11 +159,26 @@ export default function FirstStud(){
                                         <DialogNotesFigures/>
                                     </details>
                                 </StepButton>
+                                <br/><br/><br/>
+                                <StepButton style={{backgroundColor: 'midnightblue'}}>
+                                    <details><summary style={{color: 'gold', fontFamily: 'revert'}}>Get the right note!!!!!</summary>
+                                        <RecognizeNote/>
+                                    </details>
+                                </StepButton>
                             </Card>
                             </td>
                         </tr>
                     </tbody>
-                </table>
+                </table><br/><br/>
+                <fieldset>
+                    <center>
+                        <h1>Keep going ahead on the scale formulary</h1>
+                        <br/>
+                        <h3>Create an Card and put the first note of the scale on the title and after you will must to put the whole scale at the description below the titel</h3>
+                        <AppWallet/>
+                        <MyApp/>
+                    </center>
+                </fieldset>
                 <br/><hr/><br/>
                 <Button style={StyleButton.botao} onClick={openingModal}>Chords lesson here! (Click)</Button>
                 <br/><br/>

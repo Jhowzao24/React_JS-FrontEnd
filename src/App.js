@@ -54,7 +54,7 @@ function App() {
             </header>
           </center>
         </Grid>
-        <Grid container spacing={20} style={{paddingLeft: '670px'}}>
+        <Grid container spacing={5} style={{paddingLeft: '570px',}}>
           <Login/>
         </Grid>
         <br/>
@@ -65,3 +65,47 @@ function App() {
 }
 
 export default App;
+
+/*
+ 
+      <Button
+        onClick={handleClick}
+        style={{
+          width: '100px',
+          height: '100px',
+          borderRadius: isSquare ? '10px' : '100%', // Se isSquare for true, formato é quadrado, senão é círculo
+          backgroundColor: 'blue',
+          color: 'white',
+          border: 'none',
+          cursor: 'pointer',
+          transition: '0.3s ease'
+        }}
+      >
+        Clique-me
+      </Button>
+      <div
+        style={{
+          marginTop: '20px',
+          padding: '20px',
+          backgroundColor: 'transparent', // Muda de cor baseado no estado
+          fontSize: elementState ? '3px' : '30px',
+          color: elementState ? 'white' : 'gold',
+        }}
+      >
+        {elementState ? 'Estado Ativado' : 'Estado Desativado'}
+      </div>
+
+
+            <Button onClick={handleClick}
+              style={{
+                width: elementState ? '80px' : '60px',
+                height: elementState ? '70px' : '40px',
+                backgroundColor: elementState ? 'gold' : 'orange',
+                fontSize: elementState ? '15px' : '10px',
+                color: 'black',
+                cursor: 'pointer',
+                transition: '0.3s ease'
+              }}>Insert Datas!!</Button>
+
+
+ */

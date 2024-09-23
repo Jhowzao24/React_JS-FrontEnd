@@ -4,11 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "babel-polyfill";
+import { CardWalletProvider } from './Middle_Components/Creator_Of_Card/Armazenator';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <CardWalletProvider>
+      <App/>
+    </CardWalletProvider>
   </React.StrictMode>
 );
 

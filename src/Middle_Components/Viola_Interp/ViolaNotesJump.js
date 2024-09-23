@@ -1,7 +1,6 @@
 import { Button, Divider, Tooltip } from 'antd';
 import React, {useEffect, useState} from 'react';
 import { Toaster, toast } from 'react-hot-toast';
-import PentCreator from '../PentagramasCreator/Pentagram_One';
 
 export default function ViolaJumpNotes(){
     /*Primeiro dedo lições!!!!*/
@@ -476,11 +475,6 @@ export default function ViolaJumpNotes(){
                         {fing3}
                         {fing4}
                     </p>
-                    <details><summary>Table of scales</summary>
-                        <fieldset>
-                            <PentCreator/>
-                        </fieldset>
-                    </details>
                     <Toaster/>
                 </div>
             </div>
